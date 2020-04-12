@@ -5,15 +5,19 @@
       "extensions": ["abap"]
     },
     "ActionScript": {
+      "name": "ActionScript",
       "extensions": ["as"]
     },
     "Ada": {
+      "name": "Ada",
       "extensions": ["ada", "adb", "ads", "pad"]
     },
     "Alex": {
+      "name": "Alex",
       "extensions": ["x"]
     },
     "Agda": {
+      "name": "Agda",
       "extensions": ["agda"]
     },
     "Arduino": {
@@ -25,6 +29,7 @@
       "extensions": ["asn1"]
     },
     "Assembly": {
+      "name": "Assembly",
       "extensions": ["asm"]
     },
     "AssemblyGAS": {
@@ -48,12 +53,15 @@
       ]
     },
     "Autoconf": {
+      "name": "Autoconf",
       "extensions": ["in"]
     },
     "AutoHotKey": {
+      "name": "AutoHotKey",
       "extensions": ["ahk"]
     },
     "Automake": {
+      "name": "Automake",
       "extensions": ["am"]
     },
     "Sh": {
@@ -69,30 +77,38 @@
       "shebangs": ["#!/bin/bash"]
     },
     "BrightScript": {
+      "name": "BrightScript",
       "extensions": ["brs"]
     },
     "Elvish": {
+      "name": "Elvish",
       "env": ["elvish"],
       "extensions": ["elv"]
     },
     "Fish": {
+      "name": "Fish",
       "env": ["fish"],
       "extensions": ["fish"],
       "shebangs": ["#!/bin/fish"]
     },
     "Batch": {
+      "name": "Batch",
       "extensions": ["bat", "btm", "cmd"]
     },
     "C": {
+      "name": "C",
       "extensions": ["c", "ec", "pgc"]
     },
     "Cabal": {
+      "name": "Cabal",
       "extensions": ["cabal"]
     },
     "Cassius": {
+      "name": "Cassius",
       "extensions": ["cassius"]
     },
     "Ceylon": {
+      "name": "Ceylon",
       "extensions": ["ceylon"]
     },
     "CHeader": {
@@ -100,15 +116,19 @@
       "extensions": ["h"]
     },
     "Clojure": {
+      "name": "Clojure",
       "extensions": ["clj"]
     },
     "ClojureScript": {
+      "name": "ClojureScript",
       "extensions": ["cljs"]
     },
     "ClojureC": {
+      "name": "ClojureC",
       "extensions": ["cljc"]
     },
     "CMake": {
+      "name": "CMake",
       "extensions": ["cmake"],
       "filenames": ["cmakelists.txt"]
     },
@@ -117,12 +137,15 @@
       "extensions": ["cob", "cbl", "ccp", "cobol", "cpy"]
     },
     "CoffeeScript": {
+      "name": "CoffeeScript",
       "extensions": ["coffee", "cjsx"]
     },
     "Cogent": {
+      "name": "Cogent",
       "extensions": ["cogent"]
     },
     "ColdFusion": {
+      "name": "ColdFusion",
       "extensions": ["cfm"]
     },
     "ColdFusionScript": {
@@ -130,6 +153,7 @@
       "extensions": ["cfc"]
     },
     "Coq": {
+      "name": "Coq",
       "extensions": ["v"]
     },
     "Cpp": {
@@ -141,6 +165,7 @@
       "extensions": ["hh", "hpp", "hxx", "inl", "ipp"]
     },
     "Crystal": {
+      "name": "Crystal",
       "extensions": ["cr"]
     },
     "CSharp": {
@@ -158,9 +183,11 @@
       "extensions": ["css"]
     },
     "D": {
+      "name": "D",
       "extensions": ["d"]
     },
     "Dart": {
+      "name": "Dart",
       "extensions": ["dart"]
     },
     "DeviceTree": {
@@ -172,6 +199,7 @@
       "extensions": ["dm", "dme"]
     },
     "Dockerfile": {
+      "name": "Dockerfile",
       "extensions": ["dockerfile", "dockerignore"],
       "filenames": ["dockerfile"]
     },
@@ -184,6 +212,7 @@
       "extensions": ["dust"]
     },
     "Edn": {
+      "name": "Edn",
       "extensions": ["edn"]
     },
     "Elisp": {
@@ -191,9 +220,11 @@
       "extensions": ["el"]
     },
     "Elixir": {
+      "name": "Elixir",
       "extensions": ["ex", "exs"]
     },
     "Elm": {
+      "name": "Elm",
       "extensions": ["elm"]
     },
     "EmacsDevEnv": {
@@ -201,9 +232,11 @@
       "extensions": ["ede"]
     },
     "Emojicode": {
+      "name": "Emojicode",
       "extensions": ["emojic", "🍇"]
     },
     "Erlang": {
+      "name": "Erlang",
       "extensions": ["erl", "hrl"]
     },
     "FEN": {
@@ -219,6 +252,7 @@
       "extensions": ["fst"]
     },
     "Forth": {
+      "name": "Forth",
       "extensions": [
         "4th",
         "forth",
@@ -242,6 +276,7 @@
       "extensions": ["f03", "f08", "f90", "f95"]
     },
     "FreeMarker": {
+      "name": "FreeMarker",
       "extensions": ["ftl", "ftlh", "ftlx"]
     },
     "FSharp": {
@@ -265,6 +300,7 @@
       "extensions": ["vert", "tesc", "tese", "geom", "frag", "comp", "glsl"]
     },
     "Go": {
+      "name": "Go",
       "extensions": ["go"]
     },
     "Graphql": {
@@ -272,15 +308,19 @@
       "extensions": ["gql", "graphql"]
     },
     "Groovy": {
+      "name": "Groovy",
       "extensions": ["groovy", "grt", "gtpl", "gvy"]
     },
     "Happy": {
+      "name": "Happy",
       "extensions": ["y", "ly"]
     },
     "Handlebars": {
+      "name": "Handlebars",
       "extensions": ["hbs", "handlebars"]
     },
     "Haskell": {
+      "name": "Haskell",
       "extensions": ["hs"]
     },
     "Hcl": {
@@ -292,6 +332,7 @@
       "extensions": ["hlsl"]
     },
     "HolyC": {
+      "name": "HolyC",
       "extensions": ["HC", "hc"]
     },
     "Html": {
@@ -299,9 +340,11 @@
       "extensions": ["html", "htm"]
     },
     "Hamlet": {
+      "name": "Hamlet",
       "extensions": ["hamlet"]
     },
     "Haxe": {
+      "name": "Haxe",
       "extensions": ["hx"]
     },
     "Hex": {
@@ -309,6 +352,7 @@
       "extensions": ["hex"]
     },
     "Idris": {
+      "name": "Idris",
       "extensions": ["idr", "lidr"]
     },
     "Ini": {
@@ -320,6 +364,7 @@
       "extensions": ["ihex"]
     },
     "Isabelle": {
+      "name": "Isabelle",
       "extensions": ["thy"]
     },
     "Jai": {
@@ -327,9 +372,11 @@
       "extensions": ["jai"]
     },
     "Java": {
+      "name": "Java",
       "extensions": ["java"]
     },
     "JavaScript": {
+      "name": "JavaScript",
       "extensions": ["js", "mjs"]
     },
     "Json": {
@@ -341,9 +388,11 @@
       "extensions": ["jsx"]
     },
     "Julia": {
+      "name": "Julia",
       "extensions": ["jl"]
     },
     "Julius": {
+      "name": "Julius",
       "extensions": ["julius"]
     },
     "KakouneScript": {
@@ -351,9 +400,11 @@
       "extensions": ["kak"]
     },
     "Kotlin": {
+      "name": "Kotlin",
       "extensions": ["kt", "kts"]
     },
     "Lean": {
+      "name": "Lean",
       "extensions": ["lean", "hlean"]
     },
     "Less": {
@@ -369,28 +420,36 @@
       "extensions": ["lds"]
     },
     "Lisp": {
+      "name": "Lisp",
       "extensions": ["lisp", "lsp"]
     },
     "LLVM": {
+      "name": "LLVM",
       "extensions": ["ll"]
     },
     "Logtalk": {
+      "name": "Logtalk",
       "extensions": ["lgt", "logtalk"]
     },
     "Lua": {
+      "name": "Lua",
       "extensions": ["lua"]
     },
     "Lucius": {
+      "name": "Lucius",
       "extensions": ["lucius"]
     },
     "Madlang": {
+      "name": "Madlang",
       "extensions": ["mad"]
     },
     "Makefile": {
+      "name": "Makefile",
       "extensions": ["makefile", "mak", "mk"],
       "filenames": ["makefile"]
     },
     "Markdown": {
+      "name": "Markdown",
       "extensions": ["md", "markdown"]
     },
     "ModuleDef": {
@@ -398,21 +457,27 @@
       "extensions": ["def"]
     },
     "MoonScript": {
+      "name": "MoonScript",
       "extensions": ["moon"]
     },
     "Meson": {
+      "name": "Meson",
       "filenames": ["meson.build", "meson_options.txt"]
     },
     "Mint": {
+      "name": "Mint",
       "extensions": ["mint"]
     },
     "Mustache": {
+      "name": "Mustache",
       "extensions": ["mustache"]
     },
     "Nim": {
+      "name": "Nim",
       "extensions": ["nim"]
     },
     "Nix": {
+      "name": "Nix",
       "extensions": ["nix"]
     },
     "ObjectiveC": {
@@ -424,31 +489,40 @@
       "extensions": ["mm"]
     },
     "OCaml": {
+      "name": "OCaml",
       "extensions": ["ml", "mli", "re", "rei"]
     },
     "Odin": {
+      "name": "Odin",
       "extensions": ["odin"]
     },
     "Org": {
+      "name": "Org",
       "extensions": ["org"]
     },
     "Oz": {
+      "name": "Oz",
       "extensions": ["oz"]
     },
     "Pan": {
+      "name": "Pan",
       "extensions": ["pan", "tpl"]
     },
     "Pascal": {
+      "name": "Pascal",
       "extensions": ["pas", "pp"]
     },
     "Perl": {
+      "name": "Perl",
       "extensions": ["pl", "pm"],
       "shebangs": ["#!/usr/bin/perl"]
     },
     "Perl6": {
+      "name": "Perl6",
       "extensions": ["pl6", "pm6"]
     },
     "Pest": {
+      "name": "Pest",
       "extensions": ["pest"]
     },
     "NotQuitePerl": {
@@ -460,9 +534,11 @@
       "extensions": ["php"]
     },
     "Polly": {
+      "name": "Polly",
       "extensions": ["polly"]
     },
     "Pony": {
+      "name": "Pony",
       "extensions": ["pony"]
     },
     "PostCss": {
@@ -470,12 +546,15 @@
       "extensions": ["pcss", "sss"]
     },
     "Processing": {
+      "name": "Processing",
       "extensions": ["pde"]
     },
     "Prolog": {
+      "name": "Prolog",
       "extensions": ["p", "pro"]
     },
     "PowerShell": {
+      "name": "PowerShell",
       "extensions": ["ps1", "psm1", "psd1", "ps1xml", "cdxml", "pssc", "psc1"]
     },
     "PSL": {
@@ -487,9 +566,11 @@
       "extensions": ["proto"]
     },
     "PureScript": {
+      "name": "PureScript",
       "extensions": ["purs"]
     },
     "Python": {
+      "name": "Python",
       "env": ["python", "python2", "python3"],
       "extensions": ["py", "pyw"]
     },
@@ -502,16 +583,20 @@
       "extensions": ["qml"]
     },
     "R": {
+      "name": "R",
       "extensions": ["r"]
     },
     "Racket": {
+      "name": "Racket",
       "extensions": ["rkt"]
     },
     "Rakefile": {
+      "name": "Rakefile",
       "extensions": ["rake"],
       "filenames": ["rakefile"]
     },
     "Razor": {
+      "name": "Razor",
       "extensions": ["cshtml"]
     },
     "Renpy": {
@@ -527,6 +612,7 @@
       "extensions": ["spec"]
     },
     "Ruby": {
+      "name": "Ruby",
       "env": ["ruby"],
       "extensions": ["rb"]
     },
@@ -535,21 +621,27 @@
       "extensions": ["rhtml"]
     },
     "Rust": {
+      "name": "Rust",
       "extensions": ["rs"]
     },
     "ReStructuredText": {
+      "name": "ReStructuredText",
       "extensions": ["rst"]
     },
     "Sass": {
+      "name": "Sass",
       "extensions": ["sass", "scss"]
     },
     "Scala": {
+      "name": "Scala",
       "extensions": ["sc", "scala"]
     },
     "Scheme": {
+      "name": "Scheme",
       "extensions": ["scm", "ss"]
     },
     "Scons": {
+      "name": "Scons",
       "filenames": ["sconstruct", "sconscript"]
     },
     "Sml": {
@@ -585,6 +677,7 @@
       "extensions": ["svg"]
     },
     "Swift": {
+      "name": "Swift",
       "extensions": ["swift"]
     },
     "Swig": {
@@ -592,6 +685,7 @@
       "extensions": ["swg", "i"]
     },
     "SystemVerilog": {
+      "name": "SystemVerilog",
       "extensions": ["sv", "svh"]
     },
     "Tcl": {
@@ -607,6 +701,7 @@
       "extensions": ["text", "txt"]
     },
     "Thrift": {
+      "name": "Thrift",
       "extensions": ["thrift"]
     },
     "Toml": {
@@ -618,6 +713,7 @@
       "extensions": ["twig"]
     },
     "TypeScript": {
+      "name": "TypeScript",
       "extensions": ["ts", "tsx"]
     },
     "UnrealPlugin": {
@@ -653,6 +749,7 @@
       "extensions": ["urp"]
     },
     "Vala": {
+      "name": "Vala",
       "extensions": ["vala"]
     },
     "VB6": {
@@ -668,6 +765,7 @@
       "extensions": ["vm"]
     },
     "Verilog": {
+      "name": "Verilog",
       "extensions": ["vg", "vh"]
     },
     "VerilogArgsFile": {
@@ -699,9 +797,11 @@
       "extensions": ["vue"]
     },
     "WebAssembly": {
+      "name": "WebAssembly",
       "extensions": ["wat", "wast"]
     },
     "Wolfram": {
+      "name": "Wolfram",
       "extensions": ["nb", "wl"]
     },
     "Xaml": {
@@ -725,6 +825,7 @@
       "extensions": ["csproj", "vbproj", "fsproj", "props", "targets"]
     },
     "Xtend": {
+      "name": "Xtend",
       "extensions": ["xtend"]
     },
     "Yaml": {
@@ -732,9 +833,11 @@
       "extensions": ["yaml", "yml"]
     },
     "Zig": {
+      "name": "Zig",
       "extensions": ["zig"]
     },
     "Zsh": {
+      "name": "Zsh",
       "extensions": ["zsh"],
       "shebangs": ["#!/bin/zsh"]
     }

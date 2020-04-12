@@ -2,6 +2,26 @@
 
 package lang
 
+// SCHEMA
+
+Shebang :: =~"^#!" // Must start with a shebang.
+
+Language :: {
+	name: string
+
+	// TODO: require at least one of these markers
+	// TODO: require unique markers across languages
+	env?: [string, ...string]
+	extensions?: [string, ...string]
+	filenames?: [string, ...string]
+	shebangs?: [Shebang, ...Shebang]
+}
+
+// TODO: sort languages alphabetically by map key
+languages: [string]: Language
+
+languages: [Key=_]: name: *Key | string // name's value defaults to the map key.
+
 // DATA
 
 languages: {
