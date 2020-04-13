@@ -18,9 +18,9 @@ Language :: {
 }
 
 // TODO: sort languages alphabetically by map key
-languages: [string]: Language
-
-languages: [Key=_]: name: *Key | string // name's value defaults to the map key.
+languages: [Key=string]: Language & {
+	name: *Key | string // name's value defaults to the map key.
+}
 
 // DATA
 
