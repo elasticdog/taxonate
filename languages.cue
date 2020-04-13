@@ -37,6 +37,7 @@ languages: {
 		name: "Arduino C++"
 		extensions: ["ino"]
 	}
+	AsciiDoc: extensions: ["adoc", "asc", "asciidoc"]
 	Asn1: {
 		name: "ASN.1"
 		extensions: ["asn1"]
@@ -130,7 +131,12 @@ languages: {
 		name: "CSS"
 		extensions: ["css"]
 	}
+	Cue: {
+		name: "CUE"
+		extensions: ["cue"]
+	}
 	D: extensions: ["d"]
+	Dhall: extensions: ["dhall"]
 	Dart: extensions: ["dart"]
 	DeviceTree: {
 		name: "Device Tree"
@@ -218,7 +224,7 @@ languages: {
 	Haskell: extensions: ["hs"]
 	Hcl: {
 		name: "HCL"
-		extensions: ["tf", "tfvars"]
+		extensions: ["hcl", "tf", "tfvars"]
 	}
 	Hlsl: {
 		name: "HLSL"

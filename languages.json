@@ -24,6 +24,10 @@
       "name": "Arduino C++",
       "extensions": ["ino"]
     },
+    "AsciiDoc": {
+      "name": "AsciiDoc",
+      "extensions": ["adoc", "asc", "asciidoc"]
+    },
     "Asn1": {
       "name": "ASN.1",
       "extensions": ["asn1"]
@@ -182,9 +186,17 @@
       "name": "CSS",
       "extensions": ["css"]
     },
+    "Cue": {
+      "name": "CUE",
+      "extensions": ["cue"]
+    },
     "D": {
       "name": "D",
       "extensions": ["d"]
+    },
+    "Dhall": {
+      "name": "Dhall",
+      "extensions": ["dhall"]
     },
     "Dart": {
       "name": "Dart",
@@ -325,7 +337,7 @@
     },
     "Hcl": {
       "name": "HCL",
-      "extensions": ["tf", "tfvars"]
+      "extensions": ["hcl", "tf", "tfvars"]
     },
     "Hlsl": {
       "name": "HLSL",
