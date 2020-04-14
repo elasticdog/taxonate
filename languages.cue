@@ -2,37 +2,39 @@
 
 package lang
 
-// SCHEMA
+import (
+	"list"
+	"strings"
+)
+
+// Schema
+
+Language :: {
+	name: string // display name
+
+	extensions: [...string]
+	filenames: [...string]
+	interpreters: [...string]
+	shebangs: [...Shebang]
+}
 
 Shebang :: =~"^#!" // Must start with a shebang.
 
-Language :: {
-	name: string
+// Input
 
-	// TODO: require at least one of these markers
-	// TODO: require unique markers across languages
-	env?: [string, ...string]
-	extensions?: [string, ...string]
-	filenames?: [string, ...string]
-	shebangs?: [Shebang, ...Shebang]
-}
-
-// TODO: sort languages alphabetically by map key
-languages: [Key=string]: Language & {
+languages :: [Key=string]: Language & {
 	name: *Key | string // name's value defaults to the map key.
 }
 
-// DATA
-
-languages: {
+languages :: {
 	Abap: {
 		name: "ABAP"
 		extensions: ["abap"]
 	}
 	ActionScript: extensions: ["as"]
 	Ada: extensions: ["ada", "adb", "ads", "pad"]
-	Alex: extensions: ["x"]
 	Agda: extensions: ["agda"]
+	Alex: extensions: ["x"]
 	Arduino: {
 		name: "Arduino C++"
 		extensions: ["ino"]
@@ -42,11 +44,6 @@ languages: {
 		name: "ASN.1"
 		extensions: ["asn1"]
 	}
-	Assembly: extensions: ["asm"]
-	AssemblyGAS: {
-		name: "GNU Style Assembly"
-		extensions: ["s"]
-	}
 	Asp: {
 		name: "ASP"
 		extensions: ["asa", "asp"]
@@ -55,32 +52,22 @@ languages: {
 		name: "ASP.NET"
 		extensions: ["asax", "ascx", "asmx", "aspx", "master", "sitemap", "webinfo"]
 	}
+	Assembly: extensions: ["asm"]
+	AssemblyGAS: {
+		name: "GNU Style Assembly"
+		extensions: ["s"]
+	}
 	Autoconf: extensions: ["in"]
 	AutoHotKey: extensions: ["ahk"]
 	Automake: extensions: ["am"]
-	Sh: {
-		name: "Shell"
-		env: ["sh"]
-		extensions: ["sh"]
-		shebangs: ["#!/bin/sh"]
-	}
 	Bash: {
 		name: "BASH"
-		env: ["bash"]
 		extensions: ["bash"]
+		interpreters: ["bash"]
 		shebangs: ["#!/bin/bash"]
 	}
-	BrightScript: extensions: ["brs"]
-	Elvish: {
-		env: ["elvish"]
-		extensions: ["elv"]
-	}
-	Fish: {
-		env: ["fish"]
-		extensions: ["fish"]
-		shebangs: ["#!/bin/fish"]
-	}
 	Batch: extensions: ["bat", "btm", "cmd"]
+	BrightScript: extensions: ["brs"]
 	C: extensions: ["c", "ec", "pgc"]
 	Cabal: extensions: ["cabal"]
 	Cassius: extensions: ["cassius"]
@@ -90,8 +77,8 @@ languages: {
 		extensions: ["h"]
 	}
 	Clojure: extensions: ["clj"]
-	ClojureScript: extensions: ["cljs"]
 	ClojureC: extensions: ["cljc"]
+	ClojureScript: extensions: ["cljs"]
 	CMake: {
 		extensions: ["cmake"]
 		filenames: ["cmakelists.txt"]
@@ -123,8 +110,8 @@ languages: {
 	}
 	CShell: {
 		name: "C Shell"
-		env: ["csh"]
 		extensions: ["csh"]
+		interpreters: ["csh"]
 		shebangs: ["#!/bin/csh"]
 	}
 	Css: {
@@ -136,16 +123,12 @@ languages: {
 		extensions: ["cue"]
 	}
 	D: extensions: ["d"]
-	Dhall: extensions: ["dhall"]
 	Dart: extensions: ["dart"]
 	DeviceTree: {
 		name: "Device Tree"
 		extensions: ["dts", "dtsi"]
 	}
-	DreamMaker: {
-		name: "Dream Maker"
-		extensions: ["dm", "dme"]
-	}
+	Dhall: extensions: ["dhall"]
 	Dockerfile: {
 		extensions: ["dockerfile", "dockerignore"]
 		filenames: ["dockerfile"]
@@ -153,6 +136,10 @@ languages: {
 	DotNetResource: {
 		name: ".NET Resource"
 		extensions: ["resx"]
+	}
+	DreamMaker: {
+		name: "Dream Maker"
+		extensions: ["dm", "dme"]
 	}
 	Dust: {
 		name: "Dust.js"
@@ -165,6 +152,10 @@ languages: {
 	}
 	Elixir: extensions: ["ex", "exs"]
 	Elm: extensions: ["elm"]
+	Elvish: {
+		extensions: ["elv"]
+		interpreters: ["elvish"]
+	}
 	EmacsDevEnv: {
 		name: "Emacs Dev Env"
 		extensions: ["ede"]
@@ -175,13 +166,14 @@ languages: {
 		name: "FEN"
 		extensions: ["fen"]
 	}
+	Fish: {
+		extensions: ["fish"]
+		interpreters: ["fish"]
+		shebangs: ["#!/bin/fish"]
+	}
 	FlatBuffers: {
 		name: "FlatBuffers Schema"
 		extensions: ["fbs"]
-	}
-	Fstar: {
-		name: "F*"
-		extensions: ["fst"]
 	}
 	Forth: extensions: ["4th", "forth", "fr", "frt", "fth", "f83", "fb", "fpm", "e4", "rx", "ft"]
 	FortranLegacy: {
@@ -196,6 +188,10 @@ languages: {
 	FSharp: {
 		name: "F#"
 		extensions: ["fs", "fsi", "fsx", "fsscript"]
+	}
+	Fstar: {
+		name: "F*"
+		extensions: ["fst"]
 	}
 	GDB: {
 		name: "GDB Script"
@@ -219,12 +215,18 @@ languages: {
 		extensions: ["gql", "graphql"]
 	}
 	Groovy: extensions: ["groovy", "grt", "gtpl", "gvy"]
-	Happy: extensions: ["y", "ly"]
+	Hamlet: extensions: ["hamlet"]
 	Handlebars: extensions: ["hbs", "handlebars"]
+	Happy: extensions: ["y", "ly"]
 	Haskell: extensions: ["hs"]
+	Haxe: extensions: ["hx"]
 	Hcl: {
 		name: "HCL"
 		extensions: ["hcl", "tf", "tfvars"]
+	}
+	Hex: {
+		name: "HEX"
+		extensions: ["hex"]
 	}
 	Hlsl: {
 		name: "HLSL"
@@ -234,12 +236,6 @@ languages: {
 	Html: {
 		name: "HTML"
 		extensions: ["html", "htm"]
-	}
-	Hamlet: extensions: ["hamlet"]
-	Haxe: extensions: ["hx"]
-	Hex: {
-		name: "HEX"
-		extensions: ["hex"]
 	}
 	Idris: extensions: ["idr", "lidr"]
 	Ini: {
@@ -277,13 +273,13 @@ languages: {
 		name: "LESS"
 		extensions: ["less"]
 	}
-	Liquid: {
-		name: "Liquid"
-		extensions: ["liquid"]
-	}
 	LinkerScript: {
 		name: "LD Script"
 		extensions: ["lds"]
+	}
+	Liquid: {
+		name: "Liquid"
+		extensions: ["liquid"]
 	}
 	Lisp: extensions: ["lisp", "lsp"]
 	LLVM: extensions: ["ll"]
@@ -296,16 +292,24 @@ languages: {
 		filenames: ["makefile"]
 	}
 	Markdown: extensions: ["md", "markdown"]
+	Meson: filenames: ["meson.build", "meson_options.txt"]
+	Mint: extensions: ["mint"]
 	ModuleDef: {
 		name: "Module-Definition"
 		extensions: ["def"]
 	}
 	MoonScript: extensions: ["moon"]
-	Meson: filenames: ["meson.build", "meson_options.txt"]
-	Mint: extensions: ["mint"]
+	MsBuild: {
+		name: "MSBuild"
+		extensions: ["csproj", "vbproj", "fsproj", "props", "targets"]
+	}
 	Mustache: extensions: ["mustache"]
 	Nim: extensions: ["nim"]
 	Nix: extensions: ["nix"]
+	NotQuitePerl: {
+		name: "Not Quite Perl"
+		extensions: ["nqp"]
+	}
 	ObjectiveC: {
 		name: "Objective-C"
 		extensions: ["m"]
@@ -326,10 +330,6 @@ languages: {
 	}
 	Perl6: extensions: ["pl6", "pm6"]
 	Pest: extensions: ["pest"]
-	NotQuitePerl: {
-		name: "Not Quite Perl"
-		extensions: ["nqp"]
-	}
 	Php: {
 		name: "PHP"
 		extensions: ["php"]
@@ -340,21 +340,21 @@ languages: {
 		name: "PostCSS"
 		extensions: ["pcss", "sss"]
 	}
+	PowerShell: extensions: ["ps1", "psm1", "psd1", "ps1xml", "cdxml", "pssc", "psc1"]
 	Processing: extensions: ["pde"]
 	Prolog: extensions: ["p", "pro"]
-	PowerShell: extensions: ["ps1", "psm1", "psd1", "ps1xml", "cdxml", "pssc", "psc1"]
-	PSL: {
-		name: "PSL Assertion"
-		extensions: ["psl"]
-	}
 	Protobuf: {
 		name: "Protocol Buffers"
 		extensions: ["proto"]
 	}
+	PSL: {
+		name: "PSL Assertion"
+		extensions: ["psl"]
+	}
 	PureScript: extensions: ["purs"]
 	Python: {
-		env: ["python", "python2", "python3"]
 		extensions: ["py", "pyw"]
+		interpreters: ["python", "python2", "python3"]
 	}
 	Qcl: {
 		name: "QCL"
@@ -375,6 +375,7 @@ languages: {
 		name: "Ren'Py"
 		extensions: ["rpy"]
 	}
+	ReStructuredText: extensions: ["rst"]
 	RON: {
 		name: "Rusty Object Notation"
 		extensions: ["ron"]
@@ -384,19 +385,24 @@ languages: {
 		extensions: ["spec"]
 	}
 	Ruby: {
-		env: ["ruby"]
 		extensions: ["rb"]
+		interpreters: ["ruby"]
 	}
 	RubyHtml: {
 		name: "Ruby HTML"
 		extensions: ["rhtml"]
 	}
 	Rust: extensions: ["rs"]
-	ReStructuredText: extensions: ["rst"]
 	Sass: extensions: ["sass", "scss"]
 	Scala: extensions: ["sc", "scala"]
 	Scheme: extensions: ["scm", "ss"]
 	Scons: filenames: ["sconstruct", "sconscript"]
+	Sh: {
+		name: "Shell"
+		extensions: ["sh"]
+		interpreters: ["sh"]
+		shebangs: ["#!/bin/sh"]
+	}
 	Sml: {
 		name: "Standard ML (SML)"
 		extensions: ["sml"]
@@ -457,6 +463,10 @@ languages: {
 		extensions: ["twig"]
 	}
 	TypeScript: extensions: ["ts", "tsx"]
+	UnrealDeveloperMarkdown: {
+		name: "Unreal Markdown"
+		extensions: ["udn"]
+	}
 	UnrealPlugin: {
 		name: "Unreal Plugin"
 		extensions: ["uplugin"]
@@ -476,10 +486,6 @@ languages: {
 	UnrealShaderHeader: {
 		name: "Unreal Shader Header"
 		extensions: ["ush"]
-	}
-	UnrealDeveloperMarkdown: {
-		name: "Unreal Markdown"
-		extensions: ["udn"]
 	}
 	UrWeb: {
 		name: "Ur/Web"
@@ -511,21 +517,21 @@ languages: {
 		name: "VHDL"
 		extensions: ["vhd", "vhdl"]
 	}
+	VimScript: {
+		name: "Vim Script"
+		extensions: ["vim"]
+	}
 	VisualBasic: {
 		name: "Visual Basic"
 		extensions: ["vb"]
-	}
-	VisualStudioSolution: {
-		name: "Visual Studio Solution"
-		extensions: ["sln"]
 	}
 	VisualStudioProject: {
 		name: "Visual Studio Project"
 		extensions: ["vcproj", "vcxproj"]
 	}
-	VimScript: {
-		name: "Vim Script"
-		extensions: ["vim"]
+	VisualStudioSolution: {
+		name: "Visual Studio Solution"
+		extensions: ["sln"]
 	}
 	Vue: {
 		name: "Vue"
@@ -549,10 +555,6 @@ languages: {
 		name: "XSL"
 		extensions: ["xsl", "xslt"]
 	}
-	MsBuild: {
-		name: "MSBuild"
-		extensions: ["csproj", "vbproj", "fsproj", "props", "targets"]
-	}
 	Xtend: extensions: ["xtend"]
 	Yaml: {
 		name: "YAML"
@@ -562,5 +564,27 @@ languages: {
 	Zsh: {
 		extensions: ["zsh"]
 		shebangs: ["#!/bin/zsh"]
+	}
+}
+
+// Constraints
+
+keys ::         [ strings.ToLower(k) for k, v in languages ]
+extensions ::   list.FlattenN([ v.extensions for k, v in languages ], -1)
+filenames ::    list.FlattenN([ v.filenames for k, v in languages ], -1)
+interpreters :: list.FlattenN([ v.interpreters for k, v in languages ], -1)
+shebangs ::     list.FlattenN([ v.shebangs for k, v in languages ], -1)
+
+all_keys_sorted:         true & list.SortStrings(keys) == keys
+all_extensions_unique:   true & list.UniqueItems(extensions)
+all_filenames_unique:    true & list.UniqueItems(filenames)
+all_interpreters_unique: true & list.UniqueItems(interpreters)
+all_shebangs_unique:     true & list.UniqueItems(shebangs)
+
+// Output
+
+output: "languages": {
+	for k, v in languages {
+		"\(strings.ToLower(k))": v
 	}
 }
