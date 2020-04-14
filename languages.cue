@@ -11,12 +11,11 @@ import (
 
 Language :: {
 	name: string // display name
-	extensions: [...string]
-	filenames: [...string]
+	globs: [...string]
 	interpreters: [...string]
 
 	// require at least one identifying filetype marker
-	markers :: [extensions, filenames, interpreters]
+	markers :: [globs, interpreters]
 	//marker_is_defined: true & or([ len(m) > 0 for m in markers ])
 }
 
@@ -29,536 +28,532 @@ languages :: [Key=string]: Language & {
 languages :: {
 	Abap: {
 		name: "ABAP"
-		extensions: ["abap"]
+		globs: ["*.abap"]
 	}
-	ActionScript: extensions: ["as"]
-	Ada: extensions: ["ada", "adb", "ads", "pad"]
-	Agda: extensions: ["agda"]
-	Alex: extensions: ["x"]
+	ActionScript: globs: ["*.as"]
+	Ada: globs: ["*.ada", "*.adb", "*.ads", "*.pad"]
+	Agda: globs: ["*.agda"]
+	Alex: globs: ["*.x"]
 	Arduino: {
 		name: "Arduino C++"
-		extensions: ["ino"]
+		globs: ["*.ino"]
 	}
-	AsciiDoc: extensions: ["adoc", "asc", "asciidoc"]
+	AsciiDoc: globs: ["*.adoc", "*.asc", "*.asciidoc"]
 	Asn1: {
 		name: "ASN.1"
-		extensions: ["asn1"]
+		globs: ["*.asn1"]
 	}
 	Asp: {
 		name: "ASP"
-		extensions: ["asa", "asp"]
+		globs: ["*.asa", "*.asp"]
 	}
 	AspNet: {
 		name: "ASP.NET"
-		extensions: ["asax", "ascx", "asmx", "aspx", "master", "sitemap", "webinfo"]
+		globs: ["*.asax", "*.ascx", "*.asmx", "*.aspx", "*.master", "*.sitemap", "*.webinfo"]
 	}
-	Assembly: extensions: ["asm"]
+	Assembly: globs: ["*.asm"]
 	AssemblyGAS: {
 		name: "GNU Style Assembly"
-		extensions: ["s"]
+		globs: ["*.s"]
 	}
-	Autoconf: extensions: ["in"]
-	AutoHotKey: extensions: ["ahk"]
-	Automake: extensions: ["am"]
+	Autoconf: globs: ["*.in"]
+	AutoHotKey: globs: ["*.ahk"]
+	Automake: globs: ["*.am"]
 	Bash: {
 		name: "BASH"
-		extensions: ["bash"]
+		globs: ["*.bash"]
 		interpreters: ["bash"]
 	}
-	Batch: extensions: ["bat", "btm", "cmd"]
-	BrightScript: extensions: ["brs"]
-	C: extensions: ["c", "ec", "pgc"]
-	Cabal: extensions: ["cabal"]
-	Cassius: extensions: ["cassius"]
-	Ceylon: extensions: ["ceylon"]
+	Batch: globs: ["*.bat", "*.btm", "*.cmd"]
+	BrightScript: globs: ["*.brs"]
+	C: globs: ["*.c", "*.ec", "*.pgc"]
+	Cabal: globs: ["*.cabal"]
+	Cassius: globs: ["*.cassius"]
+	Ceylon: globs: ["*.ceylon"]
 	CHeader: {
 		name: "C Header"
-		extensions: ["h"]
+		globs: ["*.h"]
 	}
-	Clojure: extensions: ["clj"]
-	ClojureC: extensions: ["cljc"]
-	ClojureScript: extensions: ["cljs"]
+	Clojure: globs: ["*.clj"]
+	ClojureC: globs: ["*.cljc"]
+	ClojureScript: globs: ["*.cljs"]
 	CMake: {
-		extensions: ["cmake"]
-		filenames: ["cmakelists.txt"]
+		globs: ["*.cmake", "cmakelists.txt"]
 	}
 	Cobol: {
 		name: "COBOL"
-		extensions: ["cob", "cbl", "ccp", "cobol", "cpy"]
+		globs: ["*.cob", "*.cbl", "*.ccp", "*.cobol", "*.cpy"]
 	}
-	CoffeeScript: extensions: ["coffee", "cjsx"]
-	Cogent: extensions: ["cogent"]
-	ColdFusion: extensions: ["cfm"]
+	CoffeeScript: globs: ["*.coffee", "*.cjsx"]
+	Cogent: globs: ["*.cogent"]
+	ColdFusion: globs: ["*.cfm"]
 	ColdFusionScript: {
 		name: "ColdFusion CFScript"
-		extensions: ["cfc"]
+		globs: ["*.cfc"]
 	}
-	Coq: extensions: ["v"]
+	Coq: globs: ["*.v"]
 	Cpp: {
 		name: "C++"
-		extensions: ["cc", "cpp", "cxx", "c++", "pcc", "tpp"]
+		globs: ["*.cc", "*.cpp", "*.cxx", "*.c++", "*.pcc", "*.tpp"]
 	}
 	CppHeader: {
 		name: "C++ Header"
-		extensions: ["hh", "hpp", "hxx", "inl", "ipp"]
+		globs: ["*.hh", "*.hpp", "*.hxx", "*.inl", "*.ipp"]
 	}
-	Crystal: extensions: ["cr"]
+	Crystal: globs: ["*.cr"]
 	CSharp: {
 		name: "C#"
-		extensions: ["cs"]
+		globs: ["*.cs"]
 	}
 	CShell: {
 		name: "C Shell"
-		extensions: ["csh"]
+		globs: ["*.csh"]
 		interpreters: ["csh"]
 	}
 	Css: {
 		name: "CSS"
-		extensions: ["css"]
+		globs: ["*.css"]
 	}
 	Cue: {
 		name: "CUE"
-		extensions: ["cue"]
+		globs: ["*.cue"]
 	}
-	D: extensions: ["d"]
-	Dart: extensions: ["dart"]
+	D: globs: ["*.d"]
+	Dart: globs: ["*.dart"]
 	DeviceTree: {
 		name: "Device Tree"
-		extensions: ["dts", "dtsi"]
+		globs: ["*.dts", "*.dtsi"]
 	}
-	Dhall: extensions: ["dhall"]
+	Dhall: globs: ["*.dhall"]
 	Dockerfile: {
-		extensions: ["dockerfile", "dockerignore"]
-		filenames: ["dockerfile"]
+		globs: ["*.dockerfile", "*.dockerignore", "dockerfile"]
 	}
 	DotNetResource: {
 		name: ".NET Resource"
-		extensions: ["resx"]
+		globs: ["*.resx"]
 	}
 	DreamMaker: {
 		name: "Dream Maker"
-		extensions: ["dm", "dme"]
+		globs: ["*.dm", "*.dme"]
 	}
 	Dust: {
 		name: "Dust.js"
-		extensions: ["dust"]
+		globs: ["*.dust"]
 	}
-	Edn: extensions: ["edn"]
+	Edn: globs: ["*.edn"]
 	Elisp: {
 		name: "Emacs Lisp"
-		extensions: ["el"]
+		globs: ["*.el"]
 	}
-	Elixir: extensions: ["ex", "exs"]
-	Elm: extensions: ["elm"]
+	Elixir: globs: ["*.ex", "*.exs"]
+	Elm: globs: ["*.elm"]
 	Elvish: {
-		extensions: ["elv"]
+		globs: ["*.elv"]
 		interpreters: ["elvish"]
 	}
 	EmacsDevEnv: {
 		name: "Emacs Dev Env"
-		extensions: ["ede"]
+		globs: ["*.ede"]
 	}
-	Emojicode: extensions: ["emojic", "🍇"]
-	Erlang: extensions: ["erl", "hrl"]
+	Emojicode: globs: ["*.emojic", "🍇"]
+	Erlang: globs: ["*.erl", "*.hrl"]
 	FEN: {
 		name: "FEN"
-		extensions: ["fen"]
+		globs: ["*.fen"]
 	}
 	Fish: {
-		extensions: ["fish"]
+		globs: ["*.fish"]
 		interpreters: ["fish"]
 	}
 	FlatBuffers: {
 		name: "FlatBuffers Schema"
-		extensions: ["fbs"]
+		globs: ["*.fbs"]
 	}
-	Forth: extensions: ["4th", "forth", "fr", "frt", "fth", "f83", "fb", "fpm", "e4", "rx", "ft"]
+	Forth: globs: ["*.4th", "*.forth", "*.fr", "*.frt", "*.fth", "*.f83", "*.fb", "*.fpm", "*.e4", "*.rx", "*.ft"]
 	FortranLegacy: {
 		name: "FORTRAN Legacy"
-		extensions: ["f", "for", "ftn", "f77", "pfo"]
+		globs: ["*.f", "*.for", "*.ftn", "*.f77", "*.pfo"]
 	}
 	FortranModern: {
 		name: "FORTRAN Modern"
-		extensions: ["f03", "f08", "f90", "f95"]
+		globs: ["*.f03", "*.f08", "*.f90", "*.f95"]
 	}
-	FreeMarker: extensions: ["ftl", "ftlh", "ftlx"]
+	FreeMarker: globs: ["*.ftl", "*.ftlh", "*.ftlx"]
 	FSharp: {
 		name: "F#"
-		extensions: ["fs", "fsi", "fsx", "fsscript"]
+		globs: ["*.fs", "*.fsi", "*.fsx", "*.fsscript"]
 	}
 	Fstar: {
 		name: "F*"
-		extensions: ["fst"]
+		globs: ["*.fst"]
 	}
 	GDB: {
 		name: "GDB Script"
-		extensions: ["gdb"]
+		globs: ["*.gdb"]
 	}
 	GdScript: {
 		name: "GDScript"
-		extensions: ["gd"]
+		globs: ["*.gd"]
 	}
 	Gherkin: {
 		name: "Gherkin (Cucumber)"
-		extensions: ["feature"]
+		globs: ["*.feature"]
 	}
 	Glsl: {
 		name: "GLSL"
-		extensions: ["vert", "tesc", "tese", "geom", "frag", "comp", "glsl"]
+		globs: ["*.vert", "*.tesc", "*.tese", "*.geom", "*.frag", "*.comp", "*.glsl"]
 	}
-	Go: extensions: ["go"]
+	Go: globs: ["*.go"]
 	Graphql: {
 		name: "GraphQL"
-		extensions: ["gql", "graphql"]
+		globs: ["*.gql", "*.graphql"]
 	}
-	Groovy: extensions: ["groovy", "grt", "gtpl", "gvy"]
-	Hamlet: extensions: ["hamlet"]
-	Handlebars: extensions: ["hbs", "handlebars"]
-	Happy: extensions: ["y", "ly"]
-	Haskell: extensions: ["hs"]
-	Haxe: extensions: ["hx"]
+	Groovy: globs: ["*.groovy", "*.grt", "*.gtpl", "*.gvy"]
+	Hamlet: globs: ["*.hamlet"]
+	Handlebars: globs: ["*.hbs", "*.handlebars"]
+	Happy: globs: ["*.y", "*.ly"]
+	Haskell: globs: ["*.hs"]
+	Haxe: globs: ["*.hx"]
 	Hcl: {
 		name: "HCL"
-		extensions: ["hcl", "tf", "tfvars"]
+		globs: ["*.hcl", "*.tf", "*.tfvars"]
 	}
 	Hex: {
 		name: "HEX"
-		extensions: ["hex"]
+		globs: ["*.hex"]
 	}
 	Hlsl: {
 		name: "HLSL"
-		extensions: ["hlsl"]
+		globs: ["*.hlsl"]
 	}
-	HolyC: extensions: ["HC", "hc"]
+	HolyC: globs: ["*.HC", "*.hc"]
 	Html: {
 		name: "HTML"
-		extensions: ["html", "htm"]
+		globs: ["*.html", "*.htm"]
 	}
-	Idris: extensions: ["idr", "lidr"]
+	Idris: globs: ["*.idr", "*.lidr"]
 	Ini: {
 		name: "INI"
-		extensions: ["ini"]
+		globs: ["*.ini"]
 	}
 	IntelHex: {
 		name: "Intel HEX"
-		extensions: ["ihex"]
+		globs: ["*.ihex"]
 	}
-	Isabelle: extensions: ["thy"]
+	Isabelle: globs: ["*.thy"]
 	Jai: {
 		name: "JAI"
-		extensions: ["jai"]
+		globs: ["*.jai"]
 	}
-	Java: extensions: ["java"]
-	JavaScript: extensions: ["js", "mjs"]
+	Java: globs: ["*.java"]
+	JavaScript: globs: ["*.js", "*.mjs"]
 	Json: {
 		name: "JSON"
-		extensions: ["json"]
+		globs: ["*.json"]
 	}
 	Jsx: {
 		name: "JSX"
-		extensions: ["jsx"]
+		globs: ["*.jsx"]
 	}
-	Julia: extensions: ["jl"]
-	Julius: extensions: ["julius"]
+	Julia: globs: ["*.jl"]
+	Julius: globs: ["*.julius"]
 	KakouneScript: {
 		name: "Kakoune script"
-		extensions: ["kak"]
+		globs: ["*.kak"]
 	}
-	Kotlin: extensions: ["kt", "kts"]
-	Lean: extensions: ["lean", "hlean"]
+	Kotlin: globs: ["*.kt", "*.kts"]
+	Lean: globs: ["*.lean", "*.hlean"]
 	Less: {
 		name: "LESS"
-		extensions: ["less"]
+		globs: ["*.less"]
 	}
 	LinkerScript: {
 		name: "LD Script"
-		extensions: ["lds"]
+		globs: ["*.lds"]
 	}
 	Liquid: {
 		name: "Liquid"
-		extensions: ["liquid"]
+		globs: ["*.liquid"]
 	}
-	Lisp: extensions: ["lisp", "lsp"]
-	LLVM: extensions: ["ll"]
-	Logtalk: extensions: ["lgt", "logtalk"]
-	Lua: extensions: ["lua"]
-	Lucius: extensions: ["lucius"]
-	Madlang: extensions: ["mad"]
+	Lisp: globs: ["*.lisp", "*.lsp"]
+	LLVM: globs: ["*.ll"]
+	Logtalk: globs: ["*.lgt", "*.logtalk"]
+	Lua: globs: ["*.lua"]
+	Lucius: globs: ["*.lucius"]
+	Madlang: globs: ["*.mad"]
 	Makefile: {
-		extensions: ["makefile", "mak", "mk"]
-		filenames: ["makefile"]
+		globs: ["*.makefile", "*.mak", "*.mk", "makefile"]
 	}
-	Markdown: extensions: ["md", "markdown"]
-	Meson: filenames: ["meson.build", "meson_options.txt"]
-	Mint: extensions: ["mint"]
+	Markdown: globs: ["*.md", "*.markdown"]
+	Meson: globs: ["meson.build", "meson_options.txt"]
+	Mint: globs: ["*.mint"]
 	ModuleDef: {
 		name: "Module-Definition"
-		extensions: ["def"]
+		globs: ["*.def"]
 	}
-	MoonScript: extensions: ["moon"]
+	MoonScript: globs: ["*.moon"]
 	MsBuild: {
 		name: "MSBuild"
-		extensions: ["csproj", "vbproj", "fsproj", "props", "targets"]
+		globs: ["*.csproj", "*.vbproj", "*.fsproj", "*.props", "*.targets"]
 	}
-	Mustache: extensions: ["mustache"]
-	Nim: extensions: ["nim"]
-	Nix: extensions: ["nix"]
+	Mustache: globs: ["*.mustache"]
+	Nim: globs: ["*.nim"]
+	Nix: globs: ["*.nix"]
 	NotQuitePerl: {
 		name: "Not Quite Perl"
-		extensions: ["nqp"]
+		globs: ["*.nqp"]
 	}
 	ObjectiveC: {
 		name: "Objective-C"
-		extensions: ["m"]
+		globs: ["*.m"]
 	}
 	ObjectiveCpp: {
 		name: "Objective-C++"
-		extensions: ["mm"]
+		globs: ["*.mm"]
 	}
-	OCaml: extensions: ["ml", "mli", "re", "rei"]
-	Odin: extensions: ["odin"]
-	Org: extensions: ["org"]
-	Oz: extensions: ["oz"]
-	Pan: extensions: ["pan", "tpl"]
-	Pascal: extensions: ["pas", "pp"]
+	OCaml: globs: ["*.ml", "*.mli", "*.re", "*.rei"]
+	Odin: globs: ["*.odin"]
+	Org: globs: ["*.org"]
+	Oz: globs: ["*.oz"]
+	Pan: globs: ["*.pan", "*.tpl"]
+	Pascal: globs: ["*.pas", "*.pp"]
 	Perl: {
-		extensions: ["pl", "pm"]
+		globs: ["*.pl", "*.pm"]
 		interpreters: ["perl"]
 	}
-	Perl6: extensions: ["pl6", "pm6"]
-	Pest: extensions: ["pest"]
+	Perl6: globs: ["*.pl6", "*.pm6"]
+	Pest: globs: ["*.pest"]
 	Php: {
 		name: "PHP"
-		extensions: ["php"]
+		globs: ["*.php"]
 	}
-	Polly: extensions: ["polly"]
-	Pony: extensions: ["pony"]
+	Polly: globs: ["*.polly"]
+	Pony: globs: ["*.pony"]
 	PostCss: {
 		name: "PostCSS"
-		extensions: ["pcss", "sss"]
+		globs: ["*.pcss", "*.sss"]
 	}
-	PowerShell: extensions: ["ps1", "psm1", "psd1", "ps1xml", "cdxml", "pssc", "psc1"]
-	Processing: extensions: ["pde"]
-	Prolog: extensions: ["p", "pro"]
+	PowerShell: globs: ["*.ps1", "*.psm1", "*.psd1", "*.ps1xml", "*.cdxml", "*.pssc", "*.psc1"]
+	Processing: globs: ["*.pde"]
+	Prolog: globs: ["*.p", "*.pro"]
 	Protobuf: {
 		name: "Protocol Buffers"
-		extensions: ["proto"]
+		globs: ["*.proto"]
 	}
 	PSL: {
 		name: "PSL Assertion"
-		extensions: ["psl"]
+		globs: ["*.psl"]
 	}
-	PureScript: extensions: ["purs"]
+	PureScript: globs: ["*.purs"]
 	Python: {
-		extensions: ["py", "pyw"]
+		globs: ["*.py", "*.pyw"]
 		interpreters: ["python", "python2", "python3"]
 	}
 	Qcl: {
 		name: "QCL"
-		extensions: ["qcl"]
+		globs: ["*.qcl"]
 	}
 	Qml: {
 		name: "QML"
-		extensions: ["qml"]
+		globs: ["*.qml"]
 	}
-	R: extensions: ["r"]
-	Racket: extensions: ["rkt"]
+	R: globs: ["*.r"]
+	Racket: globs: ["*.rkt"]
 	Rakefile: {
-		extensions: ["rake"]
-		filenames: ["rakefile"]
+		globs: ["*.rake", "rakefile"]
 	}
-	Razor: extensions: ["cshtml"]
+	Razor: globs: ["*.cshtml"]
 	Renpy: {
 		name: "Ren'Py"
-		extensions: ["rpy"]
+		globs: ["*.rpy"]
 	}
-	ReStructuredText: extensions: ["rst"]
+	ReStructuredText: globs: ["*.rst"]
 	RON: {
 		name: "Rusty Object Notation"
-		extensions: ["ron"]
+		globs: ["*.ron"]
 	}
 	RPMSpecfile: {
 		name: "RPM Specfile"
-		extensions: ["spec"]
+		globs: ["*.spec"]
 	}
 	Ruby: {
-		extensions: ["rb"]
+		globs: ["*.rb"]
 		interpreters: ["ruby"]
 	}
 	RubyHtml: {
 		name: "Ruby HTML"
-		extensions: ["rhtml"]
+		globs: ["*.rhtml"]
 	}
-	Rust: extensions: ["rs"]
-	Sass: extensions: ["sass", "scss"]
-	Scala: extensions: ["sc", "scala"]
-	Scheme: extensions: ["scm", "ss"]
-	Scons: filenames: ["sconstruct", "sconscript"]
+	Rust: globs: ["*.rs"]
+	Sass: globs: ["*.sass", "*.scss"]
+	Scala: globs: ["*.sc", "*.scala"]
+	Scheme: globs: ["*.scm", "*.ss"]
+	Scons: globs: ["sconscript", "sconstruct"]
 	Sh: {
 		name: "Shell"
-		extensions: ["sh"]
+		globs: ["*.sh"]
 		interpreters: ["sh"]
 	}
 	Sml: {
 		name: "Standard ML (SML)"
-		extensions: ["sml"]
+		globs: ["*.sml"]
 	}
 	Solidity: {
 		name: "Solidity"
-		extensions: ["sol"]
+		globs: ["*.sol"]
 	}
 	SpecmanE: {
 		name: "Specman e"
-		extensions: ["e"]
+		globs: ["*.e"]
 	}
 	Spice: {
 		name: "Spice Netlist"
-		extensions: ["ckt"]
+		globs: ["*.ckt"]
 	}
 	Sql: {
 		name: "SQL"
-		extensions: ["sql"]
+		globs: ["*.sql"]
 	}
 	SRecode: {
 		name: "SRecode Template"
-		extensions: ["srt"]
+		globs: ["*.srt"]
 	}
 	Stratego: {
 		name: "Stratego/XT"
-		extensions: ["str"]
+		globs: ["*.str"]
 	}
 	Svg: {
 		name: "SVG"
-		extensions: ["svg"]
+		globs: ["*.svg"]
 	}
-	Swift: extensions: ["swift"]
+	Swift: globs: ["*.swift"]
 	Swig: {
 		name: "SWIG"
-		extensions: ["swg", "i"]
+		globs: ["*.swg", "*.i"]
 	}
-	SystemVerilog: extensions: ["sv", "svh"]
+	SystemVerilog: globs: ["*.sv", "*.svh"]
 	Tcl: {
 		name: "TCL"
-		extensions: ["tcl"]
+		globs: ["*.tcl"]
 	}
 	Tex: {
 		name: "TeX"
-		extensions: ["tex", "sty"]
+		globs: ["*.tex", "*.sty"]
 	}
 	Text: {
 		name: "Plain Text"
-		extensions: ["text", "txt"]
+		globs: ["*.text", "*.txt"]
 	}
-	Thrift: extensions: ["thrift"]
+	Thrift: globs: ["*.thrift"]
 	Toml: {
 		name: "TOML"
-		extensions: ["toml"]
+		globs: ["*.toml"]
 	}
 	Twig: {
 		name: "Twig"
-		extensions: ["twig"]
+		globs: ["*.twig"]
 	}
-	TypeScript: extensions: ["ts", "tsx"]
+	TypeScript: globs: ["*.ts", "*.tsx"]
 	UnrealDeveloperMarkdown: {
 		name: "Unreal Markdown"
-		extensions: ["udn"]
+		globs: ["*.udn"]
 	}
 	UnrealPlugin: {
 		name: "Unreal Plugin"
-		extensions: ["uplugin"]
+		globs: ["*.uplugin"]
 	}
 	UnrealProject: {
 		name: "Unreal Project"
-		extensions: ["uproject"]
+		globs: ["*.uproject"]
 	}
 	UnrealScript: {
 		name: "Unreal Script"
-		extensions: ["uc", "uci", "upkg"]
+		globs: ["*.uc", "*.uci", "*.upkg"]
 	}
 	UnrealShader: {
 		name: "Unreal Shader"
-		extensions: ["usf"]
+		globs: ["*.usf"]
 	}
 	UnrealShaderHeader: {
 		name: "Unreal Shader Header"
-		extensions: ["ush"]
+		globs: ["*.ush"]
 	}
 	UrWeb: {
 		name: "Ur/Web"
-		extensions: ["ur", "urs"]
+		globs: ["*.ur", "*.urs"]
 	}
 	UrWebProject: {
 		name: "Ur/Web Project"
-		extensions: ["urp"]
+		globs: ["*.urp"]
 	}
-	Vala: extensions: ["vala"]
+	Vala: globs: ["*.vala"]
 	VB6: {
 		name: "VB6"
-		extensions: ["frm", "bas", "cls"]
+		globs: ["*.frm", "*.bas", "*.cls"]
 	}
 	VBScript: {
 		name: "VBScript"
-		extensions: ["vbs"]
+		globs: ["*.vbs"]
 	}
 	Velocity: {
 		name: "Apache Velocity"
-		extensions: ["vm"]
+		globs: ["*.vm"]
 	}
-	Verilog: extensions: ["vg", "vh"]
+	Verilog: globs: ["*.vg", "*.vh"]
 	VerilogArgsFile: {
 		name: "Verilog Args File"
-		extensions: ["irunargs", "xrunargs"]
+		globs: ["*.irunargs", "*.xrunargs"]
 	}
 	Vhdl: {
 		name: "VHDL"
-		extensions: ["vhd", "vhdl"]
+		globs: ["*.vhd", "*.vhdl"]
 	}
 	VimScript: {
 		name: "Vim Script"
-		extensions: ["vim"]
+		globs: ["*.vim"]
 	}
 	VisualBasic: {
 		name: "Visual Basic"
-		extensions: ["vb"]
+		globs: ["*.vb"]
 	}
 	VisualStudioProject: {
 		name: "Visual Studio Project"
-		extensions: ["vcproj", "vcxproj"]
+		globs: ["*.vcproj", "*.vcxproj"]
 	}
 	VisualStudioSolution: {
 		name: "Visual Studio Solution"
-		extensions: ["sln"]
+		globs: ["*.sln"]
 	}
 	Vue: {
 		name: "Vue"
-		extensions: ["vue"]
+		globs: ["*.vue"]
 	}
-	WebAssembly: extensions: ["wat", "wast"]
-	Wolfram: extensions: ["nb", "wl"]
+	WebAssembly: globs: ["*.wat", "*.wast"]
+	Wolfram: globs: ["*.nb", "*.wl"]
 	Xaml: {
 		name: "XAML"
-		extensions: ["xaml"]
+		globs: ["*.xaml"]
 	}
 	XcodeConfig: {
 		name: "Xcode Config"
-		extensions: ["xcconfig"]
+		globs: ["*.xcconfig"]
 	}
 	Xml: {
 		name: "XML"
-		extensions: ["xml"]
+		globs: ["*.xml"]
 	}
 	XSL: {
 		name: "XSL"
-		extensions: ["xsl", "xslt"]
+		globs: ["*.xsl", "*.xslt"]
 	}
-	Xtend: extensions: ["xtend"]
+	Xtend: globs: ["*.xtend"]
 	Yaml: {
 		name: "YAML"
-		extensions: ["yaml", "yml"]
+		globs: ["*.yaml", "*.yml"]
 	}
-	Zig: extensions: ["zig"]
+	Zig: globs: ["*.zig"]
 	Zsh: {
-		extensions: ["zsh"]
+		globs: ["*.zsh"]
 		interpreters: ["zsh"]
 	}
 }
@@ -566,13 +561,11 @@ languages :: {
 // Constraints
 
 keys ::         [ strings.ToLower(k) for k, v in languages ]
-extensions ::   list.FlattenN([ v.extensions for k, v in languages ], -1)
-filenames ::    list.FlattenN([ v.filenames for k, v in languages ], -1)
+globs ::        list.FlattenN([ v.globs for k, v in languages ], -1)
 interpreters :: list.FlattenN([ v.interpreters for k, v in languages ], -1)
 
 all_keys_sorted:         true & list.SortStrings(keys) == keys
-all_extensions_unique:   true & list.UniqueItems(extensions)
-all_filenames_unique:    true & list.UniqueItems(filenames)
+all_globs_unique:        true & list.UniqueItems(globs)
 all_interpreters_unique: true & list.UniqueItems(interpreters)
 
 // Output

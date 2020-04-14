@@ -2,1452 +2,676 @@
   "languages": {
     "html": {
       "name": "HTML",
-      "extensions": ["html", "htm"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.html", "*.htm"],
+      "interpreters": []
     },
-    "less": {
-      "name": "LESS",
-      "extensions": ["less"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "less": { "name": "LESS", "globs": ["*.less"], "interpreters": [] },
     "text": {
       "name": "Plain Text",
-      "extensions": ["text", "txt"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.text", "*.txt"],
+      "interpreters": []
     },
-    "abap": {
-      "name": "ABAP",
-      "extensions": ["abap"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "abap": { "name": "ABAP", "globs": ["*.abap"], "interpreters": [] },
     "actionscript": {
       "name": "ActionScript",
-      "extensions": ["as"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.as"],
+      "interpreters": []
     },
     "ada": {
       "name": "Ada",
-      "extensions": ["ada", "adb", "ads", "pad"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ada", "*.adb", "*.ads", "*.pad"],
+      "interpreters": []
     },
-    "agda": {
-      "name": "Agda",
-      "extensions": ["agda"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "alex": {
-      "name": "Alex",
-      "extensions": ["x"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "agda": { "name": "Agda", "globs": ["*.agda"], "interpreters": [] },
+    "alex": { "name": "Alex", "globs": ["*.x"], "interpreters": [] },
     "arduino": {
       "name": "Arduino C++",
-      "extensions": ["ino"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ino"],
+      "interpreters": []
     },
     "asciidoc": {
       "name": "AsciiDoc",
-      "extensions": ["adoc", "asc", "asciidoc"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.adoc", "*.asc", "*.asciidoc"],
+      "interpreters": []
     },
-    "asn1": {
-      "name": "ASN.1",
-      "extensions": ["asn1"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "asp": {
-      "name": "ASP",
-      "extensions": ["asa", "asp"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "asn1": { "name": "ASN.1", "globs": ["*.asn1"], "interpreters": [] },
+    "asp": { "name": "ASP", "globs": ["*.asa", "*.asp"], "interpreters": [] },
     "aspnet": {
       "name": "ASP.NET",
-      "extensions": [
-        "asax",
-        "ascx",
-        "asmx",
-        "aspx",
-        "master",
-        "sitemap",
-        "webinfo"
+      "globs": [
+        "*.asax",
+        "*.ascx",
+        "*.asmx",
+        "*.aspx",
+        "*.master",
+        "*.sitemap",
+        "*.webinfo"
       ],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "interpreters": []
     },
-    "assembly": {
-      "name": "Assembly",
-      "extensions": ["asm"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "assembly": { "name": "Assembly", "globs": ["*.asm"], "interpreters": [] },
     "assemblygas": {
       "name": "GNU Style Assembly",
-      "extensions": ["s"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.s"],
+      "interpreters": []
     },
-    "autoconf": {
-      "name": "Autoconf",
-      "extensions": ["in"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "autoconf": { "name": "Autoconf", "globs": ["*.in"], "interpreters": [] },
     "autohotkey": {
       "name": "AutoHotKey",
-      "extensions": ["ahk"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ahk"],
+      "interpreters": []
     },
-    "automake": {
-      "name": "Automake",
-      "extensions": ["am"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "bash": {
-      "name": "BASH",
-      "extensions": ["bash"],
-      "filenames": [],
-      "interpreters": ["bash"],
-      "shebangs": ["#!/bin/bash"]
-    },
+    "automake": { "name": "Automake", "globs": ["*.am"], "interpreters": [] },
+    "bash": { "name": "BASH", "globs": ["*.bash"], "interpreters": ["bash"] },
     "batch": {
       "name": "Batch",
-      "extensions": ["bat", "btm", "cmd"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.bat", "*.btm", "*.cmd"],
+      "interpreters": []
     },
     "brightscript": {
       "name": "BrightScript",
-      "extensions": ["brs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.brs"],
+      "interpreters": []
     },
-    "c": {
-      "name": "C",
-      "extensions": ["c", "ec", "pgc"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "cabal": {
-      "name": "Cabal",
-      "extensions": ["cabal"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "c": { "name": "C", "globs": ["*.c", "*.ec", "*.pgc"], "interpreters": [] },
+    "cabal": { "name": "Cabal", "globs": ["*.cabal"], "interpreters": [] },
     "cassius": {
       "name": "Cassius",
-      "extensions": ["cassius"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.cassius"],
+      "interpreters": []
     },
-    "ceylon": {
-      "name": "Ceylon",
-      "extensions": ["ceylon"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "cheader": {
-      "name": "C Header",
-      "extensions": ["h"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "clojure": {
-      "name": "Clojure",
-      "extensions": ["clj"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "clojurec": {
-      "name": "ClojureC",
-      "extensions": ["cljc"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "ceylon": { "name": "Ceylon", "globs": ["*.ceylon"], "interpreters": [] },
+    "cheader": { "name": "C Header", "globs": ["*.h"], "interpreters": [] },
+    "clojure": { "name": "Clojure", "globs": ["*.clj"], "interpreters": [] },
+    "clojurec": { "name": "ClojureC", "globs": ["*.cljc"], "interpreters": [] },
     "clojurescript": {
       "name": "ClojureScript",
-      "extensions": ["cljs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.cljs"],
+      "interpreters": []
     },
     "cmake": {
       "name": "CMake",
-      "extensions": ["cmake"],
-      "filenames": ["cmakelists.txt"],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.cmake", "cmakelists.txt"],
+      "interpreters": []
     },
     "cobol": {
       "name": "COBOL",
-      "extensions": ["cob", "cbl", "ccp", "cobol", "cpy"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.cob", "*.cbl", "*.ccp", "*.cobol", "*.cpy"],
+      "interpreters": []
     },
     "coffeescript": {
       "name": "CoffeeScript",
-      "extensions": ["coffee", "cjsx"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.coffee", "*.cjsx"],
+      "interpreters": []
     },
-    "cogent": {
-      "name": "Cogent",
-      "extensions": ["cogent"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "cogent": { "name": "Cogent", "globs": ["*.cogent"], "interpreters": [] },
     "coldfusion": {
       "name": "ColdFusion",
-      "extensions": ["cfm"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.cfm"],
+      "interpreters": []
     },
     "coldfusionscript": {
       "name": "ColdFusion CFScript",
-      "extensions": ["cfc"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.cfc"],
+      "interpreters": []
     },
-    "coq": {
-      "name": "Coq",
-      "extensions": ["v"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "coq": { "name": "Coq", "globs": ["*.v"], "interpreters": [] },
     "cpp": {
       "name": "C++",
-      "extensions": ["cc", "cpp", "cxx", "c++", "pcc", "tpp"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.cc", "*.cpp", "*.cxx", "*.c++", "*.pcc", "*.tpp"],
+      "interpreters": []
     },
     "cppheader": {
       "name": "C++ Header",
-      "extensions": ["hh", "hpp", "hxx", "inl", "ipp"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.hh", "*.hpp", "*.hxx", "*.inl", "*.ipp"],
+      "interpreters": []
     },
-    "crystal": {
-      "name": "Crystal",
-      "extensions": ["cr"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "csharp": {
-      "name": "C#",
-      "extensions": ["cs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "crystal": { "name": "Crystal", "globs": ["*.cr"], "interpreters": [] },
+    "csharp": { "name": "C#", "globs": ["*.cs"], "interpreters": [] },
     "cshell": {
       "name": "C Shell",
-      "extensions": ["csh"],
-      "filenames": [],
-      "interpreters": ["csh"],
-      "shebangs": ["#!/bin/csh"]
+      "globs": ["*.csh"],
+      "interpreters": ["csh"]
     },
-    "css": {
-      "name": "CSS",
-      "extensions": ["css"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "cue": {
-      "name": "CUE",
-      "extensions": ["cue"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "d": {
-      "name": "D",
-      "extensions": ["d"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "dart": {
-      "name": "Dart",
-      "extensions": ["dart"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "css": { "name": "CSS", "globs": ["*.css"], "interpreters": [] },
+    "cue": { "name": "CUE", "globs": ["*.cue"], "interpreters": [] },
+    "d": { "name": "D", "globs": ["*.d"], "interpreters": [] },
+    "dart": { "name": "Dart", "globs": ["*.dart"], "interpreters": [] },
     "devicetree": {
       "name": "Device Tree",
-      "extensions": ["dts", "dtsi"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.dts", "*.dtsi"],
+      "interpreters": []
     },
-    "dhall": {
-      "name": "Dhall",
-      "extensions": ["dhall"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "dhall": { "name": "Dhall", "globs": ["*.dhall"], "interpreters": [] },
     "dockerfile": {
       "name": "Dockerfile",
-      "extensions": ["dockerfile", "dockerignore"],
-      "filenames": ["dockerfile"],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.dockerfile", "*.dockerignore", "dockerfile"],
+      "interpreters": []
     },
     "dotnetresource": {
       "name": ".NET Resource",
-      "extensions": ["resx"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.resx"],
+      "interpreters": []
     },
     "dreammaker": {
       "name": "Dream Maker",
-      "extensions": ["dm", "dme"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.dm", "*.dme"],
+      "interpreters": []
     },
-    "dust": {
-      "name": "Dust.js",
-      "extensions": ["dust"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "edn": {
-      "name": "Edn",
-      "extensions": ["edn"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "elisp": {
-      "name": "Emacs Lisp",
-      "extensions": ["el"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "dust": { "name": "Dust.js", "globs": ["*.dust"], "interpreters": [] },
+    "edn": { "name": "Edn", "globs": ["*.edn"], "interpreters": [] },
+    "elisp": { "name": "Emacs Lisp", "globs": ["*.el"], "interpreters": [] },
     "elixir": {
       "name": "Elixir",
-      "extensions": ["ex", "exs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ex", "*.exs"],
+      "interpreters": []
     },
-    "elm": {
-      "name": "Elm",
-      "extensions": ["elm"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "elm": { "name": "Elm", "globs": ["*.elm"], "interpreters": [] },
     "elvish": {
       "name": "Elvish",
-      "extensions": ["elv"],
-      "filenames": [],
-      "interpreters": ["elvish"],
-      "shebangs": []
+      "globs": ["*.elv"],
+      "interpreters": ["elvish"]
     },
     "emacsdevenv": {
       "name": "Emacs Dev Env",
-      "extensions": ["ede"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ede"],
+      "interpreters": []
     },
     "emojicode": {
       "name": "Emojicode",
-      "extensions": ["emojic", "🍇"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.emojic", "🍇"],
+      "interpreters": []
     },
     "erlang": {
       "name": "Erlang",
-      "extensions": ["erl", "hrl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.erl", "*.hrl"],
+      "interpreters": []
     },
-    "fen": {
-      "name": "FEN",
-      "extensions": ["fen"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "fish": {
-      "name": "Fish",
-      "extensions": ["fish"],
-      "filenames": [],
-      "interpreters": ["fish"],
-      "shebangs": ["#!/bin/fish"]
-    },
+    "fen": { "name": "FEN", "globs": ["*.fen"], "interpreters": [] },
+    "fish": { "name": "Fish", "globs": ["*.fish"], "interpreters": ["fish"] },
     "flatbuffers": {
       "name": "FlatBuffers Schema",
-      "extensions": ["fbs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.fbs"],
+      "interpreters": []
     },
     "forth": {
       "name": "Forth",
-      "extensions": [
-        "4th",
-        "forth",
-        "fr",
-        "frt",
-        "fth",
-        "f83",
-        "fb",
-        "fpm",
-        "e4",
-        "rx",
-        "ft"
+      "globs": [
+        "*.4th",
+        "*.forth",
+        "*.fr",
+        "*.frt",
+        "*.fth",
+        "*.f83",
+        "*.fb",
+        "*.fpm",
+        "*.e4",
+        "*.rx",
+        "*.ft"
       ],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "interpreters": []
     },
     "fortranlegacy": {
       "name": "FORTRAN Legacy",
-      "extensions": ["f", "for", "ftn", "f77", "pfo"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.f", "*.for", "*.ftn", "*.f77", "*.pfo"],
+      "interpreters": []
     },
     "fortranmodern": {
       "name": "FORTRAN Modern",
-      "extensions": ["f03", "f08", "f90", "f95"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.f03", "*.f08", "*.f90", "*.f95"],
+      "interpreters": []
     },
     "freemarker": {
       "name": "FreeMarker",
-      "extensions": ["ftl", "ftlh", "ftlx"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ftl", "*.ftlh", "*.ftlx"],
+      "interpreters": []
     },
     "fsharp": {
       "name": "F#",
-      "extensions": ["fs", "fsi", "fsx", "fsscript"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.fs", "*.fsi", "*.fsx", "*.fsscript"],
+      "interpreters": []
     },
-    "fstar": {
-      "name": "F*",
-      "extensions": ["fst"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "gdb": {
-      "name": "GDB Script",
-      "extensions": ["gdb"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "gdscript": {
-      "name": "GDScript",
-      "extensions": ["gd"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "fstar": { "name": "F*", "globs": ["*.fst"], "interpreters": [] },
+    "gdb": { "name": "GDB Script", "globs": ["*.gdb"], "interpreters": [] },
+    "gdscript": { "name": "GDScript", "globs": ["*.gd"], "interpreters": [] },
     "gherkin": {
       "name": "Gherkin (Cucumber)",
-      "extensions": ["feature"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.feature"],
+      "interpreters": []
     },
     "glsl": {
       "name": "GLSL",
-      "extensions": ["vert", "tesc", "tese", "geom", "frag", "comp", "glsl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": [
+        "*.vert",
+        "*.tesc",
+        "*.tese",
+        "*.geom",
+        "*.frag",
+        "*.comp",
+        "*.glsl"
+      ],
+      "interpreters": []
     },
-    "go": {
-      "name": "Go",
-      "extensions": ["go"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "go": { "name": "Go", "globs": ["*.go"], "interpreters": [] },
     "graphql": {
       "name": "GraphQL",
-      "extensions": ["gql", "graphql"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.gql", "*.graphql"],
+      "interpreters": []
     },
     "groovy": {
       "name": "Groovy",
-      "extensions": ["groovy", "grt", "gtpl", "gvy"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.groovy", "*.grt", "*.gtpl", "*.gvy"],
+      "interpreters": []
     },
-    "hamlet": {
-      "name": "Hamlet",
-      "extensions": ["hamlet"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "hamlet": { "name": "Hamlet", "globs": ["*.hamlet"], "interpreters": [] },
     "handlebars": {
       "name": "Handlebars",
-      "extensions": ["hbs", "handlebars"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.hbs", "*.handlebars"],
+      "interpreters": []
     },
-    "happy": {
-      "name": "Happy",
-      "extensions": ["y", "ly"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "haskell": {
-      "name": "Haskell",
-      "extensions": ["hs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "haxe": {
-      "name": "Haxe",
-      "extensions": ["hx"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "happy": { "name": "Happy", "globs": ["*.y", "*.ly"], "interpreters": [] },
+    "haskell": { "name": "Haskell", "globs": ["*.hs"], "interpreters": [] },
+    "haxe": { "name": "Haxe", "globs": ["*.hx"], "interpreters": [] },
     "hcl": {
       "name": "HCL",
-      "extensions": ["hcl", "tf", "tfvars"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.hcl", "*.tf", "*.tfvars"],
+      "interpreters": []
     },
-    "hex": {
-      "name": "HEX",
-      "extensions": ["hex"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "hlsl": {
-      "name": "HLSL",
-      "extensions": ["hlsl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "holyc": {
-      "name": "HolyC",
-      "extensions": ["HC", "hc"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "hex": { "name": "HEX", "globs": ["*.hex"], "interpreters": [] },
+    "hlsl": { "name": "HLSL", "globs": ["*.hlsl"], "interpreters": [] },
+    "holyc": { "name": "HolyC", "globs": ["*.HC", "*.hc"], "interpreters": [] },
     "idris": {
       "name": "Idris",
-      "extensions": ["idr", "lidr"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.idr", "*.lidr"],
+      "interpreters": []
     },
-    "ini": {
-      "name": "INI",
-      "extensions": ["ini"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "ini": { "name": "INI", "globs": ["*.ini"], "interpreters": [] },
     "intelhex": {
       "name": "Intel HEX",
-      "extensions": ["ihex"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ihex"],
+      "interpreters": []
     },
-    "isabelle": {
-      "name": "Isabelle",
-      "extensions": ["thy"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "jai": {
-      "name": "JAI",
-      "extensions": ["jai"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "java": {
-      "name": "Java",
-      "extensions": ["java"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "isabelle": { "name": "Isabelle", "globs": ["*.thy"], "interpreters": [] },
+    "jai": { "name": "JAI", "globs": ["*.jai"], "interpreters": [] },
+    "java": { "name": "Java", "globs": ["*.java"], "interpreters": [] },
     "javascript": {
       "name": "JavaScript",
-      "extensions": ["js", "mjs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.js", "*.mjs"],
+      "interpreters": []
     },
-    "json": {
-      "name": "JSON",
-      "extensions": ["json"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "jsx": {
-      "name": "JSX",
-      "extensions": ["jsx"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "julia": {
-      "name": "Julia",
-      "extensions": ["jl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "julius": {
-      "name": "Julius",
-      "extensions": ["julius"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "json": { "name": "JSON", "globs": ["*.json"], "interpreters": [] },
+    "jsx": { "name": "JSX", "globs": ["*.jsx"], "interpreters": [] },
+    "julia": { "name": "Julia", "globs": ["*.jl"], "interpreters": [] },
+    "julius": { "name": "Julius", "globs": ["*.julius"], "interpreters": [] },
     "kakounescript": {
       "name": "Kakoune script",
-      "extensions": ["kak"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.kak"],
+      "interpreters": []
     },
     "kotlin": {
       "name": "Kotlin",
-      "extensions": ["kt", "kts"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.kt", "*.kts"],
+      "interpreters": []
     },
     "lean": {
       "name": "Lean",
-      "extensions": ["lean", "hlean"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.lean", "*.hlean"],
+      "interpreters": []
     },
     "linkerscript": {
       "name": "LD Script",
-      "extensions": ["lds"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.lds"],
+      "interpreters": []
     },
-    "liquid": {
-      "name": "Liquid",
-      "extensions": ["liquid"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "liquid": { "name": "Liquid", "globs": ["*.liquid"], "interpreters": [] },
     "lisp": {
       "name": "Lisp",
-      "extensions": ["lisp", "lsp"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.lisp", "*.lsp"],
+      "interpreters": []
     },
-    "llvm": {
-      "name": "LLVM",
-      "extensions": ["ll"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "llvm": { "name": "LLVM", "globs": ["*.ll"], "interpreters": [] },
     "logtalk": {
       "name": "Logtalk",
-      "extensions": ["lgt", "logtalk"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.lgt", "*.logtalk"],
+      "interpreters": []
     },
-    "lua": {
-      "name": "Lua",
-      "extensions": ["lua"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "lucius": {
-      "name": "Lucius",
-      "extensions": ["lucius"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "madlang": {
-      "name": "Madlang",
-      "extensions": ["mad"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "lua": { "name": "Lua", "globs": ["*.lua"], "interpreters": [] },
+    "lucius": { "name": "Lucius", "globs": ["*.lucius"], "interpreters": [] },
+    "madlang": { "name": "Madlang", "globs": ["*.mad"], "interpreters": [] },
     "makefile": {
       "name": "Makefile",
-      "extensions": ["makefile", "mak", "mk"],
-      "filenames": ["makefile"],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.makefile", "*.mak", "*.mk", "makefile"],
+      "interpreters": []
     },
     "markdown": {
       "name": "Markdown",
-      "extensions": ["md", "markdown"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.md", "*.markdown"],
+      "interpreters": []
     },
     "meson": {
       "name": "Meson",
-      "extensions": [],
-      "filenames": ["meson.build", "meson_options.txt"],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["meson.build", "meson_options.txt"],
+      "interpreters": []
     },
-    "mint": {
-      "name": "Mint",
-      "extensions": ["mint"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "mint": { "name": "Mint", "globs": ["*.mint"], "interpreters": [] },
     "moduledef": {
       "name": "Module-Definition",
-      "extensions": ["def"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.def"],
+      "interpreters": []
     },
     "moonscript": {
       "name": "MoonScript",
-      "extensions": ["moon"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.moon"],
+      "interpreters": []
     },
     "msbuild": {
       "name": "MSBuild",
-      "extensions": ["csproj", "vbproj", "fsproj", "props", "targets"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.csproj", "*.vbproj", "*.fsproj", "*.props", "*.targets"],
+      "interpreters": []
     },
     "mustache": {
       "name": "Mustache",
-      "extensions": ["mustache"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.mustache"],
+      "interpreters": []
     },
-    "nim": {
-      "name": "Nim",
-      "extensions": ["nim"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "nix": {
-      "name": "Nix",
-      "extensions": ["nix"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "nim": { "name": "Nim", "globs": ["*.nim"], "interpreters": [] },
+    "nix": { "name": "Nix", "globs": ["*.nix"], "interpreters": [] },
     "notquiteperl": {
       "name": "Not Quite Perl",
-      "extensions": ["nqp"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.nqp"],
+      "interpreters": []
     },
     "objectivec": {
       "name": "Objective-C",
-      "extensions": ["m"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.m"],
+      "interpreters": []
     },
     "objectivecpp": {
       "name": "Objective-C++",
-      "extensions": ["mm"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.mm"],
+      "interpreters": []
     },
     "ocaml": {
       "name": "OCaml",
-      "extensions": ["ml", "mli", "re", "rei"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ml", "*.mli", "*.re", "*.rei"],
+      "interpreters": []
     },
-    "odin": {
-      "name": "Odin",
-      "extensions": ["odin"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "org": {
-      "name": "Org",
-      "extensions": ["org"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "oz": {
-      "name": "Oz",
-      "extensions": ["oz"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "pan": {
-      "name": "Pan",
-      "extensions": ["pan", "tpl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "odin": { "name": "Odin", "globs": ["*.odin"], "interpreters": [] },
+    "org": { "name": "Org", "globs": ["*.org"], "interpreters": [] },
+    "oz": { "name": "Oz", "globs": ["*.oz"], "interpreters": [] },
+    "pan": { "name": "Pan", "globs": ["*.pan", "*.tpl"], "interpreters": [] },
     "pascal": {
       "name": "Pascal",
-      "extensions": ["pas", "pp"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.pas", "*.pp"],
+      "interpreters": []
     },
     "perl": {
       "name": "Perl",
-      "extensions": ["pl", "pm"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": ["#!/usr/bin/perl"]
+      "globs": ["*.pl", "*.pm"],
+      "interpreters": ["perl"]
     },
     "perl6": {
       "name": "Perl6",
-      "extensions": ["pl6", "pm6"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.pl6", "*.pm6"],
+      "interpreters": []
     },
-    "pest": {
-      "name": "Pest",
-      "extensions": ["pest"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "php": {
-      "name": "PHP",
-      "extensions": ["php"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "polly": {
-      "name": "Polly",
-      "extensions": ["polly"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "pony": {
-      "name": "Pony",
-      "extensions": ["pony"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "pest": { "name": "Pest", "globs": ["*.pest"], "interpreters": [] },
+    "php": { "name": "PHP", "globs": ["*.php"], "interpreters": [] },
+    "polly": { "name": "Polly", "globs": ["*.polly"], "interpreters": [] },
+    "pony": { "name": "Pony", "globs": ["*.pony"], "interpreters": [] },
     "postcss": {
       "name": "PostCSS",
-      "extensions": ["pcss", "sss"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.pcss", "*.sss"],
+      "interpreters": []
     },
     "powershell": {
       "name": "PowerShell",
-      "extensions": ["ps1", "psm1", "psd1", "ps1xml", "cdxml", "pssc", "psc1"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": [
+        "*.ps1",
+        "*.psm1",
+        "*.psd1",
+        "*.ps1xml",
+        "*.cdxml",
+        "*.pssc",
+        "*.psc1"
+      ],
+      "interpreters": []
     },
     "processing": {
       "name": "Processing",
-      "extensions": ["pde"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.pde"],
+      "interpreters": []
     },
     "prolog": {
       "name": "Prolog",
-      "extensions": ["p", "pro"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.p", "*.pro"],
+      "interpreters": []
     },
     "protobuf": {
       "name": "Protocol Buffers",
-      "extensions": ["proto"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.proto"],
+      "interpreters": []
     },
-    "psl": {
-      "name": "PSL Assertion",
-      "extensions": ["psl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "psl": { "name": "PSL Assertion", "globs": ["*.psl"], "interpreters": [] },
     "purescript": {
       "name": "PureScript",
-      "extensions": ["purs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.purs"],
+      "interpreters": []
     },
     "python": {
       "name": "Python",
-      "extensions": ["py", "pyw"],
-      "filenames": [],
-      "interpreters": ["python", "python2", "python3"],
-      "shebangs": []
+      "globs": ["*.py", "*.pyw"],
+      "interpreters": ["python", "python2", "python3"]
     },
-    "qcl": {
-      "name": "QCL",
-      "extensions": ["qcl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "qml": {
-      "name": "QML",
-      "extensions": ["qml"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "r": {
-      "name": "R",
-      "extensions": ["r"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "racket": {
-      "name": "Racket",
-      "extensions": ["rkt"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "qcl": { "name": "QCL", "globs": ["*.qcl"], "interpreters": [] },
+    "qml": { "name": "QML", "globs": ["*.qml"], "interpreters": [] },
+    "r": { "name": "R", "globs": ["*.r"], "interpreters": [] },
+    "racket": { "name": "Racket", "globs": ["*.rkt"], "interpreters": [] },
     "rakefile": {
       "name": "Rakefile",
-      "extensions": ["rake"],
-      "filenames": ["rakefile"],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.rake", "rakefile"],
+      "interpreters": []
     },
-    "razor": {
-      "name": "Razor",
-      "extensions": ["cshtml"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "renpy": {
-      "name": "Ren'Py",
-      "extensions": ["rpy"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "razor": { "name": "Razor", "globs": ["*.cshtml"], "interpreters": [] },
+    "renpy": { "name": "Ren'Py", "globs": ["*.rpy"], "interpreters": [] },
     "restructuredtext": {
       "name": "ReStructuredText",
-      "extensions": ["rst"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.rst"],
+      "interpreters": []
     },
     "ron": {
       "name": "Rusty Object Notation",
-      "extensions": ["ron"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ron"],
+      "interpreters": []
     },
     "rpmspecfile": {
       "name": "RPM Specfile",
-      "extensions": ["spec"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.spec"],
+      "interpreters": []
     },
-    "ruby": {
-      "name": "Ruby",
-      "extensions": ["rb"],
-      "filenames": [],
-      "interpreters": ["ruby"],
-      "shebangs": []
-    },
+    "ruby": { "name": "Ruby", "globs": ["*.rb"], "interpreters": ["ruby"] },
     "rubyhtml": {
       "name": "Ruby HTML",
-      "extensions": ["rhtml"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.rhtml"],
+      "interpreters": []
     },
-    "rust": {
-      "name": "Rust",
-      "extensions": ["rs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "rust": { "name": "Rust", "globs": ["*.rs"], "interpreters": [] },
     "sass": {
       "name": "Sass",
-      "extensions": ["sass", "scss"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.sass", "*.scss"],
+      "interpreters": []
     },
     "scala": {
       "name": "Scala",
-      "extensions": ["sc", "scala"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.sc", "*.scala"],
+      "interpreters": []
     },
     "scheme": {
       "name": "Scheme",
-      "extensions": ["scm", "ss"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.scm", "*.ss"],
+      "interpreters": []
     },
     "scons": {
       "name": "Scons",
-      "extensions": [],
-      "filenames": ["sconstruct", "sconscript"],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["sconscript", "sconstruct"],
+      "interpreters": []
     },
-    "sh": {
-      "name": "Shell",
-      "extensions": ["sh"],
-      "filenames": [],
-      "interpreters": ["sh"],
-      "shebangs": ["#!/bin/sh"]
-    },
+    "sh": { "name": "Shell", "globs": ["*.sh"], "interpreters": ["sh"] },
     "sml": {
       "name": "Standard ML (SML)",
-      "extensions": ["sml"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.sml"],
+      "interpreters": []
     },
-    "solidity": {
-      "name": "Solidity",
-      "extensions": ["sol"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "specmane": {
-      "name": "Specman e",
-      "extensions": ["e"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "solidity": { "name": "Solidity", "globs": ["*.sol"], "interpreters": [] },
+    "specmane": { "name": "Specman e", "globs": ["*.e"], "interpreters": [] },
     "spice": {
       "name": "Spice Netlist",
-      "extensions": ["ckt"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ckt"],
+      "interpreters": []
     },
-    "sql": {
-      "name": "SQL",
-      "extensions": ["sql"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "sql": { "name": "SQL", "globs": ["*.sql"], "interpreters": [] },
     "srecode": {
       "name": "SRecode Template",
-      "extensions": ["srt"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.srt"],
+      "interpreters": []
     },
     "stratego": {
       "name": "Stratego/XT",
-      "extensions": ["str"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.str"],
+      "interpreters": []
     },
-    "svg": {
-      "name": "SVG",
-      "extensions": ["svg"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "swift": {
-      "name": "Swift",
-      "extensions": ["swift"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "swig": {
-      "name": "SWIG",
-      "extensions": ["swg", "i"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "svg": { "name": "SVG", "globs": ["*.svg"], "interpreters": [] },
+    "swift": { "name": "Swift", "globs": ["*.swift"], "interpreters": [] },
+    "swig": { "name": "SWIG", "globs": ["*.swg", "*.i"], "interpreters": [] },
     "systemverilog": {
       "name": "SystemVerilog",
-      "extensions": ["sv", "svh"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.sv", "*.svh"],
+      "interpreters": []
     },
-    "tcl": {
-      "name": "TCL",
-      "extensions": ["tcl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "tex": {
-      "name": "TeX",
-      "extensions": ["tex", "sty"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "thrift": {
-      "name": "Thrift",
-      "extensions": ["thrift"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "toml": {
-      "name": "TOML",
-      "extensions": ["toml"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "twig": {
-      "name": "Twig",
-      "extensions": ["twig"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "tcl": { "name": "TCL", "globs": ["*.tcl"], "interpreters": [] },
+    "tex": { "name": "TeX", "globs": ["*.tex", "*.sty"], "interpreters": [] },
+    "thrift": { "name": "Thrift", "globs": ["*.thrift"], "interpreters": [] },
+    "toml": { "name": "TOML", "globs": ["*.toml"], "interpreters": [] },
+    "twig": { "name": "Twig", "globs": ["*.twig"], "interpreters": [] },
     "typescript": {
       "name": "TypeScript",
-      "extensions": ["ts", "tsx"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ts", "*.tsx"],
+      "interpreters": []
     },
     "unrealdevelopermarkdown": {
       "name": "Unreal Markdown",
-      "extensions": ["udn"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.udn"],
+      "interpreters": []
     },
     "unrealplugin": {
       "name": "Unreal Plugin",
-      "extensions": ["uplugin"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.uplugin"],
+      "interpreters": []
     },
     "unrealproject": {
       "name": "Unreal Project",
-      "extensions": ["uproject"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.uproject"],
+      "interpreters": []
     },
     "unrealscript": {
       "name": "Unreal Script",
-      "extensions": ["uc", "uci", "upkg"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.uc", "*.uci", "*.upkg"],
+      "interpreters": []
     },
     "unrealshader": {
       "name": "Unreal Shader",
-      "extensions": ["usf"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.usf"],
+      "interpreters": []
     },
     "unrealshaderheader": {
       "name": "Unreal Shader Header",
-      "extensions": ["ush"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ush"],
+      "interpreters": []
     },
     "urweb": {
       "name": "Ur/Web",
-      "extensions": ["ur", "urs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.ur", "*.urs"],
+      "interpreters": []
     },
     "urwebproject": {
       "name": "Ur/Web Project",
-      "extensions": ["urp"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.urp"],
+      "interpreters": []
     },
-    "vala": {
-      "name": "Vala",
-      "extensions": ["vala"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "vala": { "name": "Vala", "globs": ["*.vala"], "interpreters": [] },
     "vb6": {
       "name": "VB6",
-      "extensions": ["frm", "bas", "cls"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.frm", "*.bas", "*.cls"],
+      "interpreters": []
     },
-    "vbscript": {
-      "name": "VBScript",
-      "extensions": ["vbs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "vbscript": { "name": "VBScript", "globs": ["*.vbs"], "interpreters": [] },
     "velocity": {
       "name": "Apache Velocity",
-      "extensions": ["vm"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.vm"],
+      "interpreters": []
     },
     "verilog": {
       "name": "Verilog",
-      "extensions": ["vg", "vh"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.vg", "*.vh"],
+      "interpreters": []
     },
     "verilogargsfile": {
       "name": "Verilog Args File",
-      "extensions": ["irunargs", "xrunargs"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.irunargs", "*.xrunargs"],
+      "interpreters": []
     },
     "vhdl": {
       "name": "VHDL",
-      "extensions": ["vhd", "vhdl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.vhd", "*.vhdl"],
+      "interpreters": []
     },
     "vimscript": {
       "name": "Vim Script",
-      "extensions": ["vim"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.vim"],
+      "interpreters": []
     },
     "visualbasic": {
       "name": "Visual Basic",
-      "extensions": ["vb"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.vb"],
+      "interpreters": []
     },
     "visualstudioproject": {
       "name": "Visual Studio Project",
-      "extensions": ["vcproj", "vcxproj"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.vcproj", "*.vcxproj"],
+      "interpreters": []
     },
     "visualstudiosolution": {
       "name": "Visual Studio Solution",
-      "extensions": ["sln"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.sln"],
+      "interpreters": []
     },
-    "vue": {
-      "name": "Vue",
-      "extensions": ["vue"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "vue": { "name": "Vue", "globs": ["*.vue"], "interpreters": [] },
     "webassembly": {
       "name": "WebAssembly",
-      "extensions": ["wat", "wast"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.wat", "*.wast"],
+      "interpreters": []
     },
     "wolfram": {
       "name": "Wolfram",
-      "extensions": ["nb", "wl"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.nb", "*.wl"],
+      "interpreters": []
     },
-    "xaml": {
-      "name": "XAML",
-      "extensions": ["xaml"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "xaml": { "name": "XAML", "globs": ["*.xaml"], "interpreters": [] },
     "xcodeconfig": {
       "name": "Xcode Config",
-      "extensions": ["xcconfig"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.xcconfig"],
+      "interpreters": []
     },
-    "xml": {
-      "name": "XML",
-      "extensions": ["xml"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "xsl": {
-      "name": "XSL",
-      "extensions": ["xsl", "xslt"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "xtend": {
-      "name": "Xtend",
-      "extensions": ["xtend"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
+    "xml": { "name": "XML", "globs": ["*.xml"], "interpreters": [] },
+    "xsl": { "name": "XSL", "globs": ["*.xsl", "*.xslt"], "interpreters": [] },
+    "xtend": { "name": "Xtend", "globs": ["*.xtend"], "interpreters": [] },
     "yaml": {
       "name": "YAML",
-      "extensions": ["yaml", "yml"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
+      "globs": ["*.yaml", "*.yml"],
+      "interpreters": []
     },
-    "zig": {
-      "name": "Zig",
-      "extensions": ["zig"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": []
-    },
-    "zsh": {
-      "name": "Zsh",
-      "extensions": ["zsh"],
-      "filenames": [],
-      "interpreters": [],
-      "shebangs": ["#!/bin/zsh"]
-    }
+    "zig": { "name": "Zig", "globs": ["*.zig"], "interpreters": [] },
+    "zsh": { "name": "Zsh", "globs": ["*.zsh"], "interpreters": ["zsh"] }
   }
 }
 
