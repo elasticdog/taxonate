@@ -26,10 +26,7 @@ languages :: [Key=string]: Language & {
 // Input
 
 languages :: {
-	Abap: {
-		name: "ABAP"
-		globs: ["*.abap"]
-	}
+	ABAP: globs: ["*.abap"]
 	ActionScript: globs: ["*.as"]
 	Ada: globs: ["*.ada", "*.adb", "*.ads", "*.pad"]
 	Agda: globs: ["*.agda"]
@@ -43,10 +40,7 @@ languages :: {
 		name: "ASN.1"
 		globs: ["*.asn1"]
 	}
-	Asp: {
-		name: "ASP"
-		globs: ["*.asa", "*.asp"]
-	}
+	ASP: globs: ["*.asa", "*.asp"]
 	AspNet: {
 		name: "ASP.NET"
 		globs: ["*.asax", "*.ascx", "*.asmx", "*.aspx", "*.master", "*.sitemap", "*.webinfo"]
@@ -59,8 +53,7 @@ languages :: {
 	Autoconf: globs: ["*.in"]
 	AutoHotKey: globs: ["*.ahk"]
 	Automake: globs: ["*.am"]
-	Bash: {
-		name: "BASH"
+	BASH: {
 		globs: ["*.bash"]
 		interpreters: ["bash"]
 	}
@@ -77,10 +70,8 @@ languages :: {
 	Clojure: globs: ["*.clj"]
 	ClojureC: globs: ["*.cljc"]
 	ClojureScript: globs: ["*.cljs"]
-	CMake: {
-		globs: ["*.cmake", "cmakelists.txt"]
-	}
-	Cobol: {
+	CMake: globs: ["*.cmake", "cmakelists.txt"]
+	COBOL: {
 		name: "COBOL"
 		globs: ["*.cob", "*.cbl", "*.ccp", "*.cobol", "*.cpy"]
 	}
@@ -110,14 +101,8 @@ languages :: {
 		globs: ["*.csh"]
 		interpreters: ["csh"]
 	}
-	Css: {
-		name: "CSS"
-		globs: ["*.css"]
-	}
-	Cue: {
-		name: "CUE"
-		globs: ["*.cue"]
-	}
+	CSS: globs: ["*.css"]
+	CUE: globs: ["*.cue"]
 	D: globs: ["*.d"]
 	Dart: globs: ["*.dart"]
 	DeviceTree: {
@@ -125,9 +110,7 @@ languages :: {
 		globs: ["*.dts", "*.dtsi"]
 	}
 	Dhall: globs: ["*.dhall"]
-	Dockerfile: {
-		globs: ["*.dockerfile", "*.dockerignore", "dockerfile"]
-	}
+	Dockerfile: globs: ["*.dockerfile", "*.dockerignore", "dockerfile"]
 	DotNetResource: {
 		name: ".NET Resource"
 		globs: ["*.resx"]
@@ -157,10 +140,7 @@ languages :: {
 	}
 	Emojicode: globs: ["*.emojic", "🍇"]
 	Erlang: globs: ["*.erl", "*.hrl"]
-	FEN: {
-		name: "FEN"
-		globs: ["*.fen"]
-	}
+	FEN: globs: ["*.fen"]
 	Fish: {
 		globs: ["*.fish"]
 		interpreters: ["fish"]
@@ -183,7 +163,7 @@ languages :: {
 		name: "F#"
 		globs: ["*.fs", "*.fsi", "*.fsx", "*.fsscript"]
 	}
-	Fstar: {
+	FStar: {
 		name: "F*"
 		globs: ["*.fst"]
 	}
@@ -191,70 +171,37 @@ languages :: {
 		name: "GDB Script"
 		globs: ["*.gdb"]
 	}
-	GdScript: {
-		name: "GDScript"
-		globs: ["*.gd"]
-	}
+	GDScript: globs: ["*.gd"]
 	Gherkin: {
 		name: "Gherkin (Cucumber)"
 		globs: ["*.feature"]
 	}
-	Glsl: {
-		name: "GLSL"
-		globs: ["*.vert", "*.tesc", "*.tese", "*.geom", "*.frag", "*.comp", "*.glsl"]
-	}
+	GLSL: globs: ["*.vert", "*.tesc", "*.tese", "*.geom", "*.frag", "*.comp", "*.glsl"]
 	Go: globs: ["*.go"]
-	Graphql: {
-		name: "GraphQL"
-		globs: ["*.gql", "*.graphql"]
-	}
+	GraphQL: globs: ["*.gql", "*.graphql"]
 	Groovy: globs: ["*.groovy", "*.grt", "*.gtpl", "*.gvy"]
 	Hamlet: globs: ["*.hamlet"]
 	Handlebars: globs: ["*.hbs", "*.handlebars"]
 	Happy: globs: ["*.y", "*.ly"]
 	Haskell: globs: ["*.hs"]
 	Haxe: globs: ["*.hx"]
-	Hcl: {
-		name: "HCL"
-		globs: ["*.hcl", "*.tf", "*.tfvars"]
-	}
-	Hex: {
-		name: "HEX"
-		globs: ["*.hex"]
-	}
-	Hlsl: {
-		name: "HLSL"
-		globs: ["*.hlsl"]
-	}
+	HCL: globs: ["*.hcl", "*.tf", "*.tfvars"]
+	HEX: globs: ["*.hex"]
+	HLSL: globs: ["*.hlsl"]
 	HolyC: globs: ["*.HC", "*.hc"]
-	Html: {
-		name: "HTML"
-		globs: ["*.html", "*.htm"]
-	}
+	HTML: globs: ["*.html", "*.htm"]
 	Idris: globs: ["*.idr", "*.lidr"]
-	Ini: {
-		name: "INI"
-		globs: ["*.ini"]
-	}
+	INI: globs: ["*.ini"]
 	IntelHex: {
 		name: "Intel HEX"
 		globs: ["*.ihex"]
 	}
 	Isabelle: globs: ["*.thy"]
-	Jai: {
-		name: "JAI"
-		globs: ["*.jai"]
-	}
+	JAI: globs: ["*.jai"]
 	Java: globs: ["*.java"]
 	JavaScript: globs: ["*.js", "*.mjs"]
-	Json: {
-		name: "JSON"
-		globs: ["*.json"]
-	}
-	Jsx: {
-		name: "JSX"
-		globs: ["*.jsx"]
-	}
+	JSON: globs: ["*.json"]
+	JSX: globs: ["*.jsx"]
 	Julia: globs: ["*.jl"]
 	Julius: globs: ["*.julius"]
 	KakouneScript: {
@@ -263,27 +210,19 @@ languages :: {
 	}
 	Kotlin: globs: ["*.kt", "*.kts"]
 	Lean: globs: ["*.lean", "*.hlean"]
-	Less: {
-		name: "LESS"
-		globs: ["*.less"]
-	}
+	LESS: globs: ["*.less"]
 	LinkerScript: {
 		name: "LD Script"
 		globs: ["*.lds"]
 	}
-	Liquid: {
-		name: "Liquid"
-		globs: ["*.liquid"]
-	}
+	Liquid: globs: ["*.liquid"]
 	Lisp: globs: ["*.lisp", "*.lsp"]
 	LLVM: globs: ["*.ll"]
 	Logtalk: globs: ["*.lgt", "*.logtalk"]
 	Lua: globs: ["*.lua"]
 	Lucius: globs: ["*.lucius"]
 	Madlang: globs: ["*.mad"]
-	Makefile: {
-		globs: ["*.makefile", "*.mak", "*.mk", "makefile"]
-	}
+	Makefile: globs: ["*.makefile", "*.mak", "*.mk", "makefile"]
 	Markdown: globs: ["*.md", "*.markdown"]
 	Meson: globs: ["meson.build", "meson_options.txt"]
 	Mint: globs: ["*.mint"]
@@ -292,10 +231,7 @@ languages :: {
 		globs: ["*.def"]
 	}
 	MoonScript: globs: ["*.moon"]
-	MsBuild: {
-		name: "MSBuild"
-		globs: ["*.csproj", "*.vbproj", "*.fsproj", "*.props", "*.targets"]
-	}
+	MSBuild: globs: ["*.csproj", "*.vbproj", "*.fsproj", "*.props", "*.targets"]
 	Mustache: globs: ["*.mustache"]
 	Nim: globs: ["*.nim"]
 	Nix: globs: ["*.nix"]
@@ -323,16 +259,10 @@ languages :: {
 	}
 	Perl6: globs: ["*.pl6", "*.pm6"]
 	Pest: globs: ["*.pest"]
-	Php: {
-		name: "PHP"
-		globs: ["*.php"]
-	}
+	PHP: globs: ["*.php"]
 	Polly: globs: ["*.polly"]
 	Pony: globs: ["*.pony"]
-	PostCss: {
-		name: "PostCSS"
-		globs: ["*.pcss", "*.sss"]
-	}
+	PostCSS: globs: ["*.pcss", "*.sss"]
 	PowerShell: globs: ["*.ps1", "*.psm1", "*.psd1", "*.ps1xml", "*.cdxml", "*.pssc", "*.psc1"]
 	Processing: globs: ["*.pde"]
 	Prolog: globs: ["*.p", "*.pro"]
@@ -349,19 +279,11 @@ languages :: {
 		globs: ["*.py", "*.pyw"]
 		interpreters: ["python", "python2", "python3"]
 	}
-	Qcl: {
-		name: "QCL"
-		globs: ["*.qcl"]
-	}
-	Qml: {
-		name: "QML"
-		globs: ["*.qml"]
-	}
+	QCL: globs: ["*.qcl"]
+	QML: globs: ["*.qml"]
 	R: globs: ["*.r"]
 	Racket: globs: ["*.rkt"]
-	Rakefile: {
-		globs: ["*.rake", "rakefile"]
-	}
+	Rakefile: globs: ["*.rake", "rakefile"]
 	Razor: globs: ["*.cshtml"]
 	Renpy: {
 		name: "Ren'Py"
@@ -380,7 +302,7 @@ languages :: {
 		globs: ["*.rb"]
 		interpreters: ["ruby"]
 	}
-	RubyHtml: {
+	RubyHTML: {
 		name: "Ruby HTML"
 		globs: ["*.rhtml"]
 	}
@@ -394,14 +316,11 @@ languages :: {
 		globs: ["*.sh"]
 		interpreters: ["sh"]
 	}
-	Sml: {
-		name: "Standard ML (SML)"
+	SML: {
+		name: "Standard ML"
 		globs: ["*.sml"]
 	}
-	Solidity: {
-		name: "Solidity"
-		globs: ["*.sol"]
-	}
+	Solidity: globs: ["*.sol"]
 	SpecmanE: {
 		name: "Specman e"
 		globs: ["*.e"]
@@ -410,7 +329,7 @@ languages :: {
 		name: "Spice Netlist"
 		globs: ["*.ckt"]
 	}
-	Sql: {
+	SQL: {
 		name: "SQL"
 		globs: ["*.sql"]
 	}
@@ -422,37 +341,19 @@ languages :: {
 		name: "Stratego/XT"
 		globs: ["*.str"]
 	}
-	Svg: {
-		name: "SVG"
-		globs: ["*.svg"]
-	}
+	SVG: globs: ["*.svg"]
 	Swift: globs: ["*.swift"]
-	Swig: {
-		name: "SWIG"
-		globs: ["*.swg", "*.i"]
-	}
+	SWIG: globs: ["*.swg", "*.i"]
 	SystemVerilog: globs: ["*.sv", "*.svh"]
-	Tcl: {
-		name: "TCL"
-		globs: ["*.tcl"]
-	}
-	Tex: {
-		name: "TeX"
-		globs: ["*.tex", "*.sty"]
-	}
+	TCL: globs: ["*.tcl"]
+	TeX: globs: ["*.tex", "*.sty"]
 	Text: {
 		name: "Plain Text"
 		globs: ["*.text", "*.txt"]
 	}
 	Thrift: globs: ["*.thrift"]
-	Toml: {
-		name: "TOML"
-		globs: ["*.toml"]
-	}
-	Twig: {
-		name: "Twig"
-		globs: ["*.twig"]
-	}
+	TOML: globs: ["*.toml"]
+	Twig: globs: ["*.twig"]
 	TypeScript: globs: ["*.ts", "*.tsx"]
 	UnrealDeveloperMarkdown: {
 		name: "Unreal Markdown"
@@ -487,14 +388,8 @@ languages :: {
 		globs: ["*.urp"]
 	}
 	Vala: globs: ["*.vala"]
-	VB6: {
-		name: "VB6"
-		globs: ["*.frm", "*.bas", "*.cls"]
-	}
-	VBScript: {
-		name: "VBScript"
-		globs: ["*.vbs"]
-	}
+	VB6: globs: ["*.frm", "*.bas", "*.cls"]
+	VBScript: globs: ["*.vbs"]
 	Velocity: {
 		name: "Apache Velocity"
 		globs: ["*.vm"]
@@ -504,10 +399,7 @@ languages :: {
 		name: "Verilog Args File"
 		globs: ["*.irunargs", "*.xrunargs"]
 	}
-	Vhdl: {
-		name: "VHDL"
-		globs: ["*.vhd", "*.vhdl"]
-	}
+	VHDL: globs: ["*.vhd", "*.vhdl"]
 	VimScript: {
 		name: "Vim Script"
 		globs: ["*.vim"]
@@ -524,33 +416,18 @@ languages :: {
 		name: "Visual Studio Solution"
 		globs: ["*.sln"]
 	}
-	Vue: {
-		name: "Vue"
-		globs: ["*.vue"]
-	}
+	Vue: globs: ["*.vue"]
 	WebAssembly: globs: ["*.wat", "*.wast"]
 	Wolfram: globs: ["*.nb", "*.wl"]
-	Xaml: {
-		name: "XAML"
-		globs: ["*.xaml"]
-	}
+	XAML: globs: ["*.xaml"]
 	XcodeConfig: {
 		name: "Xcode Config"
 		globs: ["*.xcconfig"]
 	}
-	Xml: {
-		name: "XML"
-		globs: ["*.xml"]
-	}
-	XSL: {
-		name: "XSL"
-		globs: ["*.xsl", "*.xslt"]
-	}
+	XML: globs: ["*.xml"]
+	XSL: globs: ["*.xsl", "*.xslt"]
 	Xtend: globs: ["*.xtend"]
-	Yaml: {
-		name: "YAML"
-		globs: ["*.yaml", "*.yml"]
-	}
+	YAML: globs: ["*.yaml", "*.yml"]
 	Zig: globs: ["*.zig"]
 	Zsh: {
 		globs: ["*.zsh"]

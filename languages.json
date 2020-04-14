@@ -517,11 +517,7 @@
       "interpreters": []
     },
     "sh": { "name": "Shell", "globs": ["*.sh"], "interpreters": ["sh"] },
-    "sml": {
-      "name": "Standard ML (SML)",
-      "globs": ["*.sml"],
-      "interpreters": []
-    },
+    "sml": { "name": "Standard ML", "globs": ["*.sml"], "interpreters": [] },
     "solidity": { "name": "Solidity", "globs": ["*.sol"], "interpreters": [] },
     "specmane": { "name": "Specman e", "globs": ["*.e"], "interpreters": [] },
     "spice": {
