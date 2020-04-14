@@ -5,13 +5,21 @@
       "globs": ["*.html", "*.htm"],
       "interpreters": []
     },
-    "less": { "name": "LESS", "globs": ["*.less"], "interpreters": [] },
+    "less": {
+      "name": "LESS",
+      "globs": ["*.less"],
+      "interpreters": []
+    },
     "text": {
       "name": "Plain Text",
       "globs": ["*.text", "*.txt"],
       "interpreters": []
     },
-    "abap": { "name": "ABAP", "globs": ["*.abap"], "interpreters": [] },
+    "abap": {
+      "name": "ABAP",
+      "globs": ["*.abap"],
+      "interpreters": []
+    },
     "actionscript": {
       "name": "ActionScript",
       "globs": ["*.as"],
@@ -22,8 +30,16 @@
       "globs": ["*.ada", "*.adb", "*.ads", "*.pad"],
       "interpreters": []
     },
-    "agda": { "name": "Agda", "globs": ["*.agda"], "interpreters": [] },
-    "alex": { "name": "Alex", "globs": ["*.x"], "interpreters": [] },
+    "agda": {
+      "name": "Agda",
+      "globs": ["*.agda"],
+      "interpreters": []
+    },
+    "alex": {
+      "name": "Alex",
+      "globs": ["*.x"],
+      "interpreters": []
+    },
     "arduino": {
       "name": "Arduino C++",
       "globs": ["*.ino"],
@@ -34,8 +50,16 @@
       "globs": ["*.adoc", "*.asc", "*.asciidoc"],
       "interpreters": []
     },
-    "asn1": { "name": "ASN.1", "globs": ["*.asn1"], "interpreters": [] },
-    "asp": { "name": "ASP", "globs": ["*.asa", "*.asp"], "interpreters": [] },
+    "asn1": {
+      "name": "ASN.1",
+      "globs": ["*.asn1"],
+      "interpreters": []
+    },
+    "asp": {
+      "name": "ASP",
+      "globs": ["*.asa", "*.asp"],
+      "interpreters": []
+    },
     "aspnet": {
       "name": "ASP.NET",
       "globs": [
@@ -49,20 +73,36 @@
       ],
       "interpreters": []
     },
-    "assembly": { "name": "Assembly", "globs": ["*.asm"], "interpreters": [] },
+    "assembly": {
+      "name": "Assembly",
+      "globs": ["*.asm"],
+      "interpreters": []
+    },
     "assemblygas": {
       "name": "GNU Style Assembly",
       "globs": ["*.s"],
       "interpreters": []
     },
-    "autoconf": { "name": "Autoconf", "globs": ["*.in"], "interpreters": [] },
+    "autoconf": {
+      "name": "Autoconf",
+      "globs": ["*.in"],
+      "interpreters": []
+    },
     "autohotkey": {
       "name": "AutoHotKey",
       "globs": ["*.ahk"],
       "interpreters": []
     },
-    "automake": { "name": "Automake", "globs": ["*.am"], "interpreters": [] },
-    "bash": { "name": "BASH", "globs": ["*.bash"], "interpreters": ["bash"] },
+    "automake": {
+      "name": "Automake",
+      "globs": ["*.am"],
+      "interpreters": []
+    },
+    "bash": {
+      "name": "BASH",
+      "globs": ["*.bash"],
+      "interpreters": ["bash"]
+    },
     "batch": {
       "name": "Batch",
       "globs": ["*.bat", "*.btm", "*.cmd"],
@@ -73,17 +113,41 @@
       "globs": ["*.brs"],
       "interpreters": []
     },
-    "c": { "name": "C", "globs": ["*.c", "*.ec", "*.pgc"], "interpreters": [] },
-    "cabal": { "name": "Cabal", "globs": ["*.cabal"], "interpreters": [] },
+    "c": {
+      "name": "C",
+      "globs": ["*.c", "*.ec", "*.pgc"],
+      "interpreters": []
+    },
+    "cabal": {
+      "name": "Cabal",
+      "globs": ["*.cabal"],
+      "interpreters": []
+    },
     "cassius": {
       "name": "Cassius",
       "globs": ["*.cassius"],
       "interpreters": []
     },
-    "ceylon": { "name": "Ceylon", "globs": ["*.ceylon"], "interpreters": [] },
-    "cheader": { "name": "C Header", "globs": ["*.h"], "interpreters": [] },
-    "clojure": { "name": "Clojure", "globs": ["*.clj"], "interpreters": [] },
-    "clojurec": { "name": "ClojureC", "globs": ["*.cljc"], "interpreters": [] },
+    "ceylon": {
+      "name": "Ceylon",
+      "globs": ["*.ceylon"],
+      "interpreters": []
+    },
+    "cheader": {
+      "name": "C Header",
+      "globs": ["*.h"],
+      "interpreters": []
+    },
+    "clojure": {
+      "name": "Clojure",
+      "globs": ["*.clj"],
+      "interpreters": []
+    },
+    "clojurec": {
+      "name": "ClojureC",
+      "globs": ["*.cljc"],
+      "interpreters": []
+    },
     "clojurescript": {
       "name": "ClojureScript",
       "globs": ["*.cljs"],
@@ -104,7 +168,11 @@
       "globs": ["*.coffee", "*.cjsx"],
       "interpreters": []
     },
-    "cogent": { "name": "Cogent", "globs": ["*.cogent"], "interpreters": [] },
+    "cogent": {
+      "name": "Cogent",
+      "globs": ["*.cogent"],
+      "interpreters": []
+    },
     "coldfusion": {
       "name": "ColdFusion",
       "globs": ["*.cfm"],
@@ -115,7 +183,11 @@
       "globs": ["*.cfc"],
       "interpreters": []
     },
-    "coq": { "name": "Coq", "globs": ["*.v"], "interpreters": [] },
+    "coq": {
+      "name": "Coq",
+      "globs": ["*.v"],
+      "interpreters": []
+    },
     "cpp": {
       "name": "C++",
       "globs": ["*.cc", "*.cpp", "*.cxx", "*.c++", "*.pcc", "*.tpp"],
@@ -126,23 +198,51 @@
       "globs": ["*.hh", "*.hpp", "*.hxx", "*.inl", "*.ipp"],
       "interpreters": []
     },
-    "crystal": { "name": "Crystal", "globs": ["*.cr"], "interpreters": [] },
-    "csharp": { "name": "C#", "globs": ["*.cs"], "interpreters": [] },
+    "crystal": {
+      "name": "Crystal",
+      "globs": ["*.cr"],
+      "interpreters": []
+    },
+    "csharp": {
+      "name": "C#",
+      "globs": ["*.cs"],
+      "interpreters": []
+    },
     "cshell": {
       "name": "C Shell",
       "globs": ["*.csh"],
       "interpreters": ["csh"]
     },
-    "css": { "name": "CSS", "globs": ["*.css"], "interpreters": [] },
-    "cue": { "name": "CUE", "globs": ["*.cue"], "interpreters": [] },
-    "d": { "name": "D", "globs": ["*.d"], "interpreters": [] },
-    "dart": { "name": "Dart", "globs": ["*.dart"], "interpreters": [] },
+    "css": {
+      "name": "CSS",
+      "globs": ["*.css"],
+      "interpreters": []
+    },
+    "cue": {
+      "name": "CUE",
+      "globs": ["*.cue"],
+      "interpreters": []
+    },
+    "d": {
+      "name": "D",
+      "globs": ["*.d"],
+      "interpreters": []
+    },
+    "dart": {
+      "name": "Dart",
+      "globs": ["*.dart"],
+      "interpreters": []
+    },
     "devicetree": {
       "name": "Device Tree",
       "globs": ["*.dts", "*.dtsi"],
       "interpreters": []
     },
-    "dhall": { "name": "Dhall", "globs": ["*.dhall"], "interpreters": [] },
+    "dhall": {
+      "name": "Dhall",
+      "globs": ["*.dhall"],
+      "interpreters": []
+    },
     "dockerfile": {
       "name": "Dockerfile",
       "globs": ["*.dockerfile", "*.dockerignore", "dockerfile"],
@@ -158,15 +258,31 @@
       "globs": ["*.dm", "*.dme"],
       "interpreters": []
     },
-    "dust": { "name": "Dust.js", "globs": ["*.dust"], "interpreters": [] },
-    "edn": { "name": "Edn", "globs": ["*.edn"], "interpreters": [] },
-    "elisp": { "name": "Emacs Lisp", "globs": ["*.el"], "interpreters": [] },
+    "dust": {
+      "name": "Dust.js",
+      "globs": ["*.dust"],
+      "interpreters": []
+    },
+    "edn": {
+      "name": "Edn",
+      "globs": ["*.edn"],
+      "interpreters": []
+    },
+    "elisp": {
+      "name": "Emacs Lisp",
+      "globs": ["*.el"],
+      "interpreters": []
+    },
     "elixir": {
       "name": "Elixir",
       "globs": ["*.ex", "*.exs"],
       "interpreters": []
     },
-    "elm": { "name": "Elm", "globs": ["*.elm"], "interpreters": [] },
+    "elm": {
+      "name": "Elm",
+      "globs": ["*.elm"],
+      "interpreters": []
+    },
     "elvish": {
       "name": "Elvish",
       "globs": ["*.elv"],
@@ -187,8 +303,16 @@
       "globs": ["*.erl", "*.hrl"],
       "interpreters": []
     },
-    "fen": { "name": "FEN", "globs": ["*.fen"], "interpreters": [] },
-    "fish": { "name": "Fish", "globs": ["*.fish"], "interpreters": ["fish"] },
+    "fen": {
+      "name": "FEN",
+      "globs": ["*.fen"],
+      "interpreters": []
+    },
+    "fish": {
+      "name": "Fish",
+      "globs": ["*.fish"],
+      "interpreters": ["fish"]
+    },
     "flatbuffers": {
       "name": "FlatBuffers Schema",
       "globs": ["*.fbs"],
@@ -231,9 +355,21 @@
       "globs": ["*.fs", "*.fsi", "*.fsx", "*.fsscript"],
       "interpreters": []
     },
-    "fstar": { "name": "F*", "globs": ["*.fst"], "interpreters": [] },
-    "gdb": { "name": "GDB Script", "globs": ["*.gdb"], "interpreters": [] },
-    "gdscript": { "name": "GDScript", "globs": ["*.gd"], "interpreters": [] },
+    "fstar": {
+      "name": "F*",
+      "globs": ["*.fst"],
+      "interpreters": []
+    },
+    "gdb": {
+      "name": "GDB Script",
+      "globs": ["*.gdb"],
+      "interpreters": []
+    },
+    "gdscript": {
+      "name": "GDScript",
+      "globs": ["*.gd"],
+      "interpreters": []
+    },
     "gherkin": {
       "name": "Gherkin (Cucumber)",
       "globs": ["*.feature"],
@@ -252,7 +388,11 @@
       ],
       "interpreters": []
     },
-    "go": { "name": "Go", "globs": ["*.go"], "interpreters": [] },
+    "go": {
+      "name": "Go",
+      "globs": ["*.go"],
+      "interpreters": []
+    },
     "graphql": {
       "name": "GraphQL",
       "globs": ["*.gql", "*.graphql"],
@@ -263,46 +403,106 @@
       "globs": ["*.groovy", "*.grt", "*.gtpl", "*.gvy"],
       "interpreters": []
     },
-    "hamlet": { "name": "Hamlet", "globs": ["*.hamlet"], "interpreters": [] },
+    "hamlet": {
+      "name": "Hamlet",
+      "globs": ["*.hamlet"],
+      "interpreters": []
+    },
     "handlebars": {
       "name": "Handlebars",
       "globs": ["*.hbs", "*.handlebars"],
       "interpreters": []
     },
-    "happy": { "name": "Happy", "globs": ["*.y", "*.ly"], "interpreters": [] },
-    "haskell": { "name": "Haskell", "globs": ["*.hs"], "interpreters": [] },
-    "haxe": { "name": "Haxe", "globs": ["*.hx"], "interpreters": [] },
+    "happy": {
+      "name": "Happy",
+      "globs": ["*.y", "*.ly"],
+      "interpreters": []
+    },
+    "haskell": {
+      "name": "Haskell",
+      "globs": ["*.hs"],
+      "interpreters": []
+    },
+    "haxe": {
+      "name": "Haxe",
+      "globs": ["*.hx"],
+      "interpreters": []
+    },
     "hcl": {
       "name": "HCL",
       "globs": ["*.hcl", "*.tf", "*.tfvars"],
       "interpreters": []
     },
-    "hex": { "name": "HEX", "globs": ["*.hex"], "interpreters": [] },
-    "hlsl": { "name": "HLSL", "globs": ["*.hlsl"], "interpreters": [] },
-    "holyc": { "name": "HolyC", "globs": ["*.HC", "*.hc"], "interpreters": [] },
+    "hex": {
+      "name": "HEX",
+      "globs": ["*.hex"],
+      "interpreters": []
+    },
+    "hlsl": {
+      "name": "HLSL",
+      "globs": ["*.hlsl"],
+      "interpreters": []
+    },
+    "holyc": {
+      "name": "HolyC",
+      "globs": ["*.HC", "*.hc"],
+      "interpreters": []
+    },
     "idris": {
       "name": "Idris",
       "globs": ["*.idr", "*.lidr"],
       "interpreters": []
     },
-    "ini": { "name": "INI", "globs": ["*.ini"], "interpreters": [] },
+    "ini": {
+      "name": "INI",
+      "globs": ["*.ini"],
+      "interpreters": []
+    },
     "intelhex": {
       "name": "Intel HEX",
       "globs": ["*.ihex"],
       "interpreters": []
     },
-    "isabelle": { "name": "Isabelle", "globs": ["*.thy"], "interpreters": [] },
-    "jai": { "name": "JAI", "globs": ["*.jai"], "interpreters": [] },
-    "java": { "name": "Java", "globs": ["*.java"], "interpreters": [] },
+    "isabelle": {
+      "name": "Isabelle",
+      "globs": ["*.thy"],
+      "interpreters": []
+    },
+    "jai": {
+      "name": "JAI",
+      "globs": ["*.jai"],
+      "interpreters": []
+    },
+    "java": {
+      "name": "Java",
+      "globs": ["*.java"],
+      "interpreters": []
+    },
     "javascript": {
       "name": "JavaScript",
       "globs": ["*.js", "*.mjs"],
       "interpreters": []
     },
-    "json": { "name": "JSON", "globs": ["*.json"], "interpreters": [] },
-    "jsx": { "name": "JSX", "globs": ["*.jsx"], "interpreters": [] },
-    "julia": { "name": "Julia", "globs": ["*.jl"], "interpreters": [] },
-    "julius": { "name": "Julius", "globs": ["*.julius"], "interpreters": [] },
+    "json": {
+      "name": "JSON",
+      "globs": ["*.json"],
+      "interpreters": []
+    },
+    "jsx": {
+      "name": "JSX",
+      "globs": ["*.jsx"],
+      "interpreters": []
+    },
+    "julia": {
+      "name": "Julia",
+      "globs": ["*.jl"],
+      "interpreters": []
+    },
+    "julius": {
+      "name": "Julius",
+      "globs": ["*.julius"],
+      "interpreters": []
+    },
     "kakounescript": {
       "name": "Kakoune script",
       "globs": ["*.kak"],
@@ -323,21 +523,41 @@
       "globs": ["*.lds"],
       "interpreters": []
     },
-    "liquid": { "name": "Liquid", "globs": ["*.liquid"], "interpreters": [] },
+    "liquid": {
+      "name": "Liquid",
+      "globs": ["*.liquid"],
+      "interpreters": []
+    },
     "lisp": {
       "name": "Lisp",
       "globs": ["*.lisp", "*.lsp"],
       "interpreters": []
     },
-    "llvm": { "name": "LLVM", "globs": ["*.ll"], "interpreters": [] },
+    "llvm": {
+      "name": "LLVM",
+      "globs": ["*.ll"],
+      "interpreters": []
+    },
     "logtalk": {
       "name": "Logtalk",
       "globs": ["*.lgt", "*.logtalk"],
       "interpreters": []
     },
-    "lua": { "name": "Lua", "globs": ["*.lua"], "interpreters": [] },
-    "lucius": { "name": "Lucius", "globs": ["*.lucius"], "interpreters": [] },
-    "madlang": { "name": "Madlang", "globs": ["*.mad"], "interpreters": [] },
+    "lua": {
+      "name": "Lua",
+      "globs": ["*.lua"],
+      "interpreters": []
+    },
+    "lucius": {
+      "name": "Lucius",
+      "globs": ["*.lucius"],
+      "interpreters": []
+    },
+    "madlang": {
+      "name": "Madlang",
+      "globs": ["*.mad"],
+      "interpreters": []
+    },
     "makefile": {
       "name": "Makefile",
       "globs": ["*.makefile", "*.mak", "*.mk", "makefile"],
@@ -353,7 +573,11 @@
       "globs": ["meson.build", "meson_options.txt"],
       "interpreters": []
     },
-    "mint": { "name": "Mint", "globs": ["*.mint"], "interpreters": [] },
+    "mint": {
+      "name": "Mint",
+      "globs": ["*.mint"],
+      "interpreters": []
+    },
     "moduledef": {
       "name": "Module-Definition",
       "globs": ["*.def"],
@@ -374,8 +598,16 @@
       "globs": ["*.mustache"],
       "interpreters": []
     },
-    "nim": { "name": "Nim", "globs": ["*.nim"], "interpreters": [] },
-    "nix": { "name": "Nix", "globs": ["*.nix"], "interpreters": [] },
+    "nim": {
+      "name": "Nim",
+      "globs": ["*.nim"],
+      "interpreters": []
+    },
+    "nix": {
+      "name": "Nix",
+      "globs": ["*.nix"],
+      "interpreters": []
+    },
     "notquiteperl": {
       "name": "Not Quite Perl",
       "globs": ["*.nqp"],
@@ -396,10 +628,26 @@
       "globs": ["*.ml", "*.mli", "*.re", "*.rei"],
       "interpreters": []
     },
-    "odin": { "name": "Odin", "globs": ["*.odin"], "interpreters": [] },
-    "org": { "name": "Org", "globs": ["*.org"], "interpreters": [] },
-    "oz": { "name": "Oz", "globs": ["*.oz"], "interpreters": [] },
-    "pan": { "name": "Pan", "globs": ["*.pan", "*.tpl"], "interpreters": [] },
+    "odin": {
+      "name": "Odin",
+      "globs": ["*.odin"],
+      "interpreters": []
+    },
+    "org": {
+      "name": "Org",
+      "globs": ["*.org"],
+      "interpreters": []
+    },
+    "oz": {
+      "name": "Oz",
+      "globs": ["*.oz"],
+      "interpreters": []
+    },
+    "pan": {
+      "name": "Pan",
+      "globs": ["*.pan", "*.tpl"],
+      "interpreters": []
+    },
     "pascal": {
       "name": "Pascal",
       "globs": ["*.pas", "*.pp"],
@@ -415,10 +663,26 @@
       "globs": ["*.pl6", "*.pm6"],
       "interpreters": []
     },
-    "pest": { "name": "Pest", "globs": ["*.pest"], "interpreters": [] },
-    "php": { "name": "PHP", "globs": ["*.php"], "interpreters": [] },
-    "polly": { "name": "Polly", "globs": ["*.polly"], "interpreters": [] },
-    "pony": { "name": "Pony", "globs": ["*.pony"], "interpreters": [] },
+    "pest": {
+      "name": "Pest",
+      "globs": ["*.pest"],
+      "interpreters": []
+    },
+    "php": {
+      "name": "PHP",
+      "globs": ["*.php"],
+      "interpreters": []
+    },
+    "polly": {
+      "name": "Polly",
+      "globs": ["*.polly"],
+      "interpreters": []
+    },
+    "pony": {
+      "name": "Pony",
+      "globs": ["*.pony"],
+      "interpreters": []
+    },
     "postcss": {
       "name": "PostCSS",
       "globs": ["*.pcss", "*.sss"],
@@ -452,7 +716,11 @@
       "globs": ["*.proto"],
       "interpreters": []
     },
-    "psl": { "name": "PSL Assertion", "globs": ["*.psl"], "interpreters": [] },
+    "psl": {
+      "name": "PSL Assertion",
+      "globs": ["*.psl"],
+      "interpreters": []
+    },
     "purescript": {
       "name": "PureScript",
       "globs": ["*.purs"],
@@ -463,17 +731,41 @@
       "globs": ["*.py", "*.pyw"],
       "interpreters": ["python", "python2", "python3"]
     },
-    "qcl": { "name": "QCL", "globs": ["*.qcl"], "interpreters": [] },
-    "qml": { "name": "QML", "globs": ["*.qml"], "interpreters": [] },
-    "r": { "name": "R", "globs": ["*.r"], "interpreters": [] },
-    "racket": { "name": "Racket", "globs": ["*.rkt"], "interpreters": [] },
+    "qcl": {
+      "name": "QCL",
+      "globs": ["*.qcl"],
+      "interpreters": []
+    },
+    "qml": {
+      "name": "QML",
+      "globs": ["*.qml"],
+      "interpreters": []
+    },
+    "r": {
+      "name": "R",
+      "globs": ["*.r"],
+      "interpreters": []
+    },
+    "racket": {
+      "name": "Racket",
+      "globs": ["*.rkt"],
+      "interpreters": []
+    },
     "rakefile": {
       "name": "Rakefile",
       "globs": ["*.rake", "rakefile"],
       "interpreters": []
     },
-    "razor": { "name": "Razor", "globs": ["*.cshtml"], "interpreters": [] },
-    "renpy": { "name": "Ren'Py", "globs": ["*.rpy"], "interpreters": [] },
+    "razor": {
+      "name": "Razor",
+      "globs": ["*.cshtml"],
+      "interpreters": []
+    },
+    "renpy": {
+      "name": "Ren'Py",
+      "globs": ["*.rpy"],
+      "interpreters": []
+    },
     "restructuredtext": {
       "name": "ReStructuredText",
       "globs": ["*.rst"],
@@ -489,13 +781,21 @@
       "globs": ["*.spec"],
       "interpreters": []
     },
-    "ruby": { "name": "Ruby", "globs": ["*.rb"], "interpreters": ["ruby"] },
+    "ruby": {
+      "name": "Ruby",
+      "globs": ["*.rb"],
+      "interpreters": ["ruby"]
+    },
     "rubyhtml": {
       "name": "Ruby HTML",
       "globs": ["*.rhtml"],
       "interpreters": []
     },
-    "rust": { "name": "Rust", "globs": ["*.rs"], "interpreters": [] },
+    "rust": {
+      "name": "Rust",
+      "globs": ["*.rs"],
+      "interpreters": []
+    },
     "sass": {
       "name": "Sass",
       "globs": ["*.sass", "*.scss"],
@@ -516,16 +816,36 @@
       "globs": ["sconscript", "sconstruct"],
       "interpreters": []
     },
-    "sh": { "name": "Shell", "globs": ["*.sh"], "interpreters": ["sh"] },
-    "sml": { "name": "Standard ML", "globs": ["*.sml"], "interpreters": [] },
-    "solidity": { "name": "Solidity", "globs": ["*.sol"], "interpreters": [] },
-    "specmane": { "name": "Specman e", "globs": ["*.e"], "interpreters": [] },
+    "sh": {
+      "name": "Shell",
+      "globs": ["*.sh"],
+      "interpreters": ["sh"]
+    },
+    "sml": {
+      "name": "Standard ML",
+      "globs": ["*.sml"],
+      "interpreters": []
+    },
+    "solidity": {
+      "name": "Solidity",
+      "globs": ["*.sol"],
+      "interpreters": []
+    },
+    "specmane": {
+      "name": "Specman e",
+      "globs": ["*.e"],
+      "interpreters": []
+    },
     "spice": {
       "name": "Spice Netlist",
       "globs": ["*.ckt"],
       "interpreters": []
     },
-    "sql": { "name": "SQL", "globs": ["*.sql"], "interpreters": [] },
+    "sql": {
+      "name": "SQL",
+      "globs": ["*.sql"],
+      "interpreters": []
+    },
     "srecode": {
       "name": "SRecode Template",
       "globs": ["*.srt"],
@@ -536,19 +856,51 @@
       "globs": ["*.str"],
       "interpreters": []
     },
-    "svg": { "name": "SVG", "globs": ["*.svg"], "interpreters": [] },
-    "swift": { "name": "Swift", "globs": ["*.swift"], "interpreters": [] },
-    "swig": { "name": "SWIG", "globs": ["*.swg", "*.i"], "interpreters": [] },
+    "svg": {
+      "name": "SVG",
+      "globs": ["*.svg"],
+      "interpreters": []
+    },
+    "swift": {
+      "name": "Swift",
+      "globs": ["*.swift"],
+      "interpreters": []
+    },
+    "swig": {
+      "name": "SWIG",
+      "globs": ["*.swg", "*.i"],
+      "interpreters": []
+    },
     "systemverilog": {
       "name": "SystemVerilog",
       "globs": ["*.sv", "*.svh"],
       "interpreters": []
     },
-    "tcl": { "name": "TCL", "globs": ["*.tcl"], "interpreters": [] },
-    "tex": { "name": "TeX", "globs": ["*.tex", "*.sty"], "interpreters": [] },
-    "thrift": { "name": "Thrift", "globs": ["*.thrift"], "interpreters": [] },
-    "toml": { "name": "TOML", "globs": ["*.toml"], "interpreters": [] },
-    "twig": { "name": "Twig", "globs": ["*.twig"], "interpreters": [] },
+    "tcl": {
+      "name": "TCL",
+      "globs": ["*.tcl"],
+      "interpreters": []
+    },
+    "tex": {
+      "name": "TeX",
+      "globs": ["*.tex", "*.sty"],
+      "interpreters": []
+    },
+    "thrift": {
+      "name": "Thrift",
+      "globs": ["*.thrift"],
+      "interpreters": []
+    },
+    "toml": {
+      "name": "TOML",
+      "globs": ["*.toml"],
+      "interpreters": []
+    },
+    "twig": {
+      "name": "Twig",
+      "globs": ["*.twig"],
+      "interpreters": []
+    },
     "typescript": {
       "name": "TypeScript",
       "globs": ["*.ts", "*.tsx"],
@@ -594,13 +946,21 @@
       "globs": ["*.urp"],
       "interpreters": []
     },
-    "vala": { "name": "Vala", "globs": ["*.vala"], "interpreters": [] },
+    "vala": {
+      "name": "Vala",
+      "globs": ["*.vala"],
+      "interpreters": []
+    },
     "vb6": {
       "name": "VB6",
       "globs": ["*.frm", "*.bas", "*.cls"],
       "interpreters": []
     },
-    "vbscript": { "name": "VBScript", "globs": ["*.vbs"], "interpreters": [] },
+    "vbscript": {
+      "name": "VBScript",
+      "globs": ["*.vbs"],
+      "interpreters": []
+    },
     "velocity": {
       "name": "Apache Velocity",
       "globs": ["*.vm"],
@@ -641,7 +1001,11 @@
       "globs": ["*.sln"],
       "interpreters": []
     },
-    "vue": { "name": "Vue", "globs": ["*.vue"], "interpreters": [] },
+    "vue": {
+      "name": "Vue",
+      "globs": ["*.vue"],
+      "interpreters": []
+    },
     "webassembly": {
       "name": "WebAssembly",
       "globs": ["*.wat", "*.wast"],
@@ -652,22 +1016,46 @@
       "globs": ["*.nb", "*.wl"],
       "interpreters": []
     },
-    "xaml": { "name": "XAML", "globs": ["*.xaml"], "interpreters": [] },
+    "xaml": {
+      "name": "XAML",
+      "globs": ["*.xaml"],
+      "interpreters": []
+    },
     "xcodeconfig": {
       "name": "Xcode Config",
       "globs": ["*.xcconfig"],
       "interpreters": []
     },
-    "xml": { "name": "XML", "globs": ["*.xml"], "interpreters": [] },
-    "xsl": { "name": "XSL", "globs": ["*.xsl", "*.xslt"], "interpreters": [] },
-    "xtend": { "name": "Xtend", "globs": ["*.xtend"], "interpreters": [] },
+    "xml": {
+      "name": "XML",
+      "globs": ["*.xml"],
+      "interpreters": []
+    },
+    "xsl": {
+      "name": "XSL",
+      "globs": ["*.xsl", "*.xslt"],
+      "interpreters": []
+    },
+    "xtend": {
+      "name": "Xtend",
+      "globs": ["*.xtend"],
+      "interpreters": []
+    },
     "yaml": {
       "name": "YAML",
       "globs": ["*.yaml", "*.yml"],
       "interpreters": []
     },
-    "zig": { "name": "Zig", "globs": ["*.zig"], "interpreters": [] },
-    "zsh": { "name": "Zsh", "globs": ["*.zsh"], "interpreters": ["zsh"] }
+    "zig": {
+      "name": "Zig",
+      "globs": ["*.zig"],
+      "interpreters": []
+    },
+    "zsh": {
+      "name": "Zsh",
+      "globs": ["*.zsh"],
+      "interpreters": ["zsh"]
+    }
   }
 }
 

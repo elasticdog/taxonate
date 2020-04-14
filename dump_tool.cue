@@ -9,7 +9,7 @@ import (
 command: dump: {
 	task: prettier: exec.Run & {
 		cmd:    "prettier --parser json"
-		stdin:  json.Marshal(output)
+		stdin:  json.Indent(json.Marshal(output), "", "  ")
 		stdout: string
 	}
 
