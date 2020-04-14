@@ -11,19 +11,20 @@ import (
 
 Language :: {
 	name: string // display name
-
-	// identifying filetype markers
 	extensions: [...string]
 	filenames: [...string]
 	interpreters: [...string]
+
+	// require at least one identifying filetype marker
+	markers :: [extensions, filenames, interpreters]
+	//marker_is_defined: true & or([ len(m) > 0 for m in markers ])
 }
-
-
-// Input
 
 languages :: [Key=string]: Language & {
 	name: *Key | string // name's value defaults to the map key.
 }
+
+// Input
 
 languages :: {
 	Abap: {
