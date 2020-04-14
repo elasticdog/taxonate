@@ -12,13 +12,12 @@ import (
 Language :: {
 	name: string // display name
 
+	// identifying filetype markers
 	extensions: [...string]
 	filenames: [...string]
 	interpreters: [...string]
-	shebangs: [...Shebang]
 }
 
-Shebang :: =~"^#!" // Must start with a shebang.
 
 // Input
 
@@ -64,7 +63,6 @@ languages :: {
 		name: "BASH"
 		extensions: ["bash"]
 		interpreters: ["bash"]
-		shebangs: ["#!/bin/bash"]
 	}
 	Batch: extensions: ["bat", "btm", "cmd"]
 	BrightScript: extensions: ["brs"]
@@ -112,7 +110,6 @@ languages :: {
 		name: "C Shell"
 		extensions: ["csh"]
 		interpreters: ["csh"]
-		shebangs: ["#!/bin/csh"]
 	}
 	Css: {
 		name: "CSS"
@@ -169,7 +166,6 @@ languages :: {
 	Fish: {
 		extensions: ["fish"]
 		interpreters: ["fish"]
-		shebangs: ["#!/bin/fish"]
 	}
 	FlatBuffers: {
 		name: "FlatBuffers Schema"
@@ -326,7 +322,7 @@ languages :: {
 	Pascal: extensions: ["pas", "pp"]
 	Perl: {
 		extensions: ["pl", "pm"]
-		shebangs: ["#!/usr/bin/perl"]
+		interpreters: ["perl"]
 	}
 	Perl6: extensions: ["pl6", "pm6"]
 	Pest: extensions: ["pest"]
@@ -401,7 +397,6 @@ languages :: {
 		name: "Shell"
 		extensions: ["sh"]
 		interpreters: ["sh"]
-		shebangs: ["#!/bin/sh"]
 	}
 	Sml: {
 		name: "Standard ML (SML)"
@@ -563,7 +558,7 @@ languages :: {
 	Zig: extensions: ["zig"]
 	Zsh: {
 		extensions: ["zsh"]
-		shebangs: ["#!/bin/zsh"]
+		interpreters: ["zsh"]
 	}
 }
 
@@ -573,13 +568,11 @@ keys ::         [ strings.ToLower(k) for k, v in languages ]
 extensions ::   list.FlattenN([ v.extensions for k, v in languages ], -1)
 filenames ::    list.FlattenN([ v.filenames for k, v in languages ], -1)
 interpreters :: list.FlattenN([ v.interpreters for k, v in languages ], -1)
-shebangs ::     list.FlattenN([ v.shebangs for k, v in languages ], -1)
 
 all_keys_sorted:         true & list.SortStrings(keys) == keys
 all_extensions_unique:   true & list.UniqueItems(extensions)
 all_filenames_unique:    true & list.UniqueItems(filenames)
 all_interpreters_unique: true & list.UniqueItems(interpreters)
-all_shebangs_unique:     true & list.UniqueItems(shebangs)
 
 // Output
 
