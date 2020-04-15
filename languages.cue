@@ -138,7 +138,7 @@ languages :: {
 		name: "Emacs Dev Env"
 		globs: ["*.ede"]
 	}
-	Emojicode: globs: ["*.emojic", "🍇"]
+	Emojicode: globs: ["*.emojic", "*.🍇"]
 	Erlang: globs: ["*.erl", "*.hrl"]
 	FEN: globs: ["*.fen"]
 	Fish: {

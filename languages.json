@@ -295,7 +295,7 @@
     },
     "emojicode": {
       "name": "Emojicode",
-      "globs": ["*.emojic", "🍇"],
+      "globs": ["*.emojic", "*.🍇"],
       "interpreters": []
     },
     "erlang": {
