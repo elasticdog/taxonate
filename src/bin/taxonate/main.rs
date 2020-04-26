@@ -2,10 +2,10 @@
 
 use std::process;
 
-use taxonate::config::Config;
+mod args;
 
 fn main() {
-    let config = match Config::new() {
+    let config = match args::parse() {
         Ok(cfg) => cfg,
         Err(e) => {
             eprintln!("Config error: {}", e);
