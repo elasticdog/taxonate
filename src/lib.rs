@@ -4,6 +4,7 @@ use std::{collections::HashSet, error::Error, ffi::OsString};
 
 use log::debug;
 
+#[derive(Debug)]
 pub struct Config {
     pub color: String,
     pub debug: String,
@@ -13,14 +14,6 @@ pub struct Config {
 }
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
-    debug!("'color' WHEN: {:?}", &config.color);
-    debug!("'debug' LEVEL: {:?}", &config.debug);
-    debug!(
-        "'language' LANGUAGE: {:?}",
-        &config.language.unwrap_or_default()
-    );
-    debug!("'list': {:?}", &config.list);
-    debug!("'paths': {:?}", &config.paths);
-
+    debug!("'config': {:?}", config);
     Ok(())
 }
