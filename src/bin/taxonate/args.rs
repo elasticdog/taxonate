@@ -2,6 +2,7 @@
 
 use std::{
     collections::HashSet,
+    env,
     ffi::{OsStr, OsString},
     io::{self, BufRead},
 };
@@ -10,10 +11,19 @@ use clap::{crate_authors, crate_name, crate_version, App, AppSettings, Arg};
 use taxonate::Config;
 
 pub fn parse() -> Result<Config, &'static str> {
+    let color = env::var("TAXONATE_COLOR").unwrap_or_else(|_| "auto".to_string());
+    let color_app_setting = match color.as_str() {
+        "always" => AppSettings::ColorAlways,
+        "never" => AppSettings::ColorNever,
+        _ => AppSettings::ColorAuto,
+    };
+
     let matches = App::new(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
         .setting(AppSettings::AllowInvalidUtf8)
+        .setting(AppSettings::ColoredHelp)
+        .setting(color_app_setting)
         .about(
             "Identify and filter files based on their programming language.\n\n\
             Use '--help' instead of '-h' to see a more detailed version of the \
