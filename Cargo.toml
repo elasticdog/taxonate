@@ -9,7 +9,6 @@ description = "Identify and filter files based on their programming language."
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bstr = "0.2.12"
 env_logger = "0.7.1"
 log = "0.4.8"
 

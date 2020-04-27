@@ -1,12 +1,19 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
 
-use clap::{crate_authors, crate_name, crate_version, App, Arg};
+use std::{
+    collections::HashSet,
+    ffi::{OsStr, OsString},
+    io::{self, BufRead},
+};
+
+use clap::{crate_authors, crate_name, crate_version, App, AppSettings, Arg};
 use taxonate::Config;
 
 pub fn parse() -> Result<Config, &'static str> {
     let matches = App::new(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
+        .setting(AppSettings::AllowInvalidUtf8)
         .about(
             "Identify and filter files based on their programming language.\n\n\
             Use '--help' instead of '-h' to see a more detailed version of the \
@@ -63,8 +70,8 @@ pub fn parse() -> Result<Config, &'static str> {
                 .help("File or directory to identify. Use '-' for standard input.")
                 .long_help(
                     "A file or directory to identify. Directories will have \
-                    all files identified recursively. Use a dash ('-') or no \
-                    argument at all to read from standard input.",
+                    all files identified recursively. Use a dash ('-') to \
+                    read from standard input.",
                 )
                 .multiple(true),
         )
@@ -76,10 +83,30 @@ pub fn parse() -> Result<Config, &'static str> {
     let language = matches.value_of("language").map(String::from);
     let list = matches.is_present("list");
 
+    let mut paths: HashSet<OsString> = matches
+        .values_of_os("PATH")
+        .unwrap_or_default()
+        .map(OsString::from)
+        .collect();
+
+    // include paths from STDIN, if explicitly requested
+    if paths.remove(OsStr::new("-")) {
+        let stdin = io::stdin();
+        for line in stdin.lock().lines() {
+            paths.insert(OsString::from(line.unwrap()));
+        }
+    }
+
+    if paths.is_empty() {
+        // default to the current working directory
+        paths.insert(OsString::from("."));
+    }
+
     Ok(Config {
         color,
         debug,
         language,
         list,
+        paths,
     })
 }

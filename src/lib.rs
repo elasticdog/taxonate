@@ -1,11 +1,7 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
 
-use std::{
-    error::Error,
-    io::{self, Write},
-};
+use std::{collections::HashSet, error::Error, ffi::OsString};
 
-use bstr::io::BufReadExt;
 use log::debug;
 
 pub struct Config {
@@ -13,6 +9,7 @@ pub struct Config {
     pub debug: String,
     pub language: Option<String>,
     pub list: bool,
+    pub paths: HashSet<OsString>,
 }
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
@@ -23,18 +20,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
         &config.language.unwrap_or_default()
     );
     debug!("'list': {:?}", &config.list);
-    // debug!(
-    //     "'PATH' values: {:?}",
-    //     matches
-    //         .values_of("PATH")
-    //         .map(|vals| vals.collect::<Vec<_>>())
+    debug!("'paths': {:?}", &config.paths);
 
-    let stdin = io::stdin();
-    let mut stdout = io::BufWriter::new(io::stdout());
-
-    stdin.lock().for_byte_line_with_terminator(|line| {
-        stdout.write_all(line)?;
-        Ok(true)
-    })?;
     Ok(())
 }
