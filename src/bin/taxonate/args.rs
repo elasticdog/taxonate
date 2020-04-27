@@ -3,7 +3,6 @@
 use std::{
     collections::HashSet,
     env,
-    ffi::{OsStr, OsString},
     io::{self, BufRead},
 };
 
@@ -93,23 +92,23 @@ pub fn parse() -> Result<Config, &'static str> {
     let language = matches.value_of("language").map(String::from);
     let list = matches.is_present("list");
 
-    let mut paths: HashSet<OsString> = matches
-        .values_of_os("PATH")
+    let mut paths: HashSet<String> = matches
+        .values_of("PATH")
         .unwrap_or_default()
-        .map(OsString::from)
+        .map(String::from)
         .collect();
 
     // include paths from STDIN, if explicitly requested
-    if paths.remove(OsStr::new("-")) {
+    if paths.remove("-") {
         let stdin = io::stdin();
         for line in stdin.lock().lines() {
-            paths.insert(OsString::from(line.unwrap()));
+            paths.insert(line.unwrap());
         }
     }
 
     if paths.is_empty() {
         // default to the current working directory
-        paths.insert(OsString::from("."));
+        paths.insert(String::from("."));
     }
 
     Ok(Config {
