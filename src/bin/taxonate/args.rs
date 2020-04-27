@@ -11,7 +11,7 @@ use clap::{crate_authors, crate_name, crate_version, App, AppSettings, Arg};
 use taxonate::Config;
 
 pub fn parse() -> Result<Config, &'static str> {
-    let color = env::var("TAXONATE_COLOR").unwrap_or_else(|_| "auto".to_string());
+    let color = env::var("TAXONATE_COLOR").unwrap_or_else(|_| "auto".to_owned());
     let color_app_setting = match color.as_str() {
         "always" => AppSettings::ColorAlways,
         "never" => AppSettings::ColorNever,
@@ -88,8 +88,8 @@ pub fn parse() -> Result<Config, &'static str> {
         .get_matches();
 
     // unwrap is safe when an arg is required or we specify a default
-    let color = matches.value_of("color").unwrap().to_string();
-    let debug = matches.value_of("debug").unwrap().to_string();
+    let color = matches.value_of("color").unwrap().to_owned();
+    let debug = matches.value_of("debug").unwrap().to_owned();
     let language = matches.value_of("language").map(String::from);
     let list = matches.is_present("list");
 
