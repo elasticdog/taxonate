@@ -17,7 +17,7 @@ pub struct Config {
     pub paths: HashSet<String>,
 }
 
-pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
+pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
     debug!("'config': {:?}", config);
 
     {

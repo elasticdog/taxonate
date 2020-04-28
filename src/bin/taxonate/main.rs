@@ -20,7 +20,7 @@ fn main() {
 
     env_logger::init_from_env(env);
 
-    let result = taxonate::run(config);
+    let result = taxonate::run(&config);
 
     match result {
         Ok(()) => {
