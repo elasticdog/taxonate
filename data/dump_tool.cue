@@ -4,12 +4,18 @@ import (
 	"encoding/json"
 	"tool/cli"
 	"tool/exec"
+	"tool/file"
 )
 
 command: dump: {
+	task: write: file.Create & {
+		filename: "languages.json"
+		contents: json.Marshal(output) + "\n"
+	}
+
 	task: prettier: exec.Run & {
-		cmd:    "prettier --parser json"
-		stdin:  json.Indent(json.Marshal(output), "", "  ")
+		cmd:    "prettier --print-width 40 --parser json"
+		stdin:  task.write.contents
 		stdout: string
 	}
 
