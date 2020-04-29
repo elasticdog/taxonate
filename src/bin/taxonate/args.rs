@@ -65,7 +65,7 @@ pub fn parse() -> Result<Config, &'static str> {
                 .env("TAXONATE_LANGUAGE"),
         )
         .arg(
-            Arg::with_name("list")
+            Arg::with_name("list_languages")
                 .help("Lists supported programming languages")
                 .long_help(
                     "Displays a list of supported programming languages for \
@@ -90,7 +90,7 @@ pub fn parse() -> Result<Config, &'static str> {
     let color = matches.value_of("color").unwrap().to_owned();
     let debug = matches.value_of("debug").unwrap().to_owned();
     let language = matches.value_of("language").map(String::from);
-    let list = matches.is_present("list");
+    let list_languages = matches.is_present("list_languages");
 
     let mut paths: HashSet<String> = matches
         .values_of("PATH")
@@ -115,7 +115,7 @@ pub fn parse() -> Result<Config, &'static str> {
         color,
         debug,
         language,
-        list,
+        list_languages,
         paths,
     })
 }

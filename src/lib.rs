@@ -13,7 +13,7 @@ pub struct Config {
     pub color: String,
     pub debug: String,
     pub language: Option<String>,
-    pub list: bool,
+    pub list_languages: bool,
     pub paths: HashSet<String>,
 }
 
