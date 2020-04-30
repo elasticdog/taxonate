@@ -81,5 +81,6 @@ jobs:
       - name: Run cargo clippy
         uses: actions-rs/clippy-check@v1
         with:
+          name: Lint
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --all-targets --all-features --color always -- -D warnings
