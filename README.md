@@ -1,5 +1,7 @@
 # taxonate
 
+![Rust (stable)](<https://github.com/elasticdog/taxonate/workflows/Rust%20(stable)/badge.svg>)
+
 ## License
 
 Licensed under either of
