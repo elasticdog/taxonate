@@ -1,6 +1,6 @@
 # taxonate
 
-![Rust (stable)](<https://github.com/elasticdog/taxonate/workflows/Rust%20(stable)/badge.svg>)
+[![Rust (stable)](<https://github.com/elasticdog/taxonate/workflows/Rust%20(stable)/badge.svg>)](https://github.com/elasticdog/taxonate/actions?query=workflow%3A%22Rust+%28stable%29%22+branch%3Amaster)
 
 ## License
 
