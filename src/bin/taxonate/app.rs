@@ -6,10 +6,11 @@ use std::{
     io::{self, BufRead},
 };
 
-use clap::{crate_authors, crate_name, crate_version, App, AppSettings, Arg};
+use clap::{crate_authors, crate_name, crate_version, App, AppSettings, Arg, ArgMatches};
+
 use taxonate::Config;
 
-pub fn parse() -> Result<Config, &'static str> {
+pub fn build() -> App<'static, 'static> {
     let color = env::var("TAXONATE_COLOR").unwrap_or_else(|_| "auto".to_owned());
     let color_app_setting = match color.as_str() {
         "always" => AppSettings::ColorAlways,
@@ -17,7 +18,7 @@ pub fn parse() -> Result<Config, &'static str> {
         _ => AppSettings::ColorAuto,
     };
 
-    let matches = App::new(crate_name!())
+    App::new(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
         .setting(AppSettings::AllowInvalidUtf8)
@@ -84,13 +85,13 @@ pub fn parse() -> Result<Config, &'static str> {
                 )
                 .multiple(true),
         )
-        .get_matches();
+}
 
+pub fn config_from(matches: ArgMatches) -> Config {
     // unwrap is safe when an arg is required or we specify a default
     let color = matches.value_of("color").unwrap().to_owned();
     let debug = matches.value_of("debug").unwrap().to_owned();
     let language = matches.value_of("language").map(String::from);
-    let list_languages = matches.is_present("list_languages");
 
     let mut paths: HashSet<String> = matches
         .values_of("PATH")
@@ -111,13 +112,10 @@ pub fn parse() -> Result<Config, &'static str> {
         paths.insert(String::from("."));
     }
 
-    let cfg = Config::new()
+    Config::new()
         .color(color)
         .debug(debug)
         .language(language)
-        .list_languages(list_languages)
         .paths_hashset(paths)
-        .build();
-
-    Ok(cfg)
+        .build()
 }

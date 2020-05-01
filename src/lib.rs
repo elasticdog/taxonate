@@ -15,7 +15,6 @@ pub struct Config {
     color: String,
     debug: String,
     language: Option<String>,
-    list_languages: bool,
     paths: HashSet<String>,
 }
 
@@ -25,7 +24,6 @@ impl Config {
             color: "auto".to_owned(),
             debug: "error".to_owned(),
             language: None,
-            list_languages: false,
             paths: HashSet::new(),
         }
     }
@@ -63,17 +61,6 @@ impl Config {
         &self.language
     }
 
-    /// Set the language for filtering output.
-    pub fn list_languages<'a>(&'a mut self, list: bool) -> &'a mut Config {
-        self.list_languages = list;
-        self
-    }
-
-    /// Get the language for filtering output.
-    pub fn get_list_languages(&self) -> bool {
-        self.list_languages
-    }
-
     /// Add a path to scan for language identification.
     pub fn path<'a>(&'a mut self, path: String) -> &'a mut Config {
         self.paths.insert(path);
@@ -105,7 +92,6 @@ impl Config {
             color: this.color,
             debug: this.debug,
             language: this.language,
-            list_languages: this.list_languages,
             paths: this.paths,
         }
     }

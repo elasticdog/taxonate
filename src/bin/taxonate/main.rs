@@ -2,28 +2,29 @@
 
 use std::process;
 
-mod args;
+use log::{debug, error};
+
+use taxonate::languages::LANGUAGES;
+
+mod app;
 
 fn main() {
-    let config = match args::parse() {
-        Ok(cfg) => cfg,
-        Err(e) => {
-            eprintln!("Config error: {}", e);
-            process::exit(1);
-        }
-    };
+    // parse command line arguments
+    let matches = app::build().get_matches();
 
     // initialize logging
     let env = env_logger::Env::default()
-        .filter_or("TAXONATE_DEBUG", config.get_debug())
-        .write_style_or("TAXONATE_COLOR", config.get_color());
+        .filter_or("TAXONATE_DEBUG", matches.value_of("debug").unwrap())
+        .write_style_or("TAXONATE_COLOR", matches.value_of("color").unwrap());
 
     env_logger::init_from_env(env);
 
-    if config.get_list_languages() {
-        taxonate::languages::list();
+    if matches.is_present("list_languages") {
+        list_languages();
         process::exit(0);
     }
+
+    let config = app::config_from(matches);
 
     let result = taxonate::run(&config);
 
@@ -32,8 +33,15 @@ fn main() {
             process::exit(0);
         }
         Err(e) => {
-            eprintln!("Application error: {}", e);
+            error!("Application error: {}", e);
             process::exit(1);
         }
+    }
+}
+
+fn list_languages() {
+    debug!("listing supported programming languages");
+    for (key, lang) in &LANGUAGES.languages {
+        println!("{}: {}", key, lang.name);
     }
 }
