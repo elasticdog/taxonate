@@ -8,7 +8,7 @@ use std::{
 
 use clap::{crate_authors, crate_name, crate_version, App, AppSettings, Arg, ArgMatches};
 
-use taxonate::Config;
+use taxonate::config::{Color, Config, LogLevel};
 
 pub fn build() -> App<'static, 'static> {
     let color = env::var("TAXONATE_COLOR").unwrap_or_else(|_| "auto".to_owned());
@@ -87,10 +87,25 @@ pub fn build() -> App<'static, 'static> {
         )
 }
 
-pub fn config_from(matches: ArgMatches) -> Config {
-    // unwrap is safe when an arg is required or we specify a default
-    let color = matches.value_of("color").unwrap().to_owned();
-    let debug = matches.value_of("debug").unwrap().to_owned();
+pub fn config_from(matches: &ArgMatches) -> Config {
+    // unwrap is safe since we specify a default
+    let color = match matches.value_of("color").unwrap() {
+        "auto" => Color::Auto,
+        "always" => Color::Always,
+        "never" => Color::Never,
+        _ => unreachable!(),
+    };
+
+    // unwrap is safe since we specify a default
+    let log_level = match matches.value_of("debug").unwrap() {
+        "error" => LogLevel::Error,
+        "warning" => LogLevel::Warning,
+        "info" => LogLevel::Info,
+        "debug" => LogLevel::Debug,
+        "trace" => LogLevel::Trace,
+        _ => unreachable!(),
+    };
+
     let language = matches.value_of("language").map(String::from);
 
     let mut paths: HashSet<String> = matches
@@ -114,7 +129,7 @@ pub fn config_from(matches: ArgMatches) -> Config {
 
     Config::new()
         .color(color)
-        .debug(debug)
+        .log_level(log_level)
         .language(language)
         .paths_hashset(paths)
         .build()

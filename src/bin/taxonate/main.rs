@@ -27,7 +27,7 @@ fn main() {
         process::exit(0);
     }
 
-    let config = app::config_from(matches);
+    let config = app::config_from(&matches);
 
     let result = taxonate::run(&config);
 
