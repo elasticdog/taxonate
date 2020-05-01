@@ -29,3 +29,7 @@ features = ["derive"]
 
 [badges]
 maintenance = { status = "actively-developed" }
+
+[profile.release]
+codegen-units = 1
+lto = true
