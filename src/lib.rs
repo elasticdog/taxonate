@@ -8,6 +8,8 @@ use std::{
 
 use log::debug;
 
+pub mod languages;
+
 #[derive(Debug)]
 pub struct Config {
     pub color: String,

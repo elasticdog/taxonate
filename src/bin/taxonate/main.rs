@@ -20,6 +20,11 @@ fn main() {
 
     env_logger::init_from_env(env);
 
+    if config.list_languages {
+        taxonate::languages::list();
+        process::exit(0);
+    }
+
     let result = taxonate::run(&config);
 
     match result {
