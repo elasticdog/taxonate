@@ -15,12 +15,12 @@ fn main() {
 
     // initialize logging
     let env = env_logger::Env::default()
-        .filter_or("TAXONATE_DEBUG", &config.debug)
-        .write_style_or("TAXONATE_COLOR", &config.color);
+        .filter_or("TAXONATE_DEBUG", config.get_debug())
+        .write_style_or("TAXONATE_COLOR", config.get_color());
 
     env_logger::init_from_env(env);
 
-    if config.list_languages {
+    if config.get_list_languages() {
         taxonate::languages::list();
         process::exit(0);
     }

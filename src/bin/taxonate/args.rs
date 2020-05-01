@@ -111,11 +111,13 @@ pub fn parse() -> Result<Config, &'static str> {
         paths.insert(String::from("."));
     }
 
-    Ok(Config {
-        color,
-        debug,
-        language,
-        list_languages,
-        paths,
-    })
+    let cfg = Config::new()
+        .color(color)
+        .debug(debug)
+        .language(language)
+        .list_languages(list_languages)
+        .paths_hashset(paths)
+        .build();
+
+    Ok(cfg)
 }
