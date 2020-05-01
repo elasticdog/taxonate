@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
 
-use std::process;
+use std::{
+    io::{self, Write},
+    process,
+};
 
 use log::{debug, error};
 
@@ -20,7 +23,7 @@ fn main() {
     env_logger::init_from_env(env);
 
     if matches.is_present("list_languages") {
-        list_languages();
+        list_languages().ok();
         process::exit(0);
     }
 
@@ -39,9 +42,16 @@ fn main() {
     }
 }
 
-fn list_languages() {
+fn list_languages() -> io::Result<()> {
     debug!("listing supported programming languages");
+
+    let stdout = io::stdout();
+    let handle = stdout.lock();
+    let mut buffer = io::BufWriter::new(handle);
+
     for (key, lang) in &LANGUAGES.languages {
-        println!("{}: {}", key, lang.name);
+        writeln!(buffer, "{}: {}", key, lang.name)?;
     }
+
+    Ok(())
 }
