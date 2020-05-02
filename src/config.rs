@@ -88,15 +88,7 @@ impl Config {
     }
 
     /// Add multiple paths to scan for language idenfication.
-    pub fn paths<'a>(&'a mut self, paths: &[String]) -> &'a mut Config {
-        for path in paths {
-            self.paths.insert(path.to_owned());
-        }
-        self
-    }
-
-    /// Add multiple paths to scan for language idenfication.
-    pub fn paths_hashset<'a>(&'a mut self, paths: HashSet<String>) -> &'a mut Config {
+    pub fn paths<'a>(&'a mut self, paths: HashSet<String>) -> &'a mut Config {
         self.paths = paths;
         self
     }

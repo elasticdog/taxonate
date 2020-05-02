@@ -131,6 +131,6 @@ pub fn config_from(matches: &ArgMatches) -> Config {
         .color(color)
         .log_level(log_level)
         .language(language)
-        .paths_hashset(paths)
+        .paths(paths)
         .build()
 }
