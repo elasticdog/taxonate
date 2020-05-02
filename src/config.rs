@@ -39,6 +39,7 @@ pub struct Config {
 }
 
 impl Config {
+    #[must_use]
     pub fn new() -> Config {
         Config {
             color: Color::Auto,
@@ -49,51 +50,55 @@ impl Config {
     }
 
     /// Set when to output color.
-    pub fn color<'a>(&'a mut self, when: Color) -> &'a mut Config {
+    pub fn color(&mut self, when: Color) -> &mut Config {
         self.color = when;
         self
     }
 
     /// Get when to output color.
+    #[must_use]
     pub fn get_color(&self) -> &Color {
         &self.color
     }
 
     /// Set the logging level.
-    pub fn log_level<'a>(&'a mut self, level: LogLevel) -> &'a mut Config {
+    pub fn log_level(&mut self, level: LogLevel) -> &mut Config {
         self.log_level = level;
         self
     }
 
     /// Get the logging level.
+    #[must_use]
     pub fn get_log_level(&self) -> &LogLevel {
         &self.log_level
     }
 
     /// Set the language for filtering output.
-    pub fn language<'a>(&'a mut self, lang: Option<String>) -> &'a mut Config {
+    pub fn language(&mut self, lang: Option<String>) -> &mut Config {
         self.language = lang;
         self
     }
 
     /// Get the language for filtering output.
+    #[must_use]
     pub fn get_language(&self) -> &Option<String> {
         &self.language
     }
 
     /// Add a path to scan for language identification.
-    pub fn path<'a>(&'a mut self, path: String) -> &'a mut Config {
+    pub fn path(&mut self, path: String) -> &mut Config {
         self.paths.insert(path);
         self
     }
 
     /// Add multiple paths to scan for language idenfication.
-    pub fn paths<'a>(&'a mut self, paths: HashSet<String>) -> &'a mut Config {
+    pub fn paths(&mut self, paths: HashSet<String>) -> &mut Config {
         self.paths = paths;
         self
     }
 
     /// Get the paths to scan for language identification.
+    #[must_use]
     pub fn get_paths(&self) -> &HashSet<String> {
         &self.paths
     }

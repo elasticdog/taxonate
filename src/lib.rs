@@ -12,6 +12,9 @@ pub mod languages;
 
 use crate::config::Config;
 
+/// # Errors
+///
+/// Will return `Err` if ...TODO...
 pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
     debug!("'config': {:?}", config);
 
