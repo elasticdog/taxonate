@@ -24,8 +24,7 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
         let mut buffer = io::BufWriter::new(handle);
 
         for path in config.paths().iter() {
-            buffer.write_all(path.as_bytes())?;
-            buffer.write_all(b"\n")?;
+            writeln!(buffer, "{}", path.display())?;
         }
     } // end scope to unlock stdout and flush
 

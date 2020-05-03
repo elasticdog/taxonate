@@ -4,6 +4,7 @@ use std::{
     collections::HashSet,
     env,
     io::{self, BufRead},
+    path::{Path, PathBuf},
 };
 
 use clap::{crate_authors, crate_name, crate_version, App, AppSettings, Arg, ArgMatches};
@@ -108,23 +109,23 @@ pub fn config_from(matches: &ArgMatches) -> Config {
 
     let language = matches.value_of("language").map(String::from);
 
-    let mut paths: HashSet<String> = matches
-        .values_of("PATH")
+    let mut paths: HashSet<PathBuf> = matches
+        .values_of_os("PATH")
         .unwrap_or_default()
-        .map(String::from)
+        .map(PathBuf::from)
         .collect();
 
     // include paths from STDIN, if explicitly requested
-    if paths.remove("-") {
+    if paths.remove(Path::new("-")) {
         let stdin = io::stdin();
         for line in stdin.lock().lines() {
-            paths.insert(line.unwrap());
+            paths.insert(PathBuf::from(line.unwrap()));
         }
     }
 
     if paths.is_empty() {
         // default to the current working directory
-        paths.insert(String::from("."));
+        paths.insert(PathBuf::from("."));
     }
 
     Config::new()

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
 
-use std::collections::HashSet;
+use std::{collections::HashSet, path::PathBuf};
 
 #[derive(Debug)]
 pub enum Color {
@@ -35,7 +35,7 @@ pub struct Config {
     color: Color,
     log_level: LogLevel,
     language: Option<String>,
-    paths: HashSet<String>,
+    paths: HashSet<PathBuf>,
 }
 
 impl Config {
@@ -90,20 +90,20 @@ impl Config {
 
     /// Get the paths to scan for language identification.
     #[must_use]
-    pub fn paths(&self) -> &HashSet<String> {
+    pub fn paths(&self) -> &HashSet<PathBuf> {
         &self.paths
     }
 
     /// Add a path to scan for language identification.
     #[must_use]
-    pub fn add_path(mut self, val: String) -> Config {
+    pub fn add_path(mut self, val: PathBuf) -> Config {
         self.paths.insert(val);
         self
     }
 
     /// Add multiple paths to scan for language idenfication.
     #[must_use]
-    pub fn set_paths(mut self, val: HashSet<String>) -> Config {
+    pub fn set_paths(mut self, val: HashSet<PathBuf>) -> Config {
         self.paths = val;
         self
     }
