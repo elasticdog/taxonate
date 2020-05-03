@@ -49,68 +49,62 @@ impl Config {
         }
     }
 
-    /// Set when to output color.
-    pub fn color(&mut self, when: Color) -> &mut Config {
-        self.color = when;
-        self
-    }
-
     /// Get when to output color.
     #[must_use]
-    pub fn get_color(&self) -> &Color {
+    pub fn color(&self) -> &Color {
         &self.color
     }
 
-    /// Set the logging level.
-    pub fn log_level(&mut self, level: LogLevel) -> &mut Config {
-        self.log_level = level;
+    /// Set when to output color.
+    #[must_use]
+    pub fn set_color(mut self, val: Color) -> Config {
+        self.color = val;
         self
     }
 
     /// Get the logging level.
     #[must_use]
-    pub fn get_log_level(&self) -> &LogLevel {
+    pub fn log_level(&self) -> &LogLevel {
         &self.log_level
     }
 
-    /// Set the language for filtering output.
-    pub fn language(&mut self, lang: Option<String>) -> &mut Config {
-        self.language = lang;
+    /// Set the logging level.
+    #[must_use]
+    pub fn set_log_level(mut self, val: LogLevel) -> Config {
+        self.log_level = val;
         self
     }
 
     /// Get the language for filtering output.
     #[must_use]
-    pub fn get_language(&self) -> &Option<String> {
+    pub fn language(&self) -> &Option<String> {
         &self.language
     }
 
-    /// Add a path to scan for language identification.
-    pub fn path(&mut self, path: String) -> &mut Config {
-        self.paths.insert(path);
-        self
-    }
-
-    /// Add multiple paths to scan for language idenfication.
-    pub fn paths(&mut self, paths: HashSet<String>) -> &mut Config {
-        self.paths = paths;
+    /// Set the language for filtering output.
+    #[must_use]
+    pub fn set_language(mut self, val: Option<String>) -> Config {
+        self.language = val;
         self
     }
 
     /// Get the paths to scan for language identification.
     #[must_use]
-    pub fn get_paths(&self) -> &HashSet<String> {
+    pub fn paths(&self) -> &HashSet<String> {
         &self.paths
     }
 
-    // FIXME: Do I need a separate ConfigBuilder type?
-    pub fn build(&mut self) -> Config {
-        let this = std::mem::take(self);
-        Config {
-            color: this.color,
-            log_level: this.log_level,
-            language: this.language,
-            paths: this.paths,
-        }
+    /// Add a path to scan for language identification.
+    #[must_use]
+    pub fn add_path(mut self, val: String) -> Config {
+        self.paths.insert(val);
+        self
+    }
+
+    /// Add multiple paths to scan for language idenfication.
+    #[must_use]
+    pub fn set_paths(mut self, val: HashSet<String>) -> Config {
+        self.paths = val;
+        self
     }
 }

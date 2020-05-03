@@ -128,9 +128,8 @@ pub fn config_from(matches: &ArgMatches) -> Config {
     }
 
     Config::new()
-        .color(color)
-        .log_level(log_level)
-        .language(language)
-        .paths(paths)
-        .build()
+        .set_color(color)
+        .set_log_level(log_level)
+        .set_language(language)
+        .set_paths(paths)
 }

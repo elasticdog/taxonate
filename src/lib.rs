@@ -23,7 +23,7 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
         let handle = stdout.lock();
         let mut buffer = io::BufWriter::new(handle);
 
-        for path in config.get_paths().iter() {
+        for path in config.paths().iter() {
             buffer.write_all(path.as_bytes())?;
             buffer.write_all(b"\n")?;
         }
