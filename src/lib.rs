@@ -2,12 +2,10 @@
 
 use std::{
     error::Error,
-    ffi::OsStr,
     io::{self, Write},
-    path::{Path, PathBuf},
+    path::PathBuf,
 };
 
-use glob::Pattern;
 use log::debug;
 
 pub mod config;
@@ -39,16 +37,6 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
 
 #[must_use]
 pub fn identify(file: &PathBuf) -> Option<String> {
-    // TODO: identify_by_interpreter
-    identify_by_globs(file)
-}
-
-fn identify_by_globs(file: &PathBuf) -> Option<String> {
-    let rust = Pattern::new("*.rs").unwrap();
-
-    if rust.matches_path(file) {
-        Some("Rust".to_owned())
-    } else {
-        None
-    }
+    // TODO: prioritize find_interpreter_match
+    languages::find_glob_match(&file.as_path())
 }
