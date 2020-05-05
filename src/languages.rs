@@ -41,3 +41,70 @@ fn matches_glob(globs: &[String], file: &Path) -> bool {
         .iter()
         .any(|glob| Pattern::new(glob).unwrap().matches_path(file))
 }
+
+#[must_use]
+pub fn parse_shebang(line: &'static str) -> Option<&'static str> {
+    if line.starts_with("#!") {
+        let mut tokens = line.trim_start_matches("#!").split_whitespace();
+        let path = Path::new(tokens.next()?);
+
+        if path.is_absolute() {
+            if path.ends_with("env") {
+                tokens.next()
+            } else {
+                path.file_name().unwrap().to_str()
+            }
+        } else {
+            None
+        }
+    } else {
+        None
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn can_parse_shebang() {
+        assert_eq!(Some("bash"), parse_shebang("#!/bin/bash"));
+    }
+
+    #[test]
+    fn can_parse_shebang_with_whitespace() {
+        assert_eq!(Some("bash"), parse_shebang("#! /bin/bash"));
+    }
+
+    #[test]
+    fn interpreter_arguments_are_ignored() {
+        assert_eq!(Some("bash"), parse_shebang("#!/bin/bash -x"));
+    }
+
+    #[test]
+    fn can_parse_shebang_with_env() {
+        assert_eq!(Some("bash"), parse_shebang("#!/usr/bin/env bash"));
+    }
+
+    #[test]
+    fn shebang_with_env_has_argument() {
+        assert_eq!(None, parse_shebang("#!/usr/bin/env"));
+    }
+
+    #[test]
+    fn shebang_interpreter_path_is_absolute() {
+        assert_eq!(None, parse_shebang("#!usr/bin/bash"));
+        assert_eq!(None, parse_shebang("#!../bin/bash"));
+    }
+
+    #[test]
+    fn shebang_missing_interpreter() {
+        assert_eq!(None, parse_shebang("#!"));
+        assert_eq!(None, parse_shebang("#! bash"));
+    }
+
+    #[test]
+    fn shebang_is_first() {
+        assert_eq!(None, parse_shebang(" #!/bin/bash"));
+    }
+}
