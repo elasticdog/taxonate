@@ -1,6 +1,11 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
 
-use std::{collections::BTreeMap, path::Path};
+use std::{
+    collections::BTreeMap,
+    fs::File,
+    io::{BufRead, BufReader},
+    path::Path,
+};
 
 use glob::Pattern;
 use lazy_static::lazy_static;
@@ -43,16 +48,20 @@ fn matches_glob(globs: &[String], file: &Path) -> bool {
 }
 
 #[must_use]
-pub fn parse_shebang(line: &'static str) -> Option<&'static str> {
+pub fn parse_shebang(line: &str) -> Option<String> {
+    // ignore leading whitespace
+    let line = line.trim_start();
+
     if line.starts_with("#!") {
         let mut tokens = line.trim_start_matches("#!").split_whitespace();
         let path = Path::new(tokens.next()?);
 
         if path.is_absolute() {
             if path.ends_with("env") {
-                tokens.next()
+                tokens.next().map(String::from)
             } else {
-                path.file_name().unwrap().to_str()
+                // TODO: this conversion chain smells bad
+                path.file_name().unwrap().to_str().map(String::from)
             }
         } else {
             None
@@ -68,22 +77,30 @@ mod tests {
 
     #[test]
     fn can_parse_shebang() {
-        assert_eq!(Some("bash"), parse_shebang("#!/bin/bash"));
+        assert_eq!(Some(String::from("bash")), parse_shebang("#!/bin/bash"));
     }
 
     #[test]
-    fn can_parse_shebang_with_whitespace() {
-        assert_eq!(Some("bash"), parse_shebang("#! /bin/bash"));
+    fn can_parse_shebang_with_leading_whitespace() {
+        assert_eq!(Some(String::from("bash")), parse_shebang(" #!/bin/bash"));
+    }
+
+    #[test]
+    fn can_parse_shebang_with_inner_whitespace() {
+        assert_eq!(Some(String::from("bash")), parse_shebang("#! /bin/bash"));
     }
 
     #[test]
     fn interpreter_arguments_are_ignored() {
-        assert_eq!(Some("bash"), parse_shebang("#!/bin/bash -x"));
+        assert_eq!(Some(String::from("bash")), parse_shebang("#!/bin/bash -x"));
     }
 
     #[test]
     fn can_parse_shebang_with_env() {
-        assert_eq!(Some("bash"), parse_shebang("#!/usr/bin/env bash"));
+        assert_eq!(
+            Some(String::from("bash")),
+            parse_shebang("#!/usr/bin/env bash")
+        );
     }
 
     #[test]
@@ -101,10 +118,5 @@ mod tests {
     fn shebang_missing_interpreter() {
         assert_eq!(None, parse_shebang("#!"));
         assert_eq!(None, parse_shebang("#! bash"));
-    }
-
-    #[test]
-    fn shebang_is_first() {
-        assert_eq!(None, parse_shebang(" #!/bin/bash"));
     }
 }
