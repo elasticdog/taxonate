@@ -122,27 +122,17 @@ mod tests {
     use super::*;
 
     #[test]
-    fn can_parse_shebang() {
+    fn shebang_typical() {
         assert_eq!(Some(String::from("bash")), parse_shebang("#!/bin/bash"));
     }
 
     #[test]
-    fn can_parse_shebang_with_leading_whitespace() {
-        assert_eq!(Some(String::from("bash")), parse_shebang(" #!/bin/bash"));
-    }
-
-    #[test]
-    fn can_parse_shebang_with_inner_whitespace() {
-        assert_eq!(Some(String::from("bash")), parse_shebang("#! /bin/bash"));
-    }
-
-    #[test]
-    fn interpreter_arguments_are_ignored() {
+    fn shebang_with_argument() {
         assert_eq!(Some(String::from("bash")), parse_shebang("#!/bin/bash -x"));
     }
 
     #[test]
-    fn can_parse_shebang_with_env() {
+    fn shebang_with_env_indirection() {
         assert_eq!(
             Some(String::from("bash")),
             parse_shebang("#!/usr/bin/env bash")
@@ -150,19 +140,32 @@ mod tests {
     }
 
     #[test]
-    fn shebang_with_env_has_argument() {
+    fn shebang_with_leading_whitespace() {
+        assert_eq!(Some(String::from("bash")), parse_shebang(" #!/bin/bash"));
+    }
+
+    #[test]
+    fn shebang_with_inner_whitespace() {
+        assert_eq!(Some(String::from("bash")), parse_shebang("#! /bin/bash"));
+    }
+
+    #[test]
+    fn shebang_without_absolute_path() {
+        assert_eq!(None, parse_shebang("#!bash"));
+    }
+
+    #[test]
+    fn shebang_without_env_argument() {
         assert_eq!(None, parse_shebang("#!/usr/bin/env"));
     }
 
     #[test]
-    fn shebang_interpreter_path_is_absolute() {
-        assert_eq!(None, parse_shebang("#!usr/bin/bash"));
-        assert_eq!(None, parse_shebang("#!../bin/bash"));
+    fn shebang_without_interpreter() {
+        assert_eq!(None, parse_shebang("#!"));
     }
 
     #[test]
-    fn shebang_missing_interpreter() {
-        assert_eq!(None, parse_shebang("#!"));
-        assert_eq!(None, parse_shebang("#! bash"));
+    fn shebang_without_shebang() {
+        assert_eq!(None, parse_shebang("bash"));
     }
 }
