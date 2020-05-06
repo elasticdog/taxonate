@@ -37,6 +37,6 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
 
 #[must_use]
 pub fn identify(file: &PathBuf) -> Option<String> {
-    // TODO: prioritize find_interpreter_match
-    languages::find_glob_match(&file.as_path())
+    languages::find_interpreter_match(&file.as_path())
+        .or_else(|| languages::find_glob_match(&file.as_path()))
 }

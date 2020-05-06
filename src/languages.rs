@@ -47,8 +47,47 @@ fn matches_glob(globs: &[String], file: &Path) -> bool {
         .any(|glob| Pattern::new(glob).unwrap().matches_path(file))
 }
 
+pub(crate) fn find_interpreter_match(file: &Path) -> Option<String> {
+    let result = LANGUAGES
+        .languages
+        .iter()
+        .find(|(_, lang)| matches_interpreter(&lang.interpreters, file));
+
+    match result {
+        Some((_, lang)) => Some(lang.name.to_owned()),
+        None => None,
+    }
+}
+
+fn matches_interpreter(interpreters: &[String], file: &Path) -> bool {
+    interpreters
+        .iter()
+        .any(|interpreter| matches_shebang(interpreter, file))
+}
+
 #[must_use]
-pub fn parse_shebang(line: &str) -> Option<String> {
+pub fn matches_shebang(interpreter: &str, file: &Path) -> bool {
+    match find_shebang_interpreter(file) {
+        Some(found) => found == interpreter,
+        None => false,
+    }
+}
+
+#[must_use]
+fn find_shebang_interpreter(file: &Path) -> Option<String> {
+    let file = match File::open(file) {
+        Ok(file) => file,
+        Err(_) => return None,
+    };
+    let mut buf = BufReader::new(file);
+    let mut line = String::new();
+    let _ = buf.read_line(&mut line);
+
+    parse_shebang(&line)
+}
+
+#[must_use]
+fn parse_shebang(line: &str) -> Option<String> {
     // ignore leading whitespace
     let line = line.trim_start();
 
