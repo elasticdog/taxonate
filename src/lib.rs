@@ -12,6 +12,7 @@ pub mod config;
 pub mod languages;
 
 use crate::config::Config;
+use crate::languages::Language;
 
 /// # Errors
 ///
@@ -28,7 +29,12 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
         let mut buffer = io::BufWriter::new(handle);
 
         for file in files {
-            writeln!(buffer, "{}: {:?}", file.display(), identify(file))?;
+            let identity = match identify(file) {
+                Some(lang) => &lang.name,
+                None => "Unknown",
+            };
+
+            writeln!(buffer, "{}: {}", file.display(), identity)?;
         }
     } // end scope to unlock stdout and flush
 
@@ -36,7 +42,7 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
 }
 
 #[must_use]
-pub fn identify(file: &PathBuf) -> Option<String> {
+pub fn identify(file: &PathBuf) -> Option<&Language> {
     languages::find_interpreter_match(&file.as_path())
         .or_else(|| languages::find_glob_match(&file.as_path()))
 }

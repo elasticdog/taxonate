@@ -2,6 +2,7 @@
 
 use std::{
     collections::BTreeMap,
+    fmt,
     fs::File,
     io::{BufRead, BufReader},
     path::Path,
@@ -18,25 +19,31 @@ pub struct Languages {
     pub languages: BTreeMap<String, Language>,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct Language {
     pub name: String,
     pub globs: Vec<String>,
     pub interpreters: Vec<String>,
 }
 
+impl fmt::Display for Language {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.name)
+    }
+}
+
 lazy_static! {
     pub static ref LANGUAGES: Languages = serde_json::from_str(&LANGUAGES_JSON).unwrap();
 }
 
-pub(crate) fn find_glob_match(file: &Path) -> Option<String> {
+pub(crate) fn find_glob_match(file: &Path) -> Option<&Language> {
     let result = LANGUAGES
         .languages
         .iter()
         .find(|(_, lang)| matches_glob(&lang.globs, file));
 
     match result {
-        Some((_, lang)) => Some(lang.name.to_owned()),
+        Some((_, lang)) => Some(&lang),
         None => None,
     }
 }
@@ -47,14 +54,14 @@ fn matches_glob(globs: &[String], file: &Path) -> bool {
         .any(|glob| Pattern::new(glob).unwrap().matches_path(file))
 }
 
-pub(crate) fn find_interpreter_match(file: &Path) -> Option<String> {
+pub(crate) fn find_interpreter_match(file: &Path) -> Option<&Language> {
     let result = LANGUAGES
         .languages
         .iter()
         .find(|(_, lang)| matches_interpreter(&lang.interpreters, file));
 
     match result {
-        Some((_, lang)) => Some(lang.name.to_owned()),
+        Some((_, lang)) => Some(&lang),
         None => None,
     }
 }
