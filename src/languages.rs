@@ -19,7 +19,7 @@ pub struct Languages {
     pub languages: BTreeMap<String, Language>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Eq, PartialEq)]
 pub struct Language {
     pub name: String,
     pub globs: Vec<String>,

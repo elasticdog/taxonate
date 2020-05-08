@@ -6,19 +6,27 @@ use std::{
     path::PathBuf,
 };
 
-use log::debug;
+use log::{debug, info, trace};
 
 pub mod config;
 pub mod languages;
 
 use crate::config::Config;
-use crate::languages::Language;
+use crate::languages::{Language, LANGUAGES};
 
 /// # Errors
 ///
 /// Will return `Err` if ...TODO...
 pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
-    debug!("'config': {:?}", config);
+    debug!("configuration settings: {:?}", config);
+
+    let mut lang_filter: Option<&Language> = None;
+
+    if let Some(key) = config.language() {
+        lang_filter = LANGUAGES.languages.get(key);
+    }
+
+    info!("applying language filter: {:?}", lang_filter);
 
     // TODO: convert directories into recursive lists of files
     let files = config.paths().iter().filter(|f| f.is_file());
@@ -29,12 +37,21 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
         let mut buffer = io::BufWriter::new(handle);
 
         for file in files {
-            let identity = match identify(file) {
+            let lang = identify(file);
+            let lang_name = match lang {
                 Some(lang) => &lang.name,
                 None => "Unknown",
             };
 
-            writeln!(buffer, "{}: {}", file.display(), identity)?;
+            trace!(
+                "file {:?} identified as language {:?}",
+                file.display(),
+                lang_name
+            );
+
+            if should_print(lang, lang_filter) {
+                writeln!(buffer, "{}: {}", file.display(), lang_name)?;
+            }
         }
     } // end scope to unlock stdout and flush
 
@@ -45,4 +62,12 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
 pub fn identify(file: &PathBuf) -> Option<&Language> {
     languages::find_interpreter_match(&file.as_path())
         .or_else(|| languages::find_glob_match(&file.as_path()))
+}
+
+fn should_print(lang: Option<&Language>, lang_filter: Option<&Language>) -> bool {
+    if lang_filter.is_none() {
+        true
+    } else {
+        lang == lang_filter
+    }
 }
