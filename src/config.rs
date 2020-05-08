@@ -33,6 +33,7 @@ impl Default for LogLevel {
 #[derive(Debug, Default)]
 pub struct Config {
     color: Color,
+    filename_only: bool,
     log_level: LogLevel,
     language: Option<String>,
     paths: HashSet<PathBuf>,
@@ -43,6 +44,7 @@ impl Config {
     pub fn new() -> Config {
         Config {
             color: Color::Auto,
+            filename_only: false,
             log_level: LogLevel::Error,
             language: None,
             paths: HashSet::new(),
@@ -59,6 +61,19 @@ impl Config {
     #[must_use]
     pub fn set_color(mut self, val: Color) -> Config {
         self.color = val;
+        self
+    }
+
+    /// Get when to output color.
+    #[must_use]
+    pub fn filename_only(&self) -> bool {
+        self.filename_only
+    }
+
+    /// Set when to display only the file name in the output.
+    #[must_use]
+    pub fn set_filename_only(mut self, val: bool) -> Config {
+        self.filename_only = val;
         self
     }
 

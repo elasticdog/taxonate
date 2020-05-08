@@ -21,11 +21,9 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
     debug!("configuration settings: {:?}", config);
 
     let mut lang_filter: Option<&Language> = None;
-
     if let Some(key) = config.language() {
         lang_filter = LANGUAGES.languages.get(key);
     }
-
     info!("applying language filter: {:?}", lang_filter);
 
     // TODO: convert directories into recursive lists of files
@@ -50,7 +48,11 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
             );
 
             if should_print(lang, lang_filter) {
-                writeln!(buffer, "{}: {}", file.display(), lang_name)?;
+                if config.filename_only() {
+                    writeln!(buffer, "{}", file.display())?;
+                } else {
+                    writeln!(buffer, "{}: {}", file.display(), lang_name)?;
+                }
             }
         }
     } // end scope to unlock stdout and flush

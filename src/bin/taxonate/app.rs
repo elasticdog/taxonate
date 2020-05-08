@@ -32,6 +32,26 @@ pub fn build() -> App<'static, 'static> {
         )
         .long_about("Identify and filter files based on their programming language.")
         .arg(
+            Arg::with_name("filename_only")
+                .help("Suppresses display of the identified language")
+                .long_help(
+                    "Suppresses normal output; only displays the file name and \
+                    not the identified programming language",
+                )
+                .short("f")
+                .long("filename-only"),
+        )
+        .arg(
+            Arg::with_name("list_languages")
+                .help("Lists supported programming languages")
+                .long_help(
+                    "Displays a list of supported programming languages for \
+                    filtering output",
+                )
+                .short("L")
+                .long("list-languages"),
+        )
+        .arg(
             Arg::with_name("color")
                 .help("Specifies when to use colored output")
                 .short("c")
@@ -55,7 +75,7 @@ pub fn build() -> App<'static, 'static> {
         )
         .arg(
             Arg::with_name("language")
-                .help("Outputs files identified as the given language")
+                .help("Filters output by programming language")
                 .long_help(
                     "Filters output to only show files identified as the given \
                     programming language",
@@ -65,16 +85,6 @@ pub fn build() -> App<'static, 'static> {
                 .takes_value(true)
                 .value_name("LANGUAGE")
                 .env("TAXONATE_LANGUAGE"),
-        )
-        .arg(
-            Arg::with_name("list_languages")
-                .help("Lists supported programming languages")
-                .long_help(
-                    "Displays a list of supported programming languages for \
-                    filtering output",
-                )
-                .short("L")
-                .long("list-languages"),
         )
         .arg(
             Arg::with_name("PATH")
@@ -96,6 +106,8 @@ pub fn config_from(matches: &ArgMatches) -> Config {
         "never" => Color::Never,
         _ => unreachable!(),
     };
+
+    let filename_only = matches.is_present("filename_only");
 
     // unwrap is safe since we specify a default
     let log_level = match matches.value_of("debug").unwrap() {
@@ -130,6 +142,7 @@ pub fn config_from(matches: &ArgMatches) -> Config {
 
     Config::new()
         .set_color(color)
+        .set_filename_only(filename_only)
         .set_log_level(log_level)
         .set_language(language)
         .set_paths(paths)
