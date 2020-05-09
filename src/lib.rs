@@ -6,7 +6,8 @@ use std::{
     path::PathBuf,
 };
 
-use log::{debug, info, trace};
+use ignore::WalkBuilder;
+use log::{debug, error, info, trace};
 
 pub mod config;
 pub mod languages;
@@ -28,16 +29,35 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
     }
     info!("applying language filter: {:?}", lang_filter);
 
-    // TODO: convert directories into recursive lists of files
-    let files = config.paths().iter().filter(|f| f.is_file());
+    let mut paths = config.paths().iter();
 
     {
         let stdout = io::stdout();
         let handle = stdout.lock();
         let mut buffer = io::BufWriter::new(handle);
 
-        for file in files {
-            identify_and_print(file, filename_only, lang_filter, buffer.get_mut())?;
+        if let Some(path) = paths.next() {
+            let mut walker = WalkBuilder::new(path);
+
+            for path in paths {
+                walker.add(path);
+            }
+
+            for result in walker.build() {
+                match result {
+                    Ok(entry) => {
+                        if entry.file_type().map_or(false, |e| e.is_file()) {
+                            identify_and_print(
+                                &entry.into_path(),
+                                filename_only,
+                                lang_filter,
+                                buffer.get_mut(),
+                            )?
+                        }
+                    }
+                    Err(err) => error!("{}", err),
+                }
+            }
         }
     } // end scope to unlock stdout and flush
 
