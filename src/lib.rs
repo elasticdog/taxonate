@@ -3,7 +3,7 @@
 use std::{
     error::Error,
     io::{self, Write},
-    path::PathBuf,
+    path::Path,
 };
 
 use ignore::WalkBuilder;
@@ -48,7 +48,7 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
                     Ok(entry) => {
                         if entry.file_type().map_or(false, |e| e.is_file()) {
                             identify_and_print(
-                                &entry.into_path(),
+                                &entry.path(),
                                 filename_only,
                                 lang_filter,
                                 buffer.get_mut(),
@@ -65,7 +65,7 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
 }
 
 fn identify_and_print<W: Write>(
-    file: &PathBuf,
+    file: &Path,
     filename_only: bool,
     lang_filter: Option<&Language>,
     buffer: &mut W,
@@ -94,9 +94,8 @@ fn identify_and_print<W: Write>(
 }
 
 #[must_use]
-pub fn identify(file: &PathBuf) -> Option<&Language> {
-    languages::find_interpreter_match(&file.as_path())
-        .or_else(|| languages::find_glob_match(&file.as_path()))
+pub fn identify(file: &Path) -> Option<&Language> {
+    languages::find_interpreter_match(&file).or_else(|| languages::find_glob_match(&file))
 }
 
 fn should_print(lang: Option<&Language>, lang_filter: Option<&Language>) -> bool {
