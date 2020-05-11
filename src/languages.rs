@@ -10,6 +10,7 @@ use std::{
 
 use glob::Pattern;
 use lazy_static::lazy_static;
+use rayon::prelude::*;
 use serde::Deserialize;
 
 const LANGUAGES_JSON: &str = include_str!("../data/languages.json");
@@ -39,8 +40,8 @@ lazy_static! {
 pub(crate) fn find_glob_match(file: &Path) -> Option<&Language> {
     let result = LANGUAGES
         .languages
-        .iter()
-        .find(|(_, lang)| matches_glob(&lang.globs, file));
+        .par_iter()
+        .find_any(|(_, lang)| matches_glob(&lang.globs, file));
 
     match result {
         Some((_, lang)) => Some(&lang),
@@ -50,15 +51,15 @@ pub(crate) fn find_glob_match(file: &Path) -> Option<&Language> {
 
 fn matches_glob(globs: &[String], file: &Path) -> bool {
     globs
-        .iter()
+        .par_iter()
         .any(|glob| Pattern::new(glob).unwrap().matches_path(file))
 }
 
 pub(crate) fn find_interpreter_match(file: &Path) -> Option<&Language> {
     let result = LANGUAGES
         .languages
-        .iter()
-        .find(|(_, lang)| matches_interpreter(&lang.interpreters, file));
+        .par_iter()
+        .find_any(|(_, lang)| matches_interpreter(&lang.interpreters, file));
 
     match result {
         Some((_, lang)) => Some(&lang),
@@ -68,7 +69,7 @@ pub(crate) fn find_interpreter_match(file: &Path) -> Option<&Language> {
 
 fn matches_interpreter(interpreters: &[String], file: &Path) -> bool {
     interpreters
-        .iter()
+        .par_iter()
         .any(|interpreter| matches_shebang(interpreter, file))
 }
 
