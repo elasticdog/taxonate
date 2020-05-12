@@ -6,8 +6,8 @@ use std::{
     path::Path,
 };
 
-use ignore::WalkBuilder;
-use log::{debug, error, info, trace};
+use ignore::Walk;
+use log::{debug, info, trace};
 
 pub mod config;
 pub mod languages;
@@ -21,45 +21,32 @@ use crate::languages::{Language, LANGUAGES};
 pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
     debug!("configuration settings: {:?}", config);
 
-    let filename_only = config.filename_only();
-
     let mut lang_filter: Option<&Language> = None;
     if let Some(key) = config.language() {
         lang_filter = LANGUAGES.languages.get(key);
     }
     info!("applying language filter: {:?}", lang_filter);
 
-    let mut paths = config.paths().iter();
+    let stdout = io::stdout();
+    let handle = stdout.lock();
+    let mut buffer = io::BufWriter::new(handle);
 
-    {
-        let stdout = io::stdout();
-        let handle = stdout.lock();
-        let mut buffer = io::BufWriter::new(handle);
+    for path in config.paths() {
+        let walker = Walk::new(path);
 
-        if let Some(path) = paths.next() {
-            let mut walker = WalkBuilder::new(path);
+        let files = walker
+            .filter_map(Result::ok)
+            .filter(|entry| entry.file_type().expect("no file type").is_file());
 
-            for path in paths {
-                walker.add(path);
-            }
-
-            for result in walker.build() {
-                match result {
-                    Ok(entry) => {
-                        if entry.file_type().map_or(false, |e| e.is_file()) {
-                            identify_and_print(
-                                &entry.path(),
-                                filename_only,
-                                lang_filter,
-                                buffer.get_mut(),
-                            )?
-                        }
-                    }
-                    Err(err) => error!("{}", err),
-                }
-            }
+        for file in files {
+            identify_and_print(
+                file.path(),
+                config.filename_only(),
+                lang_filter,
+                buffer.get_mut(),
+            )?;
         }
-    } // end scope to unlock stdout and flush
+    }
 
     Ok(())
 }
@@ -68,7 +55,7 @@ fn identify_and_print<W: Write>(
     file: &Path,
     filename_only: bool,
     lang_filter: Option<&Language>,
-    buffer: &mut W,
+    writer: &mut W,
 ) -> Result<(), Box<dyn Error>> {
     let lang = identify(file);
     let lang_name = match lang {
@@ -84,9 +71,9 @@ fn identify_and_print<W: Write>(
 
     if should_print(lang, lang_filter) {
         if filename_only {
-            writeln!(buffer, "{}", file.display())?;
+            writeln!(writer, "{}", file.display())?;
         } else {
-            writeln!(buffer, "{}: {}", file.display(), lang_name)?;
+            writeln!(writer, "{}: {}", file.display(), lang_name)?;
         }
     }
 
