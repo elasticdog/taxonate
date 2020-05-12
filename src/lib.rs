@@ -95,7 +95,7 @@ fn identify_and_print<W: Write>(
 
 #[must_use]
 pub fn identify(file: &Path) -> Option<&Language> {
-    languages::find_interpreter_match(&file).or_else(|| languages::find_glob_match(&file))
+    languages::find_by_interpreter(&file).or_else(|| languages::find_by_glob(&file))
 }
 
 fn should_print(lang: Option<&Language>, lang_filter: Option<&Language>) -> bool {

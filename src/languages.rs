@@ -37,11 +37,13 @@ lazy_static! {
     pub static ref LANGUAGES: Languages = serde_json::from_str(&LANGUAGES_JSON).unwrap();
 }
 
-pub(crate) fn find_glob_match(file: &Path) -> Option<&Language> {
+pub(crate) fn find_by_glob(file: &Path) -> Option<&Language> {
+    let file_name = file.file_name()?.to_str()?;
+
     let result = LANGUAGES
         .languages
         .par_iter()
-        .find_any(|(_, lang)| matches_glob(&lang.globs, file));
+        .find_any(|(_, lang)| matches_any_glob(&lang.globs, file_name));
 
     match result {
         Some((_, lang)) => Some(&lang),
@@ -49,17 +51,17 @@ pub(crate) fn find_glob_match(file: &Path) -> Option<&Language> {
     }
 }
 
-fn matches_glob(globs: &[String], file: &Path) -> bool {
+fn matches_any_glob(globs: &[String], str: &str) -> bool {
     globs
         .par_iter()
-        .any(|glob| Pattern::new(glob).unwrap().matches_path(file))
+        .any(|glob| Pattern::new(glob).unwrap().matches(str))
 }
 
-pub(crate) fn find_interpreter_match(file: &Path) -> Option<&Language> {
+pub(crate) fn find_by_interpreter(file: &Path) -> Option<&Language> {
     let result = LANGUAGES
         .languages
         .par_iter()
-        .find_any(|(_, lang)| matches_interpreter(&lang.interpreters, file));
+        .find_any(|(_, lang)| matches_any_interpreter(&lang.interpreters, file));
 
     match result {
         Some((_, lang)) => Some(&lang),
@@ -67,7 +69,7 @@ pub(crate) fn find_interpreter_match(file: &Path) -> Option<&Language> {
     }
 }
 
-fn matches_interpreter(interpreters: &[String], file: &Path) -> bool {
+fn matches_any_interpreter(interpreters: &[String], file: &Path) -> bool {
     interpreters
         .par_iter()
         .any(|interpreter| matches_shebang(interpreter, file))
