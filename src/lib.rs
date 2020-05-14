@@ -61,6 +61,7 @@ fn identify_and_print<W: Write>(
     writer: &mut W,
 ) -> Result<(), Box<dyn Error>> {
     let lang = identify(file);
+
     let lang_name = match lang {
         Some(lang) => &lang.name,
         None => "Unknown",
@@ -103,19 +104,11 @@ fn find_lang_by_interpreter(file: &Path) -> Option<&Language> {
 fn matches_any_interpreter(interpreters: &[String], file: &Path) -> bool {
     interpreters
         .par_iter()
-        .any(|interpreter| matches_shebang(interpreter, file))
+        .any(|interpreter| Some(interpreter.to_owned()) == read_interpreter(&file))
 }
 
 #[must_use]
-pub fn matches_shebang(interpreter: &str, file: &Path) -> bool {
-    match find_shebang_interpreter(file) {
-        Some(found) => found == interpreter,
-        None => false,
-    }
-}
-
-#[must_use]
-fn find_shebang_interpreter(file: &Path) -> Option<String> {
+fn read_interpreter(file: &Path) -> Option<String> {
     let file = match File::open(file) {
         Ok(file) => file,
         Err(_) => return None,
