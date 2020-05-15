@@ -26,10 +26,10 @@ Run `taxonate --help` for detailed information on all features.
 
 In its most simple form, point `taxonate` at a file to identify its language:
 
-    $ taxonate README.md
-    README.md: Markdown
+    $ taxonate src/lib.rs
+    src/lib.rs: Rust
 
-File names can also be read from STDIN, if you specify a dash (`-`):
+File names can also be read from STDIN, if you specify a dash (`-`) as the path:
 
     $ find . -name "main*" | taxonate -
     ./target/doc/main.js: JavaScript
@@ -38,12 +38,22 @@ File names can also be read from STDIN, if you specify a dash (`-`):
 Instead of pointing to individual files, you can point to a directory to
 recursively identify all files within it (respecting [`.gitignore`] patterns):
 
-    $ taxonate src/
-    src/bin/taxonate/main.rs: Rust
-    src/bin/taxonate/app.rs: Rust
-    src/lib.rs: Rust
-    src/languages.rs: Rust
-    src/config.rs: Rust
+    $ taxonate .
+    ./LICENSE-MIT: Unknown
+    ./Cargo.toml: TOML
+    ./src/bin/taxonate/main.rs: Rust
+    ./src/bin/taxonate/app.rs: Rust
+    ./src/lib.rs: Rust
+    ./src/languages.rs: Rust
+    ./src/config.rs: Rust
+    ./data/languages.cue: CUE
+    ./data/languages.json: JSON
+    ./data/README.md: Markdown
+    ./data/dump_tool.cue: CUE
+    ./LICENSE-APACHE: Unknown
+    ./Cargo.lock: Unknown
+    ./CHANGELOG.md: Markdown
+    ./README.md: Markdown
 
 > _NOTE:_ If no path is provided, `taxonate` will default to recursively
 > identifying files within the current directory.
