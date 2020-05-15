@@ -68,7 +68,7 @@ A language definition has four parts that can be seen in this example:
    interpreter directive.
 
 > NOTE: `globs` and `interpreters` are considered to be filetype "markers" used
-> for identificiation; a minimum of one marker is required for each language
+> for identification; a minimum of one marker is required for each language
 > definition.
 
 [cue identifier]: https://cuelang.org/docs/references/spec/#identifiers
