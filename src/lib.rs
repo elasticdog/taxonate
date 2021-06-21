@@ -104,7 +104,7 @@ fn find_lang_by_interpreter(file: &Path) -> Option<&Language> {
 fn matches_any_interpreter(interpreters: &[String], file: &Path) -> bool {
     interpreters
         .par_iter()
-        .any(|interpreter| Some(interpreter.to_owned()) == read_interpreter(&file))
+        .any(|interpreter| Some(interpreter.clone()) == read_interpreter(&file))
 }
 
 #[must_use]
@@ -115,7 +115,7 @@ fn read_interpreter(file: &Path) -> Option<String> {
     };
     let mut buf = BufReader::new(file);
     let mut line = String::new();
-    let _ = buf.read_line(&mut line);
+    drop(buf.read_line(&mut line));
 
     parse_shebang(&line)
 }
