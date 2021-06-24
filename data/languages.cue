@@ -73,10 +73,7 @@ import (
 	ClojureC: globs: ["*.cljc"]
 	ClojureScript: globs: ["*.cljs"]
 	CMake: globs: ["*.cmake", "cmakelists.txt"]
-	COBOL: {
-		name: "COBOL"
-		globs: ["*.cob", "*.cbl", "*.ccp", "*.cobol", "*.cpy"]
-	}
+	COBOL: globs: ["*.cob", "*.cbl", "*.ccp", "*.cobol", "*.cpy"]
 	CoffeeScript: globs: ["*.coffee", "*.cjsx"]
 	Cogent: globs: ["*.cogent"]
 	ColdFusion: globs: ["*.cfm"]
@@ -331,10 +328,7 @@ import (
 		name: "Spice Netlist"
 		globs: ["*.ckt"]
 	}
-	SQL: {
-		name: "SQL"
-		globs: ["*.sql"]
-	}
+	SQL: globs: ["*.sql"]
 	SRecode: {
 		name: "SRecode Template"
 		globs: ["*.srt"]
