@@ -451,6 +451,6 @@ all_interpreters_unique: true & list.UniqueItems(#interpreters)
 
 output: languages: {
 	for k, v in #languages {
-		"\(strings.ToLower(k))": v
+		(strings.ToLower(k)): v
 	}
 }
