@@ -9,23 +9,25 @@ import (
 
 // Schema
 
-Language :: {
+#Language: {
 	name: string // display name
 	globs: [...string]
 	interpreters: [...string]
 
 	// require at least one identifying filetype marker
-	markers :: [globs, interpreters]
+	#markers: [globs, interpreters]
 	//marker_is_defined: true & or([ len(m) > 0 for m in markers ])
 }
 
-languages :: [Key=string]: Language & {
-	name: *Key | string // name's value defaults to the map key.
+#languages: {
+	[Key=string]: #Language & {
+		name: *Key | string // name's value defaults to the map key
+	}
 }
 
 // Input
 
-languages :: {
+#languages: {
 	ABAP: globs: ["*.abap"]
 	ActionScript: globs: ["*.as"]
 	Ada: globs: ["*.ada", "*.adb", "*.ads", "*.pad"]
@@ -437,18 +439,18 @@ languages :: {
 
 // Constraints
 
-keys ::         [ strings.ToLower(k) for k, v in languages ]
-globs ::        list.FlattenN([ v.globs for k, v in languages ], -1)
-interpreters :: list.FlattenN([ v.interpreters for k, v in languages ], -1)
+#keys: [ for k, v in #languages {strings.ToLower(k)}]
+#globs:        list.FlattenN([ for k, v in #languages {v.globs}], -1)
+#interpreters: list.FlattenN([ for k, v in #languages {v.interpreters}], -1)
 
-all_keys_sorted:         true & list.SortStrings(keys) == keys
-all_globs_unique:        true & list.UniqueItems(globs)
-all_interpreters_unique: true & list.UniqueItems(interpreters)
+all_keys_sorted:         true & list.SortStrings(#keys) == #keys
+all_globs_unique:        true & list.UniqueItems(#globs)
+all_interpreters_unique: true & list.UniqueItems(#interpreters)
 
 // Output
 
-output: "languages": {
-	for k, v in languages {
+output: languages: {
+	for k, v in #languages {
 		"\(strings.ToLower(k))": v
 	}
 }

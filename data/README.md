@@ -31,7 +31,7 @@ minified copy, overwriting the existing _languages.json_ file.
 To verify that the _languages.cue_ and _languages.json_ files are in sync, you
 can validate that they match and adhere to the defined constraints by running:
 
-    $ cue vet languages.json languages.cue --schema output.languages
+    $ cue vet languages.json languages.cue
 
 ### Schema
 
