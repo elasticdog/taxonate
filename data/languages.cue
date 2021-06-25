@@ -14,14 +14,14 @@ import (
 	globs: [...string]
 	interpreters: [...string]
 
-	// require at least one identifying filetype marker
-	#markers: [globs, interpreters]
-	//marker_is_defined: true & or([ len(m) > 0 for m in markers ])
+	// generated field for the identifying filetype markers
+	_markers: list.FlattenN([globs, interpreters], -1)
 }
 
 #languages: {
 	[Key=string]: #Language & {
-		name: *Key | string // name's value defaults to the map key
+		name:     *Key | string    // name's value defaults to the map key
+		_markers: list.MinItems(1) // require at least one filetype marker
 	}
 }
 
