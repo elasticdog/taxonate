@@ -109,14 +109,9 @@ fn matches_any_interpreter(interpreters: &[String], file: &Path) -> bool {
 
 #[must_use]
 fn read_interpreter(file: &Path) -> Option<String> {
-    let file = match File::open(file) {
-        Ok(file) => file,
-        Err(_) => return None,
-    };
-    let mut buf = BufReader::new(file);
-    let mut line = String::new();
-    drop(buf.read_line(&mut line));
-
+    let file = File::open(file).ok()?;
+    let buf = BufReader::new(file);
+    let line = buf.lines().next()?.ok()?;
     parse_shebang(&line)
 }
 
@@ -124,52 +119,40 @@ fn read_interpreter(file: &Path) -> Option<String> {
 fn parse_shebang(line: &str) -> Option<String> {
     // ignore leading whitespace
     let line = line.trim_start();
-
-    if line.starts_with("#!") {
-        let mut tokens = line.trim_start_matches("#!").split_whitespace();
-        let path = Path::new(tokens.next()?);
-
-        if path.is_absolute() {
-            if path.ends_with("env") {
-                tokens.next().map(String::from)
-            } else {
-                // TODO: this conversion chain smells bad
-                path.file_name().unwrap().to_str().map(String::from)
-            }
-        } else {
-            None
-        }
-    } else {
-        None
+    if !line.starts_with("#!") {
+        return None;
     }
+
+    let mut tokens = line.trim_start_matches("#!").split_whitespace();
+    let path = Path::new(tokens.next()?);
+
+    if !path.is_absolute() {
+        return None;
+    }
+
+    if path.ends_with("env") {
+        return tokens.next().map(String::from);
+    }
+
+    path.file_name()?.to_os_string().into_string().ok()
 }
 
 fn find_lang_by_glob(file: &Path) -> Option<&Language> {
     let file_name = file.file_name()?.to_str()?;
 
-    let result = LANGUAGES
+    LANGUAGES
         .languages
         .par_iter()
-        .find_any(|(_, lang)| matches_any_glob(&lang.globs, file_name));
-
-    match result {
-        Some((_, lang)) => Some(lang),
-        None => None,
-    }
+        .find_any(|(_, lang)| matches_any_glob(&lang.globs, file_name))
+        .map(|(_, lang)| lang)
 }
 
-fn matches_any_glob(globs: &[String], str: &str) -> bool {
-    globs
-        .par_iter()
-        .any(|glob| Pattern::new(glob).unwrap().matches(str))
+fn matches_any_glob(globs: &[Pattern], str: &str) -> bool {
+    globs.par_iter().any(|glob| glob.matches(str))
 }
 
 fn should_print(lang: Option<&Language>, lang_filter: Option<&Language>) -> bool {
-    if lang_filter.is_none() {
-        true
-    } else {
-        lang == lang_filter
-    }
+    lang_filter.map_or(true, |filter| lang == Some(filter))
 }
 
 #[cfg(test)]
