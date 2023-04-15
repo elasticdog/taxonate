@@ -2,32 +2,22 @@
 
 use std::{collections::HashSet, path::PathBuf};
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub enum Color {
     Always,
+    #[default]
     Auto,
     Never,
 }
 
-impl Default for Color {
-    fn default() -> Self {
-        Color::Auto
-    }
-}
-
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub enum LogLevel {
+    #[default]
     Error,
     Warning,
     Info,
     Debug,
     Trace,
-}
-
-impl Default for LogLevel {
-    fn default() -> Self {
-        LogLevel::Error
-    }
 }
 
 #[derive(Debug, Default)]

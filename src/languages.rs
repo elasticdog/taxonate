@@ -26,5 +26,5 @@ impl fmt::Display for Language {
 }
 
 lazy_static! {
-    pub static ref LANGUAGES: Languages = serde_json::from_str(&LANGUAGES_JSON).unwrap();
+    pub static ref LANGUAGES: Languages = serde_json::from_str(LANGUAGES_JSON).unwrap();
 }

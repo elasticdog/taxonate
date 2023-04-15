@@ -86,7 +86,7 @@ fn identify_and_print<W: Write>(
 
 #[must_use]
 pub fn identify(file: &Path) -> Option<&Language> {
-    find_lang_by_interpreter(&file).or_else(|| find_lang_by_glob(&file))
+    find_lang_by_interpreter(file).or_else(|| find_lang_by_glob(file))
 }
 
 fn find_lang_by_interpreter(file: &Path) -> Option<&Language> {
@@ -96,7 +96,7 @@ fn find_lang_by_interpreter(file: &Path) -> Option<&Language> {
         .find_any(|(_, lang)| matches_any_interpreter(&lang.interpreters, file));
 
     match result {
-        Some((_, lang)) => Some(&lang),
+        Some((_, lang)) => Some(lang),
         None => None,
     }
 }
@@ -104,7 +104,7 @@ fn find_lang_by_interpreter(file: &Path) -> Option<&Language> {
 fn matches_any_interpreter(interpreters: &[String], file: &Path) -> bool {
     interpreters
         .par_iter()
-        .any(|interpreter| Some(interpreter.clone()) == read_interpreter(&file))
+        .any(|interpreter| Some(interpreter.clone()) == read_interpreter(file))
 }
 
 #[must_use]
@@ -153,7 +153,7 @@ fn find_lang_by_glob(file: &Path) -> Option<&Language> {
         .find_any(|(_, lang)| matches_any_glob(&lang.globs, file_name));
 
     match result {
-        Some((_, lang)) => Some(&lang),
+        Some((_, lang)) => Some(lang),
         None => None,
     }
 }
